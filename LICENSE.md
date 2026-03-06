@@ -1,2 +1,2 @@
 
-Copyright (C) 2025 James-Reynolds
+Copyright (C) 2025 the authors

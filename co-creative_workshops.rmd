@@ -1,0 +1,188 @@
+---
+title: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs"
+runningheader: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs" # only for pdf output
+subtitle: "" # only for html output
+author: "James Reynolds"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_html: default
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: references.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+library(rnaturalearth)
+library(rnaturalearthhires)
+library(sf)
+library(ggplot2)
+library(viridis)
+library(patchwork)
+library(elevatr)
+library(terra)
+library(osmdata)
+library(leaflet)
+library(tidyverse)
+library(pipeR)
+library(rlist)
+library(sf)
+library(janitor)
+library(knitr)
+library(kableExtra)
+library(dodgr)
+library(magick)
+library (osmplotr)
+library (magrittr)
+library(scales)
+library(cowplot)
+
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+```
+
+::: {.fullwidth}
+# Abstract
+Railway stations, 
+bus stops, 
+post offices and similar facilities 
+can often provide an important focus for communities, 
+including as a central hub for the movement of people and goods, 
+and as a place of social interaction. 
+Recent research directions have emphasised 
+the ‘Place’ function of road 
+(and other transport) 
+facilities as a vital 
+and additional dimension, 
+alongside the more traditional focus 
+of transport systems 
+for through movement 
+and access 
+to adjoining land uses. 
+Shared e-mobility hubs are a relatively new development in transport, 
+and seek to provide a central location 
+at which travelers 
+and nearby residents might have access 
+to electric cars, 
+e-cargo bikes, 
+e-bikes 
+or other modes that might support more sustainable travel choices, 
+especially in contexts where the provision of high frequency transit services may be challenging 
+(e.g. regional towns, rural communities, low-density suburbs). 
+However, it is unclear what form such shared e-mobility hubs should take, 
+and the extent to which the co-location of other facilities
+(e.g. library, café, bus stop, community house) 
+might enhance usage, 
+safety and security 
+(c.f. Jane Jacob's "eyes on the street")
+and local communities.  
+
+Four shared e-mobility hubs have recently been implemented in 
+Letterkenny, Galway, Waterford and the suburbs of Dublin. 
+These include e-bikes, 
+e-cargo bikes, 
+and shared electric cars 
+as part of the ‘base’ offering, 
+as well as *power infrastructure* to support recharging of these vehicles, 
+*and other (future) uses*. 
+These represent a considerable capital investment 
+and potential for improved mobility for these locations, 
+but also the potential to 
+support individual and community needs 
+and grow the 'mobility offer' 
+through supporting programs, 
+
+However, it is unclear 
+what additional mobility, 
+community-focused, 
+commercial 
+or other offerings might be desired by 
+communities, 
+or might help to support the use of shared e-mobility hub facilities 
+to improve transport sustatinability. 
+Perhaps such hubs can help to make existing programs 
+(e.g. meals-on-wheels, council officer trips, inter-library loans)
+more sustainable? 
+Or perhaps such hubs might become places in and of themselves, 
+with a similar mix of services and facilities as might be found in a railway station. 
+
+This paper reports the findings from co-design creative workshops 
+held in Letterkenny, Galway, Waterford and Dublin 
+to explore community attitudes, needs and ideas 
+as to how the ‘base’ shared e-mobility hub might be leveraged 
+and enhanced so as to better meet each community’s transport and other needs. 
+The cross-case comparisons 
+reported in this paper 
+might provide policy-makers, 
+practitioners and researchers 
+further insights into the types of offerings that might be provided 
+at shared e-mobility hubs and other transport facilities 
+in a variety of contexts (small town, secondary town centre, suburban locations etc.) 
+so as to enhance sustainable mobility and community outcomes 
+in future such transport facility developments.
+
+:::
+
+# Introduction
+
+```{r maps, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "ROBUST hub locations within the Republic of Ireland", crop = TRUE}
+map1 <- rnaturalearth::ne_states("Ireland", returnclass = "sf")
+p1 <- ggplot(map1) + geom_sf() 
+
+hub_location <- list(
+  letterkenny = tibble(lat=54.95151900289267, lon =-7.734405435672215, name = "Letterkenny"), 
+  galway = tibble(lat = 53.277326344086504, lon = -9.073269666553948, name = "Westside (Galway)"), 
+  waterford = tibble(lat = 52.2599339, lon = -7.1170565, name = "Ballybricken (Waterford)"),
+  dundrum = tibble(lat = 53.288029794549054, lon = -6.241222689308968, name = "Dundrum (Dublin)"))
+
+
+
+ggsave(file="graphics/map.png", plot = p1 + 
+  geom_point(data = do.call(rbind.data.frame, hub_location), aes(x = lon, y = lat)) + 
+  geom_text(data = do.call(rbind.data.frame, hub_location), aes(x = lon, y = lat, label=name), hjust=1.05, vjust=1.05, size = 3.5))
+
+#knitr::include_graphics("graphics/map.png") 
+
+```
+
+
+
+
+# Background
+
+
+```{css, echo=FALSE}
+div.fullwidth > table {
+  width: 100%;
+}
+```
+
+# Methodology 
+## Case research 
+
+## Co-design workshops
+
+
+
+# Results
+
+# Discussion
+
+# Conclusions
+
+
+# References
+
+
+```{r bib, include=FALSE}
+# create a bib file for the R packages used in this document
+knitr::write_bib(, file = 'skeleton.bib')
+```
