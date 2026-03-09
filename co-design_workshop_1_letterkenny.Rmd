@@ -36,13 +36,12 @@ knitr::include_graphics("graphics/robust-logo-news.png")
 
 ```
 
-Railway stations, 
+Railway stations 
 and other transport nodes
-often provide for 
-more than just the movement of people and goods - they might be places with other services and facilities, or provide a '3rd space' for community interaction. Along similar lines, recent research has emphasised 
-the ‘Place’ function of road 
-facilities as a vital dimension, 
-alongside the more traditional focus in traffic engineering on movement and access to adjoining land uses[@Delbosc:2018aa]. 
+often do 
+more than just move people and goods - they might also be places with shopping, food, other services and facilities, and provide a '3rd space' for community interaction. Along similar lines, recent research has emphasised 
+the important of the `Place’ function for roads, 
+alongside the more traditional focus in traffic engineering on the demensions of movement and access to adjoining land uses[@Delbosc:2018aa]. 
 
 
 ```{r bikes, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = TRUE, fig.cap = "E-bikes @ the Letterkenny hub", crop = TRUE}
@@ -53,48 +52,44 @@ knitr::include_graphics("graphics/letterkenny_bikes.png")
 ```
 
 Shared electric mobility hubs are new 
-approach that might support more sustainable travel choices, 
-especially in contexts where 
-providing high frequency transit services 
-may be challenging such as in regional towns. 
-This may help with transition pathways 
+form of transport node that might 
+support more sustainable travel choices, 
+especially in contexts such as regional towns where providing high frequency transit services 
+is challenging. 
+These may help provide transition pathways 
 towards lower carbon-emitting
-transport patterns, 
-without some of the challenges associated with other forms of shared and micro-mobility (e.g. charging fire risks, inappropriate parking[@Zhang:2022aa; @Ferguson:2025aa]). Such hubs may allow households to 
-shift towards more walking, cycling and transit use, including through facilitating occasional other trips 
-that might otherwise be challenging (e.g. beyond walking/cycling distance, outside typical service times, carrying luggage), but 
-this might only be realised if communities can find them, 
-and are incentivised to use them, including as part of transitions away from petrol-powered private vehicles.
+transport systems 
+without some of the problems associated with other forms of shared and micro-mobility (e.g. charging fire risks, inappropriate parking of dockless bikes and scooters [@Zhang:2022aa; @Ferguson:2025aa]). Such hubs may also allow households to 
+shift towards more walking, cycling and transit use, including through facilitating those occasional trips 
+that might otherwise be challenging (e.g. beyond walking/cycling distance, outside typical service times, carrying luggage). 
 
 Four shared e-mobility hubs have been implemented in 
 Letterkenny, Galway, Waterford and Dundrum, with 
-including e-bikes, 
+each including e-bikes, 
 an e-cargo bike and shared electric cars 
 as an inital offering, 
-plus *power supply infrastructure* to support onsite recharging
-and *future uses*.
-These represent a considerable capital investment in mobility infrastructure and potential opportunity for further development. 
+plus *power supply infrastructure* to support current on-site recharging 
+and other *future uses*.
+These represent a considerable capital investment in mobility infrastructure and potential opportunities for further development. 
 However, 
 it is unclear how community use of these hubs 
-might best be supported so as to improve transport sustainability^[
-Perhaps such hubs can support existing local programs and activities 
-(e.g. meals-on-wheels, sporting clubs, library or council staff and services)? Or 
+might best be supported so as to improve transport sustainability, or how the hubs and surrounds might better meet local needs^[
+Perhaps the hub can support existing local programs and activities 
+(e.g. vehicle use by meals-on-wheels, sporting clubs, for library programs or by council staff to support service delivery)? Or 
 they might allow for pop-ups or additional facilities (e.g. café, luggage storage, delivery services) that increase activity and therefore  
 improve safety and security (i.e. through Jane Jacob's "eyes on the street").].
 
 The ROBUST research project seeks 
-better understanding of the
+better understanding of: the
 encouragement, 
 educational 
 and other 'non-(major)-infrastructure' interventions[@Williams:1993aa]
-that might support community use of hubs, 'expand the mobility offer', 
+that might support community use of hubs; how to expand the mobility offer; and to 
 build partnerships with community and other stakeholders
-so as to maximise impacts of each hub's implementation. 
-
-To this end, ATU is hosting Co-design Workshops with key stakeholders. 
+so as to maximise impacts of each hub's implementation. To this end, ATU is hosting Co-design Workshops with key stakeholders 
 to gain bottom-up insights from practitioners, 
-prior to further engagement with others (including the general public). 
-This note provides details of the agenda^[Objectives include: 1. Stakeholder engagement, and an opportunity for practitioners to try the hub out for themselves! 2. Increase coordination of efforts going forward; 3. Initial steps towards further co-design workshops, potentially involving community stakeholders, and increasing the mobility hub offer.].  
+prior to further engagement. 
+This note provides details of the agenda for the first Co-design Workshop, to be held in Letterkenny on the morning of Wednesday 1st April, 2026^[Objectives include: 1. Stakeholder engagement, and an opportunity for practitioners to try the hub out for themselves! 2. Increase coordination of efforts going forward; 3. Initial steps towards further co-design workshops, potentially involving community stakeholders, and increasing the mobility hub offer.].  
 
 
 ## 8:00am: meet at hub
@@ -337,7 +332,7 @@ knitr::include_graphics("graphics/letterkenny_by_foot.png")
 
 ## 10:00am: co-design workshop
 
-The @UK-Design-Council:0aa Double Diamond design process suggests alternating converging and diverging steps of: Discovery; Definiton, Development and Delivery. The co-design workshop will spend roughly 30 minutes on each step, tackling issues such as: signage and linemarking; minor works and placemaking; community, business and council engagement and events; and others as discovered. 
+The @UK-Design-Council:0aa Double Diamond design process suggests alternate converging and diverging steps of: Discovery; Definition, Development and Delivery. The co-design workshop will spend roughly 30 minutes on each step, tackling issues such as: signage and linemarking; minor works and placemaking; community, business and council engagement and events; and others as discovered. 
 
 
 
@@ -365,7 +360,6 @@ knitr::include_graphics("graphics/Double_Diamond.png")
   7. Mary Clyde (PPN Resource Worker);  
   8. Martin McBride (North Donegal Community Network).
 - Please bring a safety vest, sturdy shoes, a bicycle helmet and rain coat. 
-
 
 
 ```{r bib, include=FALSE}
