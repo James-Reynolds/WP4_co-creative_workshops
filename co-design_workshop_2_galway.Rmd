@@ -92,7 +92,7 @@ prior to further engagement.
 This note provides details of the agenda for the second Co-design Workshop, to be held in Galway on the morning of Wednesday 8th April, 2026^[Objectives include: 1. Stakeholder engagement, and an opportunity for practitioners to try the hub out for themselves! 2. Increase coordination of efforts going forward; 3. Initial steps towards further co-design workshops, potentially involving community stakeholders, and increasing the mobility hub offer.].  
 
 
-## 8:00am: meet at hub
+## 10am: meet at hub
 
 The Galway hub is close to the Westside Library carpark. We will meet there, inspect the site and then use the hub's vehicles to reach ATU for morning coffee/tea.  
 
@@ -385,7 +385,7 @@ knitr::include_graphics("graphics/galway_by_foot_small.png")
 
 ```
 
-## 10:00am: co-design workshop
+## 11:30am: co-design workshop, followed by lunch
 
 The @UK-Design-Council:0aa Double Diamond design process suggests alternate converging and diverging steps of: Discovery; Definition, Development and Delivery. The co-design workshop will spend roughly 30 minutes on each step, tackling issues such as: signage and linemarking; minor works and placemaking; community, business and council engagement and events; and others as discovered. 
 
@@ -399,11 +399,8 @@ knitr::include_graphics("graphics/Double_Diamond.png")
 
 
 
-## 12 noon: return vehicles and close
-...followed by lunch at (TBD??)
-
-
-## Details 
+## 2pm: return vehicles and close
+ 
 - Facilitators: James Reynolds^[julianj.reynolds@atu.ie or +353 87 348 3095. James is a post-doc researcher at ATU with more than 20 years of experience in transport engineering in Australia and Canada. He completed a PhD about legitimising transit prioritisation in 2020.] and Amaya Vega^[amaya.vega@atu.ie Amaya is a Senior Lecturer/Associate Professor in Economics at Atlantic Technological University (ATU) and Visiting Research Fellow at the Institute of International Economics at the University of Valencia, Spain. She has over 20 years’ experience working on transport policy evaluation, focusing on passenger and freight transport demand analysis, maritime transport, and ports.].
 - Eight spaces available due to vehicle capacity limitations: 
   1. Evan Carney (Galway Council);
@@ -414,6 +411,7 @@ knitr::include_graphics("graphics/Double_Diamond.png")
   6. Colm Shaughnessy (Galway Council)
   7. Claire Connolly (PPN Galway Officer); 
   8. Silvana Falasca (PPN Galway Officer).
+- Outputs of the co-design workshop (plans, notes etc.) may form inputs to future academic publications, but individual participants will not be identified.  
 - Please bring a safety vest, sturdy shoes, a bicycle helmet and rain coat. 
 
 
