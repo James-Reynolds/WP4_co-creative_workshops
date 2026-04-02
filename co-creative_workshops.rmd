@@ -56,8 +56,8 @@ bus stops,
 post offices and similar facilities 
 can often provide an important focus for communities, 
 including as a central hub for the movement of people and goods, 
-and as a place of social interaction. 
-Recent research directions have emphasised 
+and places of social interaction. 
+Recent research directions have: emphasised 
 the ‘Place’ function of road 
 (and other transport) 
 facilities as a vital 
@@ -66,9 +66,9 @@ alongside the more traditional focus
 of transport systems 
 for through movement 
 and access 
-to adjoining land uses. 
-Shared e-mobility hubs are a relatively new development in transport, 
-and seek to provide a central location 
+to adjoining land uses; 
+introduced the concept of shared electric mobility hubs, 
+which seek to provide a central location 
 at which travelers 
 and nearby residents might have access 
 to electric cars, 
@@ -76,14 +76,18 @@ e-cargo bikes,
 e-bikes 
 or other modes that might support more sustainable travel choices, 
 especially in contexts where the provision of high frequency transit services may be challenging 
-(e.g. regional towns, rural communities, low-density suburbs). 
-However, it is unclear what form such shared e-mobility hubs should take, 
-and the extent to which the co-location of other facilities
+(e.g. regional towns, rural communities, low-density suburbs); and
+suggested the adoption of person-centric design approaches such as co-design, from industrial design and related fields, 
+by researchers and practitioners in transport. 
+However, it is unclear what form such shared electric mobility hubs should take, 
+and how such industrial design methodologies might be used in their development.  
+The extent to which the co-location of other facilities
 (e.g. library, café, bus stop, community house) 
 might enhance usage, 
 safety and security 
 (c.f. Jane Jacob's "eyes on the street")
-and local communities.  
+and local communities, 
+or how new tools for crime prevention recent developed in the context of public transport might be adapted to mobility hubs.  
 
 Four shared e-mobility hubs have recently been implemented in 
 Letterkenny, Galway, Waterford and the suburbs of Dublin. 
@@ -133,30 +137,98 @@ in future such transport facility developments.
 
 # Introduction
 
-```{r maps, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "ROBUST hub locations within the Republic of Ireland", crop = TRUE}
+Current understandings of how to design and implement transit stations and stops, roadways and streets, and other elements of the public realm have developed over long periods of time.  @Green:1995aa, @Beanland:2024aa and many others discuss some of the more formal processes and their outputs, while @Engwicht:1999aa @Lydon:2012aa, @Lydon:2015aa and others outline street reclaiming, tactical urbanism and similar (and often citizen-led) efforts to reorganise public roads. As well, while road and rail systems and practices are well established, shifts of emphasis and technology change are inevitably leading to new problems, the need for new solutions, or just different ways of doing things. Examples include: the introduction of new vehicle and stop types that allow for level-boarding access to transit, which has been driven by legislative change related to human rights, discrimination and accessibility [@Currie:2006ad]; the development of electric vehicles, demand responsive transit systems, the concepts related to Mobility as a Service (MaaS), autonomous vehicles, and changes due to the modern proliferation of mobile communications technologies, shared and micromobility systems and many more (see @Nelson:2025aa and others).  
+
+Shared electric mobility hubs are one of these many recent developments, which necessitate the development and refinement of designs and practices to transition from an initial concept to more established and relatively easily implementable products. The initial concept is relatively simple, and responds to many of the problems that have emerged with dockless electric bike and scooter systems. These include poor user behaviour with respect to parking, a need for workers to reposition vehicles and replace batteries, and the risk of fires when battery recharging is done using non-bespoke or appropriately desgined facilities (e.g. in gig-workers' houses)(see @Zhang:2022aa, @Meigs:2023aa, @Ferguson:2025aa and others). Instead, a shared electric mobility hub provides dedicated parking, electrical connections and other facilitates for electric bikes, cars or other vehicles, which are made available on an as-needed and shared basis to the general public. Charging occurs at the hub, while hires involve both outward and return journeys rather than point-to-point trips. 
+
+
+
+
+```{r maps, include=FALSE, echo=FALSE, fig.margin = TRUE, fig.cap = "ROBUST hub locations within the Republic of Ireland", crop = TRUE}
 map1 <- rnaturalearth::ne_states("Ireland", returnclass = "sf")
 p1 <- ggplot(map1) + geom_sf() 
 
 hub_location <- list(
   letterkenny = tibble(lat=54.95151900289267, lon =-7.734405435672215, name = "Letterkenny"), 
-  galway = tibble(lat = 53.277326344086504, lon = -9.073269666553948, name = "Westside (Galway)"), 
-  waterford = tibble(lat = 52.2599339, lon = -7.1170565, name = "Ballybricken (Waterford)"),
-  dundrum = tibble(lat = 53.288029794549054, lon = -6.241222689308968, name = "Dundrum (Dublin)"))
+  galway = tibble(lat = 53.277326344086504, lon = -9.073269666553948, name = "Galway"), 
+  waterford = tibble(lat = 52.2599339, lon = -7.1170565, name = "Waterford"),
+  dundrum = tibble(lat = 53.288029794549054, lon = -6.241222689308968, name = "Dublin"))
 
 
 
 ggsave(file="graphics/map.png", plot = p1 + 
   geom_point(data = do.call(rbind.data.frame, hub_location), aes(x = lon, y = lat)) + 
-  geom_text(data = do.call(rbind.data.frame, hub_location), aes(x = lon, y = lat, label=name), hjust=1.05, vjust=1.05, size = 3.5))
+  ggrepel::geom_label_repel(data = do.call(rbind.data.frame, hub_location), aes(x = lon, y = lat, label=name), hjust=1.05, vjust=1.05, size = 5.0) + 
+  theme(
+        axis.title.x  = element_blank(), 
+        axis.title.y  = element_blank() 
+       ), 
+  height = 7, 
+  width = 7, 
+  units = "in"
+) 
 
-#knitr::include_graphics("graphics/map.png") 
+```
+
+```{r plot_maps, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "ROBUST hub locations within the Republic of Ireland", crop = TRUE}
+knitr::include_graphics("graphics/map.png") 
+
+```
+
+
+```{r plot_bikes_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: electric bikes", crop = TRUE}
+knitr::include_graphics("graphics/letterkenny_bikes.png") 
+
+```
+
+```{r plot_cars_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: cars and charger", crop = TRUE}
+knitr::include_graphics("graphics/letterkenny_cars.png") 
 
 ```
 
 
 
+Such hubs, however, have yet to be widely deployed. There is only limited research and practitioner experience about how they might best be designed and implemented under real-world conditions and to best . The research reported in this paper, therefore, seeks to improve understandings about how to design mobility hubs and their surrounds to encourage usage, help towards meeting community needs, and improve environmental, social and economic outcomes. This is achieved through a case study approach, based around the four hubs implemented as part of the Electric shaRed mOBility hUbS Trial (ROBUST) project currently underway in the Republic of Ireland. ROBUST involves four sites, in Galway, Letterkenny, Waterford and Dublin (Figure \ref{fig:plot_maps}), where 'initial offers' of four electric bikes, one electric cargo bike and two electric cars (Figures \ref{fig:plot_bikes_photo} and \ref{fig:plot_cars_photo}) were implemented during 2025 and 2026. 
+These 'initial offers' were largely designed and implemented by engineers, planners and other technical specialists to meet the basic needs and functionality requirements associated with parking and charging the seven vehicles at each site. Design approval processes with local authorities, to meet safety requirements and to respond to other technical necessities were undertaken, in part relying on those developed for the implementation of shared electric car, docked bike and similar technologies on an individual vehicle or mode basis (i.e. not as part of a 'mobility hub'). There are, however, a wide range of research questions related to what users might want, need, expect or otherwise desire from a 'mobility hub', and the extent to which these are fulfilled by the 'initial offers', as implemented, is unclear.  
 
-# Background
+Industrial design as a field often deals with the manufacturing of consumer products, specialised devices or similar. While transport applications may have tended more towards the design and manufacturing of private motor cars, @Coxon:2018aa, @Coxon:2021ab and @Coxon:2021aa insights into how industrial design and its methodologies might help to inform the research related to the design, implementation and operation of transit and transport systems more generally. This paper, therefore, describes efforts to put such methods into research activity related to user-centric and co-design approaches to shared electricity mobility hub design and implementation, through the context of the ROBUST case study sites.  Findings from these activities may provide insights for researchers and practitioners as to how mobility hubs might be designed and implemented to better met the needs of users and communities, and help towards responding to the current pressing need to move towards more sustainable transportation systems. 
+
+The next section of this paper describes the research background and context for this study. This includes brief review of the mobility hub research literature, and relevant understandings related to the application of Crime Prevention Through Evironmental Design (CPTED) principles to transport systems, co-design and stakeholder engagement, and indrustrial design more generally.  The methods used during the case studies are then outlined,followed by presentation of results. These are discussed prior to a brief conclusion, which includes the identification of directions for future research.   
+
+
+
+# Research background
+## Mobility hubs
+
+A bibliometric mapping analysis and review of literature relevant to the ROBUST project is reported elsewhere in @Reynolds:0aaa, but in general describes the various beginnings of the 'mobility hub' concept.  These include use of the term in the Greater Toronto and Hamilton Area (GTHA) in Ontario, Canada, related to the Metrolinx regional planning authorities 'Big Move' plan [@Salsberg:2010aa, @Engel-Yan:2012aa, @Engel-Yan:2014aa]. This envisages 'mobility hubs' as encompassing areas within and around regionally significant transit stations and stops, where planning and infrastructure interventions would be used to facilitate inter-modal transfers, Transit Oriented Development (TOD) and other elements. Such concepts relate back to much previous research into TOD, including with respect to the "3Ds: Density, Diversity, and Design"  [@Cervero:1997aa], plus "Destination, Distance, and Demand" in @Ogra:2014aa, but also to slightly earlier developments in Europe including integration of trams and trains at a station in Augsburg, Germany [@Beyer:2005aa], and shifts towards greater consideration of both 'Movement' and 'Place' in the UK and Australia [@Young:2010aa, @Jones:2009aa, @Bradbury:2007aa], and 'Complete Streets' in North America [@Jones:2018aa, @Delbosc:2018aa].  Earlier still, @Mees:2000aa recounted the challenges faced by users of Melbourne's transit system in transferring between separately operated bus and train routes, before detailed examinations of Switzerland's network-focused approach, including through the nation-wide 'clock-face timetable' such that even locations with infrequent services have pulsed and coordinated arrivals and departures of buses, trams and trains such that users are virtually guaranteed a connected journey across modes and operators.  
+
+User-centric design and consideration of more than just the operational needs and efficiency of service provision also comes up in the emerging use of Crime Prevention Through Environmental Design (CPTED) approaches within transport contexts. Security and personal safety are a significant concern for transport operators and users, and attracts much researcher attention [@Beecroft:2025aa], but the new tools for assessing station environments from a user safety and security perspective from @Currie:2021aa might provide opportunities to 'design out' such problems rather than having to react through enforcement activity. Likewise, @Killen:2021aa reports design-based interventions that remove opportunities for the vandalism of railway vehicles, developed through use of industrial design methodologies that focus on the needs of end users (in this instance train operators) as part of a holistic approach to design and manufacturing. 
+
+Clearly some such industrial design methodologies have been applied in the development of the many emerging shared and micro-mobility offerings that have arrived on city streets in the last decade. In general, however, such efforts appear to have focused on the needs of operators, especially with respect to attracting users, given that most have emerged within the market context of venture capitalism, competitive and unsubsidised markets, and with regulations either not applying, not being adequately enforced, or in development as regulatory agencies seek to respond to disruption and rapid change. In *Lies, Damned Lies, AVs, Shared Mobility, and Urban Transit Futures* @Currie:2018aa discusses how many of these emerging mobilities might be over-hyped, not actually offering "shared" transport, and otherwise distorting systems and distracting attention away from solutions that have been proven through decades or even centuries of design, operations, refinement and redesign, and continuous development. To an extent, however, issues such as gig-workers' residences or contracts' business premises catching on fire while piles of batteries recharge (e.g. @Meigs:2023aa) might be related more to the lack of holistic design that takes the needs of users, manufactures and society at large in account, and that designs entire systems. Along these lines @Zhang:2022aa discusses how the benefits of current dockless bike share systems might be offset by carbon emmissions invovled in manufacture and maintenance, and rebalancing of network assests, while @Ferguson:2025aa highlights the poor build quality of many such vehicles and systems that have been rushed into distorted markets.  
+
+The ROBUST hubs may represent the next iteration in shared electrified mobility design, or at least prototypes as an incremental step towards more sustainable and effective components of transport systems. Prototypes are useful, however, because they are a tool for discovering problems, defining issues, developing and then delivering the next, better, iteration. These are the alternate converging and diverging steps detailed in the @UK-Design-Council:0aa Double Diamond design process and Framework for Innovation (Figure \ref{fig:double_diamond}).  
+
+
+
+```{r double_diamond, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Framework for Innovation", crop = TRUE}
+
+knitr::include_graphics("graphics/double_diamond_innovation_framework.png")
+
+```
+
+This framework involves iteration within the overall process, which is focused around converging first to a definition of the problem, and then delivering an outcome ('the design'). 
+
+
+
+### Double Diamond
+
+
+## Co-design and other industrial design techniques
+
+
+### Workshops
+
+### User-centric theory
 
 
 ```{css, echo=FALSE}
@@ -169,7 +241,9 @@ div.fullwidth > table {
 ## Case research 
 
 ## Co-design workshops
+### Stakeholders
 
+### General Public
 
 
 # Results
@@ -177,6 +251,8 @@ div.fullwidth > table {
 # Discussion
 
 # Conclusions
+
+## Directions for future research
 
 
 # References
