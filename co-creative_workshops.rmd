@@ -209,7 +209,7 @@ The ROBUST hubs may represent the next iteration in shared electrified mobility 
 
 
 
-```{r double_diamond, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Framework for Innovation. Sourece : UK Design Council (undated)", crop = TRUE}
+```{r double_diamond, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = TRUE, fig.cap = "Framework for Innovation. Sourece : UK Design Council (undated)", crop = TRUE}
 
 knitr::include_graphics("graphics/double_diamond_innovation_framework.png")
 
@@ -228,29 +228,31 @@ knitr::include_graphics("graphics/Coxon_user-centred_design_approaches.png")
 
 ```
 
-*Critical design approach* is identified as "(at) the most avant-garde end of the spectrum...(where) designers reject the role of design as being limited to the production of objects and instead focus on a rationale that seeks to address matters of concern through provocative and unfamiliar interactions (Malpass, 2017)"[@Coxon:2018aa]. At first glance, avant-gardism, provacation and interactions that challenge the status quo would seem to be out of place in transport systems, and having more in common with artistic endeavor and performance. However, there is a long history of such interventions being used in the context of transport systems, especially on roadways, including: street reclaiming; *PARKing Day*; 'guerilla' knitting, gardening and bike lanes; tactical urbanism; World Naked Bike Ride, and the No Pants Surbway Ride; Critical Mass; various protest movements relating to bus, bicycle or other lanes, or other topics; the invention of the *woornerf*; and many more [@Engwicht:1999aa; @Fotel:2009aa; @Institute:2015aa; @Dobson:2023ae; @Ride:2009aa; @Alisdairi:2014aa; @Blumgart:2016ab; @Davidson:2013aa; @Garcia:2019aa; @Lydon:2012aa; @Lydon:2015aa; @Transportation-Studies:2019aa; @Anonymous:2004aa; @Jordan:2009aa; @Lucas:2009ab; @Mitchell:2008aa; @ONeil:2018aa; @Ferguson:2025aa; @Fucoloro:2013aa; @Gorgan:2019aa; @Morhayim:2012aa; @Guttenberg:1982aa]. In part this may be an overlapping of concepts, but something that the parts of the transport policy research field that are embedded within the technical traditions of planning and engineering do not often interact with, or when they do interactions are framed within normative conceptions of legitimacy of road rules, authority and ownership. @Reynolds:2020aa and @Reynolds:2021ab cover this in more detail, including through discussion of the legitimacy of graffiti and who gets to make 'street art' and how these topics are informing Movement and Place, and other emerging road network operating approaches (see also @Reynolds:2025aa, @Dovey:2012aa; @Fogarty:2016aa; @Killen:2017aa; @Florance:2017aa). Public decision making processes are one of the nine pragmatic strategies for legitimising transit prioritisation emerging from @Reynolds:2020aa and @Reynolds:2021ab, but the 'performance' aspects of legitimising through implementation involved in (7) bottom-up and incremental, (8) pop-ups and (9) trials would appear to link to the elements of *critical design approach* that relate to reframing of the familiar and demonstrating the possibility of change.  
+*Critical design approach* is identified as "(at) the most avant-garde end of the spectrum...(where) designers reject the role of design as being limited to the production of objects and instead focus on a rationale that seeks to address matters of concern through provocative and unfamiliar interactions (Malpass, 2017)"[@Coxon:2018aa]. At first glance, avant-gardism, provacation and interactions that challenge the status quo would seem to be out of place in transport systems, and having more in common with artistic endeavor and performance. However, there is a long history of such interventions being used in the context of transport systems, especially on roadways, including: street reclaiming; *PARKing Day*; 'guerilla' knitting, gardening and bike lanes; tactical urbanism; World Naked Bike Ride^[http://worldnakedbikeride.org/], and the No Pants Surbway Ride; Critical Mass; various protest movements relating to bus, bicycle or other lanes, or other topics; the invention of the *woornerf*; and many more [@Engwicht:1999aa; @Alisdairi:2014aa; @Lydon:2012aa; @Lydon:2015aa; @Ferguson:2025aa; @Fucoloro:2013aa; @Gorgan:2019aa; @Morhayim:2012aa; @Guttenberg:1982aa]. 
+
+In part this may be an overlapping of concepts, but something that the parts of the transport policy research field that are embedded within the technical traditions of planning and engineering do not often interact with, or when they do interactions are framed within normative conceptions of legitimacy of road rules, authority and ownership. @Reynolds:2020aa and @Reynolds:2021ab cover this in more detail, including through discussion of the legitimacy of graffiti and who gets to make 'street art' and how these topics are informing Movement and Place, Complete Streets, Netowrk Operational Planning and other emerging road network operating approaches (see @Delbosc:2018aa, @Reynolds:2025aa, @Dovey:2012aa; @Killen:2017aa and others). Public decision making processes are one of the nine pragmatic strategies for legitimising transit prioritisation emerging from Reynolds (2020) and Reynolds and Currie (2021), but the 'performance' aspects of legitimising through implementation involved in (7) bottom-up and incremental, (8) pop-ups and (9) trials would appear to link to the elements of *critical design approach* that relate to reframing of the familiar and demonstrating the possibility of change.  
 
 Perhaps, to some extent, the ROBUST project itself is akin to such a *critical design approach*, as the trialing of new shared electric mobility technologies might challenge existing concepts of what a mobility hub is, how people might move through environments, motive power and recharging, and the cultural importance of private vehicle ownership. That all sounds somewhat abstract, however, so returning to @Coxon:2018aa (pp. 189-211) gives some examples of how to actualise Double Diamond and related industrial design approaches in the context of transport systems, including through: *service design*^[which "looks beyond the object or the
 space to capture and integrate a conceptual plan that engages the organisation
 of people, infrastructure, communication and the material components of a ser-
-vice" (p.189).]; studies of service / system failures; journey mapping; experiential travel diaries; shadowing; diagrammatic mapping; interviews; questionnaires; cognitive mapping; 3D modeling; visualisation; triangulation methods, being investigator triangulation (multipe researchers), database triangulation and method triangulation; categorisation and subdivision (including through card sorting approaches); brainstorming and *bodystorming*^[Involving physical mock ups.]; drawing; 3D printing; immersive simulations, including though involving haptic feedback devices; and agent-based modelling. Further methodologies are discussed in various chapters of *Advancing a Design Approach to Enriching Public Mobility*, including:
-
-- design anthropology^[encompassing concepts related to *emergence*, *improvisation*, *knowing*, and *learning*]; in-car video enthographies^[reenacting routines with participants]; *Wizard of Oz studies*^[Autonomous vehicle studies where a hidden researcher drives the car to simuluate a driverless vehicle]; workshops with 'probes' such as disruption cards, video drive-along clips, journey maps (see Figure \ref{fig:Pink_commute_map}, prompt tables (see Figure \ref{fig:Pink_prompt_tables} storyboards and pain point maps, and facilitated discussions; a *Drive-Me* study involving use of research vehicles for 18 months by families, during which researchers undertook "home visits, drive and commute alongs, speculative future scenarios, discussions and mapping activities over a shared take-away meal...(which) included mapping the technologies and 'stuff' kept in the car" [@Pink:2021aa]; 
+vice" (p.189).]; studies of service / system failures; journey mapping; experiential travel diaries; shadowing; diagrammatic mapping; interviews; questionnaires; cognitive mapping; 3D modeling; visualisation; triangulation methods, being investigator triangulation (multipe researchers), database triangulation and method triangulation; categorisation and subdivision (including through card sorting approaches); brainstorming and *bodystorming*^[Involving physical mock ups.]; drawing; 3D printing; immersive simulations, including though involving haptic feedback devices; and agent-based modelling. Further methodologies are discussed in various chapters of *Advancing a Design Approach to Enriching Public Mobility*. These are briefly outlined in the following paragraphs. 
 
 
-```{r Pink_commute_map, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "An example of a how to map a person’s commute routine and how different modes of transportation become part of it. Map created by Kaspar Raats and Katalin Osz, Source: Pink et al (2021)", crop = TRUE}
+
+```{r Pink_commute_map, include=TRUE, echo=FALSE, out.width = "100%", fig.fulwidth = TRUE, fig.cap = "An example of a how to map a person’s commute routine and how different modes of transportation become part of it. Map created by Kaspar Raats and Katalin Osz, Source: Pink et al (2021).", crop = TRUE}
 
 knitr::include_graphics("graphics/Pink_commute_map.png")
 
 ```
 
-```{r Pink_prompt_tables, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Map of different stakeholder perspectives in creating a joint mobility technology. Photograph by Thomas Lindgren Source: Pink et al (2021)", crop = TRUE}
+```{r Pink_prompt_tables, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = TRUE, fig.cap = "Map of different stakeholder perspectives in creating a joint mobility technology. Photograph by Thomas Lindgren Source: Pink et al (2021)", crop = TRUE}
 
 knitr::include_graphics("graphics/Pink_prompt_tables.png")
 
 ```
 
-- visual conflict framing (Figure \ref{@Fridman_train_doors}) and reframing (Figure \ref{@Fridman_reframe}) in which a problem is approached as if it is a problem with something else^["...if the problem of battery weight was approached as if it was problem of demand responsiveness, then the solution should be to design using modularity" where smaller buses are connected and disconnected according to demand, rather than carrying around a larger bus (and battery) just for the peak demand (p.32)][@Fridman:2021aa];
+@Pink:2021aa use: design anthropology^[encompassing concepts related to *emergence*, *improvisation*, *knowing*, and *learning*]; in-car video enthographies^[reenacting routines with participants]; *Wizard of Oz studies*^[Autonomous vehicle studies where a hidden researcher drives the car to simuluate a driverless vehicle]; workshops with 'probes' such as disruption cards, video drive-along clips, journey maps (see Figure \ref{fig:Pink_commute_map}, prompt tables (see Figure \ref{fig:Pink_prompt_tables}) storyboards and pain point maps, and facilitated discussions; a *Drive-Me* study involving use of research vehicles for 18 months by families, during which researchers undertook "home visits, drive and commute alongs, speculative future scenarios, discussions and mapping activities over a shared take-away meal...(which) included mapping the technologies and 'stuff' kept in the car" [@Pink:2021aa]; 
+
 
 ```{r Fridman_train_doors, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Visual conflict framing of train factors. Diagram referenced from Coxon [9]. Source: Fridman and Coxon (2021)", crop = TRUE}
 
@@ -265,11 +267,13 @@ knitr::include_graphics("graphics/Fridman_reframe.png")
 ```
 
 
-- the Hexagon Spindle (HS) Model, used with surveys, interviews, observations, focus group discussions and expert interviews by @Woodcock:2021aa; 
+@Fridman:2021aa discuss visual conflict framing (Figure \ref{@Fridman_train_doors}) and reframing (Figure \ref{@Fridman_reframe}) in which a problem is approached as if it is a problem with something else^["...if the problem of battery weight was approached as if it was problem of demand responsiveness, then the solution should be to design using modularity" where smaller buses are connected and disconnected according to demand, rather than carrying around a larger bus (and battery) just for the peak demand (p.32)][@Fridman:2021aa];
 
-```{r Woodcock_spindle, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "KPIs for female travellers mapped on to the HS model. Source: Woodcock et al (2021).", crop = TRUE}
+@Woodcock:2021aa uses the Hexagon Spindle (HS) Model together with surveys, interviews, observations, focus group discussions and expert interviews. 
 
-knitr::include_graphics("graphics/Woodcock_stages.png")
+```{r Woodcock_spindle, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = TRUE, fig.cap = "KPIs for female travellers mapped on to the HS model. Source: Woodcock et al (2021).", crop = TRUE}
+
+knitr::include_graphics("graphics/Woodcock_spindle.png")
 
 ```
 
@@ -280,64 +284,63 @@ knitr::include_graphics("graphics/Woodcock_stages.png")
 ```
 
 
-- crowd sourcing, as in @Matthewson:2021aa; 
-
-- drawing and LEGO models used for exploration, development and engagement, as in @Napper:2021aa
+Crowd sourcing is used as a data collection method in @Matthewson:2021aa, through an online mapping platform that members of the public can use to report unsafe locations.  This appears largely similar to recent approaches adopted in the context of cyclist safety [@BikeSpot:0aa], where official statistics may similarly not reflect real-world conditions. 
 
 
-```{r Napper_drawing, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "An example of the two-dimensional drawing used in the research. Source: Napper et al (2021).", crop = TRUE}
+```{r Napper_drawing, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = TRUE, fig.cap = "An example of a two-dimensional drawing used in the research. Source: Napper et al (2021).", crop = TRUE}
 
 knitr::include_graphics("graphics/Napper_drawing.png")
 
 ```
 
-```{r Napper_lego, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Typical LEGO model used in the research. Source: Napper et al (2021).", crop = TRUE}
+```{r Napper_lego, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = TRUE, fig.cap = "Typical LEGO model used in the research. Source: Napper et al (2021).", crop = TRUE}
 
 knitr::include_graphics("graphics/Napper_lego.png")
 
 ```
 
-- storyboarding [@Johnson:2021aa]; 
-- iterative testing using a user experience design approach through facilitated task completion by members of the public within a one-to-one scale mock-up [@Gaitan:2021aa]; and
-- prototyping and seeking stakeholder feedback (e.g. @Rane:2021aa, @Jolivet:2021aa, @Killen:2021aa and @Gray:2021aa). 
+@Napper:2021aa describes how drawing and LEGO models can be used for exploration, development and engagement in the context of cross-disciplinary research at the intersection of design, transport and law. Along similar line @Johnson:2021aa presents outputs from using a storyboarding approach. 
+
+@Gaitan:2021aa describes a large-scale and iterative testing method based on  user experience design approach through facilitated task completion by members of the public within a one-to-one scale mock-up of a railway station. This appears to be a rapid form of prototyping and seeking stakeholder feedback, which is also used in @Rane:2021aa, @Jolivet:2021aa, @Killen:2021aa and @Gray:2021aa. 
+
+Beyond these approaches there appear to be a wide range of techniques, formats and other ways in which feedback or input from users, stakeholders, experts or others might be sort in research, marketing, design or other endeavours. @Bhandari:2021aa present a heirarchy of common methods, including Delphi, Nominal Group and Focus Group. Notably there are a large number of variations, lacking formal names, which Bhandari et al (2021) suggests might arise because of a desire to use one of the named methods but constraints leading to compromises and use a something that is not quite the same "(e.g., modified Delphi)".  
 
 
-```{r Bhandari_hierarchy, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = TRUE, fig.cap = "Hierarchy of common opinio-based research methods. Source: Bhandari and Hallowell (2021).", crop = TRUE}
+```{r Bhandari_hierarchy, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Hierarchy of common opinio-based research methods. Source: Bhandari and Hallowell (2021).", crop = TRUE}
 
 knitr::include_graphics("graphics/Bhandari_hierarchy.png")
 
 ```
 
 
+Bhandari et al (2021) suggests that researchers and practitioners should instead focus on the control-types used, be it: single-blinded anonymity; double-blinded anonymity; iterative rounds with statistical feedback; iterative rounds with descriptive feedback; randomizations; background checks; and/or giving participants a sense of ownership and/or personal accountability for the outcomes. These are crosstabulated to common biases that might impact individual and group decision-making (Figure \ref{fig:Bharndari_bias}), leading to a synthesis of how control options might be combined to remove some or all of the potential biases (Figure \ref{fig:Bharndari_options}), although it notes that there is a need for further research that "not only should seek to investigate the effectiveness of various pupular debaising stretegies from literature fore the CEM (construction engineering and management) domain but also should establish empirically the balure of research controls in managing and minimizing biases for opinion-based research" (Bhandari et al 2021)
 
 
-Beyond these approaches there appear to be a wide range of techniques, formats and other ways in which feedback or input from users, stakeholders, experts or others might be sort in research, marketing, design or other endeavours. @Bhandari:2021aa present a heirarchy of common methods, including Delphi, Nominal Group and Focus Group. Notably there are a large number of variations, lacking formal names, which @Bhandari:2021aa suggests might arise because of a desire to use one of the named methods but constraints leading to compromises and use a something that is not quite the same "(e.g., modified Delphi)".  
-
-@Bhandari:2021aa suggests that researchers and practitioners should instead focus on the control-types used, be it: single-blinded anonymity; double-blinded anonymity; iterative rounds with statistical feedback; iterative rounds with descriptive feedback; randomizations; background checks; and/or giving participants a sense of ownership and/or personal accountability for the outcomes. These are crosstabulated to common biases that might impact individual and group decision-making (Figure \ref{fig:Bharndari_bias}), leading to a synthesis of how control options might be combined to remove some or all of the potential biases (Figure \ref{fig:Bharndari_options}), although it notes that there is a need for further research that "not only should seek to investigate the effectiveness of various pupular debaising stretegies from literature fore the CEM (construction engineering and management) domain but also should establish empirically the balure of research controls in managing and minimizing biases for opinion-based research" [@Bhandari:2021aa]
-
-
-```{r Bharndari_bias, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Cross tabulation of cognitive biases and research controls. Source: Bhandari and Hallowell (2021).", crop = TRUE}
+```{r Bharndari_bias, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = TRUE, fig.cap = "Cross tabulation of cognitive biases and research controls. Source: Bhandari and Hallowell (2021).", crop = TRUE}
 
 knitr::include_graphics("graphics/Bharndari_bias.png")
 
 ```
 
 
-```{r Bhandari_options, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = FALSE, fig.cap = "Expert-opinion research options. Source: Bhandari and Hallowell (2021).", crop = TRUE}
+```{r Bhandari_options, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = TRUE, fig.cap = "Expert-opinion research options. Source: Bhandari and Hallowell (2021).", crop = TRUE}
 
 knitr::include_graphics("graphics/Bhandari_options.png")
 
 ```
 
+In summary, this section has briefly discussed some of the background context to this study, including: dockless bike / scooter sharing and shared electric mobility hubs; hype-cycles; CPTED and graffiti; industrial design and the Double Diamond design processes; public involvement in decision-making and the "Arnstein Gap"; user-centred design approaches, *critical design approach* and its similarities to tactical urbanism, street protests and pop-ups; emerging methodologies in transport such as Movement and Place, Complete Streets and Network Operating Planning; and applications of industrial design methodologies to transport systems; and the potential biases that might be at play when using Nominal Group Technique, Focus Groups, the Delphi Method or other forms of research where group opinion is sought.  Clearly there is a lot of overlap and similarities across these topics, but much breadth that is reflective perhaps of the multi- and inter-disciplinary nature of transport systems generally, but also shared electric mobility hubs in particular. As discussed in the following section, just to get the ROBUST sites in Letterkenny, Galway, Waterford and Dundrum implemented in their initial forms has required much input from: electrical, civil, mechanical and other engineers; computer scientists, programmers and others within information technology and related sectors; academics, practitioners across both governmental and private organisations; and many more; and the adaptation and development of existing vehicle, infrastructure and other technologies
 
-NOT ONLY A LACK OF RESEARCH IN CONSRUCTION ENGINEERING AND MANAGEMENT, BUT ALSO INTO THE DESIGN OF SHARED ELECTRIC MOBILITY HUBS - WHICH IS THE FOCUS HERE.
-
-
-
-
+The research described in this paper, however, seeks to build upon the 'initial offers' implemented in the ROBUST project, including through adopting of user-centred, participatory and other design approaches. As discussed above, and in @Reynolds:0aaa, the research literature related to shared electric mobility hubs appears to be relatively limited, which is unsurprising given the rapid and recent development of technologies in this field. There does not appear to have been much research attention given to user input about how the design and operation of 'mobility hubs' might be improved. This is likewise unsurprising, given that there are few shared electric mobility hubs in existance, and that the ROBUST project represents an early trial (and prototype). As such, the research reported in this paper has use the ROBUST sites in their initial forms as part of exploratory case research to develop new understandings of how shared electric mobility hubs might be designed and implemented, and how user, community and stakeholder mobility and other needs might better be fulfilled towards the goal of improved social, environmental and economic outcomes.  The next section, therefore, describes the case research approach adopted, further details of the 'initial offers' implemented in each location, and the industrial design approaches and other methods used in this study.  
 
 # Methodology 
 ## Case research 
+
+
+## The initial offers
+
+
+
 
 ## Co-design workshops
 ### Stakeholders
