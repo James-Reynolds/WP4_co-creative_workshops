@@ -176,19 +176,9 @@ knitr::include_graphics("graphics/map.png")
 ```
 
 
-```{r plot_bikes_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: electric bikes", crop = TRUE}
-knitr::include_graphics("graphics/letterkenny_bikes.png") 
-
-```
-
-```{r plot_cars_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: cars and charger", crop = TRUE}
-knitr::include_graphics("graphics/letterkenny_cars.png") 
-
-```
 
 
-
-Such hubs, however, have yet to be widely deployed. There is only limited research and practitioner experience about how they might best be designed and implemented under real-world conditions and to best . The research reported in this paper, therefore, seeks to improve understandings about how to design mobility hubs and their surrounds to encourage usage, help towards meeting community needs, and improve environmental, social and economic outcomes. This is achieved through a case study approach, based around the four hubs implemented as part of the Electric shaRed mOBility hUbS Trial (ROBUST) project currently underway in the Republic of Ireland. ROBUST involves four sites, in Galway, Letterkenny, Waterford and Dublin (Figure \ref{fig:plot_maps}), where 'initial offers' of four electric bikes, one electric cargo bike and two electric cars (Figures \ref{fig:plot_bikes_photo} and \ref{fig:plot_cars_photo}) were implemented during 2025 and 2026. 
+Such hubs, however, have yet to be widely deployed. There is only limited research and practitioner experience about how they might best be designed and implemented under real-world conditions and to best . The research reported in this paper, therefore, seeks to improve understandings about how to design mobility hubs and their surrounds to encourage usage, help towards meeting community needs, and improve environmental, social and economic outcomes. This is achieved through a case study approach, based around the four hubs implemented as part of the Electric shaRed mOBility hUbS Trial (ROBUST) project currently underway in the Republic of Ireland. ROBUST involves four sites, in Galway, Letterkenny, Waterford and Dublin (Figure \ref{fig:plot_maps}), where 'initial offers' of four electric bikes, one electric cargo bike and two electric cars were implemented during 2025 and 2026. 
 These 'initial offers' were largely designed and implemented by engineers, planners and other technical specialists to meet the basic needs and functionality requirements associated with parking and charging the seven vehicles at each site. Design approval processes with local authorities, to meet safety requirements and to respond to other technical necessities were undertaken, in part relying on those developed for the implementation of shared electric car, docked bike and similar technologies on an individual vehicle or mode basis (i.e. not as part of a 'mobility hub'). There are, however, a wide range of research questions related to what users might want, need, expect or otherwise desire from a 'mobility hub', and the extent to which these are fulfilled by the 'initial offers', as implemented, is unclear.  
 
 Industrial design as a field often deals with the manufacturing of consumer products, specialised devices or similar. While transport applications may have tended more towards the design and manufacturing of private motor cars, @Coxon:2018aa, @Coxon:2021ab and @Coxon:2021aa insights into how industrial design and its methodologies might help to inform the research related to the design, implementation and operation of transit and transport systems more generally. This paper, therefore, describes efforts to put such methods into research activity related to user-centric and co-design approaches to shared electricity mobility hub design and implementation, through the context of the ROBUST case study sites.  Findings from these activities may provide insights for researchers and practitioners as to how mobility hubs might be designed and implemented to better met the needs of users and communities, and help towards responding to the current pressing need to move towards more sustainable transportation systems. 
@@ -336,11 +326,70 @@ The research described in this paper, however, seeks to build upon the 'initial 
 # Methodology 
 ## Case research 
 
+Case study methods are often misunderstood or thought to have lesser validity than quantitative approaches, in part because many researchers do not have familiarity with them or because of confusion with other uses of case studies, such as for teaching, journalism or other non-research activity. Quantitative methods tend to focus around having large, random and independent samples that might allow statistically significant results to be obtained for research relating to 'how many' or 'what' types of questions, for which the context of each individual case included in the study is of lesser importance. Case research, in contrast, allows for greater depth of engagement with each individual unit and its context, as there typically less than 10 included in a study and sometimes just one. As well, case studies can be particularly useful for exploratory research, where the researchers do not have control over events (limiting the feasibility of case-control experiments), and where questions relate to 'how' or 'why'. Part of the misunderstandings about case methods might also relate to the sampling frame, in that cases might not be selected randomly or because they are representative.  Instead, the methodological literature emphasises that case researchers should consider theoretical reasons in selecting cases, for instance because they represent a critical, leading or insightful case, or might provide for replication or the examination of polar opposites. The 'duality criterion' is also a consideration, in that case researchers need to be at the same time grounded in the context of each case, allowing phenomenon to be examined in great depth, yet at the same time seeking generalisation such that findings can be reasonably extrapolated as applying to other circumstances beyond the studied cases [@Barratt:2011aa, @Benbasat:1987aa, @Bonoma:1984aa, @Cavaye:1996aa, @Darke:1998aa, @Denscombe:2007aa, @Dyer:1991aa, @Eisenhardt:2007aa, @Eisenhardt:1989aa, @Ketokivi:2014aa, @Meredith:1998aa, @Stuart:2002aa, @Voss:2002aa, @Yin:2018ab,@Yin:2014ab,@Yin:2009ab]
 
-## The initial offers
+Here the ROBUST shared electric mobility hubs are selected in part for non-theoretical reasons, in that the selection is forced due to the conditions of research funding.  However, this also represents a unique opportunity, in that the four implemented hubs exist because of this funding and that there are no known other locations where such hubs are being trialed or where researchers might have the same sort of access to data, stakeholders or other aspects of the project. Research questions here also relate to how user-centric design, co-design and similar approaches might be used to improve outcomes, support mobility and community at individual sites, and in understanding how and why some user-centric design approaches might be more or less effective in the context of mobility hubs. Tools developed here might be generalisable to other locations, such that those implementing future hubs might have resources that can be used for maximising the potential of shared electric mobility at each location. As well, findings about how, why and what potential additions or modifications to the 'initial offers' implemented at Letterkenny, Galway, Waterford and Dundrum may provide insights into how such 'initial offers' might be varied, improved or otherwise enhanced, including through the potential development of different 'initial offers' for different contexts. Hence, findings from research at each of the ROBUST sites might provide contrasts about how needs, desires and the like vary between larger cities and smaller towns, central versus suburban contexts, and likewise across the range of characteristics covered by the four sites.  These sites, their surrounding contexts and the 'initial offers' are each are described in more detail in the following. The 'Challenge' for this research (c.f. UK Design Council's Framework for Innovation above) is effectively set by these sites and implementations, as initially implemented, in that the outcome objective is to: *discover* the initial offer's strengths, weaknesses and opportunities for imporvement; *define* these as a problem that can be addressed through industrial design, user-centric, participatory or similar methods; *develop* options; and *deliver* an improved 'initial offer' that might form the basis for future mobility hub implementations (including at scale).  
+
+The hubs were launched in: March 2025 in Galway [@Atlantic-Technological-University:2025ab]; September 2025 in Letterkenny [@Atlantic-Technological-University:2025aa]; November 2025 in Waterford @Waterford-City-and-County-Council:2025aa; and XXX 2026 in Dundrum. The initial offer at each hub includes two components: an electric bicycle / cargo-bicycle parking and charging faciliy; and two electric car parking spaces with a charging facility.  
+
+Researcher-involved activities associated with the design of the hubs, surrounding facilities were undertaken post-implementation. While members of the research team had been invovled in the development, siting and other aspects of implementation prior to launch, by happenstance new research personnel immediately after the Letterkenny hub launch in September 2025, and then again in March 2026. As such, September 2025 provides a useful starting point to denote the commencement of the 'post-initial-implementation co-design-related activities' that comprise this research, representing a transition (and pseudo-handover) from those people involved in the development of the 'initial offer' and to this research.  From there, the following activities were undertaken: 
+
+- initial exploration of the hub infrastrucutre and usability testing (September - November 2025); 
+- development of drafts of user-facing website and user-focused instructional video (January-February 2026); 
+- additional signage development and implementation (January-April 2026); 
+- engagement with ROBUST app developer (March 2026)
+- workshop materials development (January 2026 onwards)
+- stakeholder workshops (May 2026 onwards)
+- OTHER METHODS TO BE CONFIRMED
+
+
+# Results
+
+
+## Exploring the 'initial offers'
+
+In-depth exploration of how the ROBUST project was developed and implemented as a piece of 'transport policy' is provided in @Reynolds:0ab, while @Reynolds:0aa details the processes used to identify options, evaluate and select between locations themselves. Here follows, therefore, brief descriptions of the initial implementations and surrounding context, in the order implemented.  
+
+
+```{r plot_bikes_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: electric bikes", crop = TRUE}
+knitr::include_graphics("graphics/letterkenny_bikes.png") 
+
+```
+
+
+```{r plot_kickstand, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Electric bike kickstand detail", crop = TRUE}
+knitr::include_graphics("graphics/kickstand_detail.png") 
+
+```
+
+```{r plot_locks, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Electric bike lock detail", crop = TRUE}
+knitr::include_graphics("graphics/bike_lock.png") 
+
+```
+
+
+The electric bicycles have a inbuilt and wireless charging system, which operates through the kick-stand (pictured). This needs to be placed on a yellow coloured part of the parking area, next to indicator lights that change from blue to green when the connection is made. A locking mechanism is attached to one of the wheels of each of the bikes, along with instructions to "SCAN HERE" for a QR code to access the app, which provides the functionality for hiring, returning and paying for usage.  The locking mechanism is remotely controlled by the app and associated system, which will release the lock when a hire is commenced.  This mechanism, however, does not appear to allow for remote locking, as there is a knob that users need to move downwards to engage the lock.  
+
+```{r plot_cars_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: cars and charger", crop = TRUE}
+knitr::include_graphics("graphics/letterkenny_cars.png") 
+
+```
 
 
 
+## Post-implementation adjustments
+
+
+## Developing posters and leaflets
+
+
+
+## Initial usability testing
+
+
+## Developing a draft website and instructional video (January 2026)
+
+## Signage improvements (early 2026)
 
 ## Co-design workshops
 ### Stakeholders
@@ -348,7 +397,18 @@ The research described in this paper, however, seeks to build upon the 'initial 
 ### General Public
 
 
-# Results
+## Developing a draft website and instructional video (January 2026)
+
+## Signage improvements (early 2026)
+
+## Co-design workshops
+### Stakeholders
+
+### General Public
+
+
+
+
 
 # Discussion
 
