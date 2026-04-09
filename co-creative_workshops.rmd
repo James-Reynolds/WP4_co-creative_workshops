@@ -209,6 +209,31 @@ This framework involves iteration within the overall process, which is focused a
 
 This may help to explain the "Arnstein Gap" [@Bailey:2006aa], which is a finding that, while public might desire true involvement or control of decision-making related to transport policy-making, through partnership, delegationg or citizen control, they tend to only receive tokenism (informing, consultation or placation) or are not really involved at all (i.e. public involvement as therapy or manipulation)(see also @Arnstein:1969aa). This gap between desired and delivered in decision making then appears to lead to frustration, opposition and delegitimisaion.  However, if planners, engineers and other technical specialists are already past issue identification, option development and analysis, and well on the way to converging on a detailed design to present as the 'preferred option' to the 'real' decision makers (e.g. political or institutional leaders), then there may be little appetite for engaging in public consultation that involves returning to discovery or problem definition, or in diversions that introduce further options.  
 
+@Cross:2023aa provides a summary of the *design thinking* concept, from its beginnings in the 1950s through to the sudden increase in interest, publications and use in the 2000s and 2010s, and questions that "it couldn't have all been down to the launch of the Apple iPhone in 2007, could it?"(p.4). This continues into discussion of the various criticisms that have been made^["Some of these didn't spare their language, labelling design thinking as 'bullshit' (Jen, 2017) or 'a boondoggle' (Vinsel, 2018)...as being 'like syphilis'...(by those) very sceptical of 'the innovation delusion' and its'obsession with the new' (Vinsel and Russell, 2020)"], and the Kolko (2018) definition of "two diverging and divisive, radically different interpretations of design thinking - one rooted in designing and one rooted in business" (p.5) plus three 'pillars' of *empathy*, *exploration* and *making*.  @Cross:2023aa arrives at two definitions: 
+
+- DesignThinking 1: where users think 'like' designers ("designerly thinking" (p.7)); and
+- DesignThinking 2: where users adopted 'design thinking', "leading to its reliance upon cookbook 'suggestions for actions'(p.7)" that may form the basis for business learning and other professional development courses.  
+
+@IDEO:0aa is billed as "The home of design thinking", and appears to incorporate a similar divergent ("create choices") and convergent ("make choices") narrative, albeit with only one iteration, as the Double Diamond. "The 3 core activities of design thinking" are defined as being ideation, inspiration and implementation, and although "For IDEO, design thinking is a way to solve problems through creativity (c)ertainly, it isn't a fail-safe approach; nor is it the only approach".  The @IDEO:0aa webiste offers a range of courses, suggesting that great innovation lies at the intersection of "What is VIABLE?", "What is DESIRABLE?", "What is FEASIBLE?", and "What is RESPONSIBLE?" and providing a list of the design thinking process (Figure \ref{fig:ideo_process}) @IDEO-U:0aa, although the extent to which this is an example of DesignThinking 1 or 2 is unclear, and while this apppears to have roots in research and theory it would seem to be more aimed towards practice, consulting and commercially-motivated teaching.  
+
+
+```{r ideo, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = TRUE, fig.cap = "The 3 core activities of design thinking. Source: IDEO (undated).", crop = TRUE}
+
+knitr::include_graphics("graphics/IDEO_functions.png")
+
+```
+
+
+
+
+```{r ideo_process, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = FALSE, fig.cap = "IDEO U Design thinking process. Source: IDEO U (undated).", crop = TRUE}
+
+knitr::include_graphics("graphics/IDEO_process.png")
+
+```
+
+
+
 In *Transforming Future Mobility* @Coxon:2018aa outline how user-centric design processes typical in industrial design can be applied to transport systems.  This includes a mapping of various design approaches across dimensions of: research- or design-led; and expert/designer-only or collaborative, as shown in Figure \ref{fig:Coxon_user-centric_design_approaches}. They discuss a "fundamental shift...while 20th century design ... was the century of the *object*, the 21st century is beginning to be the centurary of the *user*", and how user-centric design, where "(t)o the designer, the user or passenger is an object of study...reacting to the designed outcomes in the hope of a satisfactory fit", when developed "still further leads us to a prticipatory approach between design expert and the user...(who) are seen much more as partners in the creation of designed outcomes...as the experts in their own domain and ... valued as co-creators...actively involved in idea generation" [@Coxon:2018aa]. 
 
 
@@ -229,7 +254,7 @@ vice" (p.189).]; studies of service / system failures; journey mapping; experien
 
 
 
-```{r Pink_commute_map, include=TRUE, echo=FALSE, out.width = "100%", fig.fulwidth = TRUE, fig.cap = "An example of a how to map a person’s commute routine and how different modes of transportation become part of it. Map created by Kaspar Raats and Katalin Osz, Source: Pink et al (2021).", crop = TRUE}
+```{r Pink_commute_map, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = TRUE, fig.cap = "An example of a how to map a person’s commute routine and how different modes of transportation become part of it. Map created by Kaspar Raats and Katalin Osz, Source: Pink et al (2021).", crop = TRUE}
 
 knitr::include_graphics("graphics/Pink_commute_map.png")
 
@@ -330,11 +355,14 @@ Case study methods are often misunderstood or thought to have lesser validity th
 
 Here the ROBUST shared electric mobility hubs are selected in part for non-theoretical reasons, in that the selection is forced due to the conditions of research funding.  However, this also represents a unique opportunity, in that the four implemented hubs exist because of this funding and that there are no known other locations where such hubs are being trialed or where researchers might have the same sort of access to data, stakeholders or other aspects of the project. Research questions here also relate to how user-centric design, co-design and similar approaches might be used to improve outcomes, support mobility and community at individual sites, and in understanding how and why some user-centric design approaches might be more or less effective in the context of mobility hubs. Tools developed here might be generalisable to other locations, such that those implementing future hubs might have resources that can be used for maximising the potential of shared electric mobility at each location. As well, findings about how, why and what potential additions or modifications to the 'initial offers' implemented at Letterkenny, Galway, Waterford and Dundrum may provide insights into how such 'initial offers' might be varied, improved or otherwise enhanced, including through the potential development of different 'initial offers' for different contexts. Hence, findings from research at each of the ROBUST sites might provide contrasts about how needs, desires and the like vary between larger cities and smaller towns, central versus suburban contexts, and likewise across the range of characteristics covered by the four sites.  These sites, their surrounding contexts and the 'initial offers' are each are described in more detail in the following. The 'Challenge' for this research (c.f. UK Design Council's Framework for Innovation above) is effectively set by these sites and implementations, as initially implemented, in that the outcome objective is to: *discover* the initial offer's strengths, weaknesses and opportunities for imporvement; *define* these as a problem that can be addressed through industrial design, user-centric, participatory or similar methods; *develop* options; and *deliver* an improved 'initial offer' that might form the basis for future mobility hub implementations (including at scale).  
 
-The hubs were launched in: March 2025 in Galway [@Atlantic-Technological-University:2025ab]; September 2025 in Letterkenny [@Atlantic-Technological-University:2025aa]; November 2025 in Waterford @Waterford-City-and-County-Council:2025aa; and XXX 2026 in Dundrum. The initial offer at each hub includes two components: an electric bicycle / cargo-bicycle parking and charging faciliy; and two electric car parking spaces with a charging facility.  
 
-Researcher-involved activities associated with the design of the hubs, surrounding facilities were undertaken post-implementation. While members of the research team had been invovled in the development, siting and other aspects of implementation prior to launch, by happenstance new research personnel immediately after the Letterkenny hub launch in September 2025, and then again in March 2026. As such, September 2025 provides a useful starting point to denote the commencement of the 'post-initial-implementation co-design-related activities' that comprise this research, representing a transition (and pseudo-handover) from those people involved in the development of the 'initial offer' and to this research.  From there, the following activities were undertaken: 
+In-depth exploration of how the ROBUST project was developed and implemented as a piece of 'transport policy' is provided in @Reynolds:0ab, while @Reynolds:0aa details the processes used to identify options, evaluate and select between locations themselves. The hubs were launched in: March 2025 in Galway [@Atlantic-Technological-University:2025ab]; September 2025 in Letterkenny [@Atlantic-Technological-University:2025aa]; November 2025 in Waterford @Waterford-City-and-County-Council:2025aa; and XXX 2026 in Dundrum. The initial offer at each hub includes two components: an electric bicycle / cargo-bicycle parking and charging faciliy; and two electric car parking spaces with a charging facility.  
 
-- initial exploration of the hub infrastrucutre and usability testing (September - November 2025); 
+
+While members of the ROBUST research team had been involved in the development, siting and other aspects of implementation prior to the launch of each hub, by happenstance there was a switch-over of personnel through 2025 and 2026, with the lead author starting in September 2025, which provides a useful demarcation point for the purposes of this case study.  Hence, September 2025 is defined as the commencement of the 'post-initial-implementation co-design-related activities' as it represents a transition (and handover) from many of those involved in the development of the 'initial offer' and to this research.  From there, the following activities were undertaken: 
+
+- initial exploration of the hubs infrastrucutre, and usability testing (September - October 2025); 
+- insight-gathering discussions with current and former members of the ROBUST team (October - November 2025)
 - development of drafts of user-facing website and user-focused instructional video (January-February 2026); 
 - additional signage development and implementation (January-April 2026); 
 - engagement with ROBUST app developer (March 2026)
@@ -342,13 +370,14 @@ Researcher-involved activities associated with the design of the hubs, surroundi
 - stakeholder workshops (May 2026 onwards)
 - OTHER METHODS TO BE CONFIRMED
 
+To an extent, therefore, this paper reports 
+
 
 # Results
 
 
 ## Exploring the 'initial offers'
 
-In-depth exploration of how the ROBUST project was developed and implemented as a piece of 'transport policy' is provided in @Reynolds:0ab, while @Reynolds:0aa details the processes used to identify options, evaluate and select between locations themselves. Here follows, therefore, brief descriptions of the initial implementations and surrounding context, in the order implemented.  
 
 
 ```{r plot_bikes_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: electric bikes", crop = TRUE}
