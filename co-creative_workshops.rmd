@@ -2,7 +2,7 @@
 title: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs"
 runningheader: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs" # only for pdf output
 subtitle: "" # only for html output
-author: "James Reynolds"
+author: "James Reynolds, Noreen Armstrong, Brian McCann, Amaya Vega, Agnieszka Stefaniec and Brian Caulfield"
 date: "`r Sys.Date()`"
 output:
   tufte::tufte_html: default
@@ -50,6 +50,15 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 ```
 
 ::: {.fullwidth}
+
+
+```{css, echo=FALSE}
+div.fullwidth > table {
+  width: 100%;
+}
+```
+
+
 # Abstract
 Railway stations, 
 bus stops, 
@@ -359,24 +368,51 @@ Here the ROBUST shared electric mobility hubs are selected in part for non-theor
 In-depth exploration of how the ROBUST project was developed and implemented as a piece of 'transport policy' is provided in @Reynolds:0ab, while @Reynolds:0aa details the processes used to identify options, evaluate and select between locations themselves. The hubs were launched in: March 2025 in Galway [@Atlantic-Technological-University:2025ab]; September 2025 in Letterkenny [@Atlantic-Technological-University:2025aa]; November 2025 in Waterford @Waterford-City-and-County-Council:2025aa; and XXX 2026 in Dundrum. The initial offer at each hub includes two components: an electric bicycle / cargo-bicycle parking and charging faciliy; and two electric car parking spaces with a charging facility.  
 
 
-While members of the ROBUST research team had been involved in the development, siting and other aspects of implementation prior to the launch of each hub, by happenstance there was a switch-over of personnel through 2025 and 2026, with the lead author starting in September 2025, which provides a useful demarcation point for the purposes of this case study.  Hence, September 2025 is defined as the commencement of the 'post-initial-implementation co-design-related activities' as it represents a transition (and handover) from many of those involved in the development of the 'initial offer' and to this research.  From there, the following activities were undertaken: 
+While members of the ROBUST research team had been involved in the development, siting and other aspects of implementation prior to the launch of each hub, by happenstance there was a switch-over of personnel through 2025 and 2026, with the lead author starting in September 2025, which provides a useful demarcation point for the purposes of this case study.  Hence, September 2025 is defined as the commencement of the 'post-initial-implementation co-design-related activities' as it represents a transition (and handover) from many of those involved in the development of the 'initial offer' and to this research. The following table maps research activities, in chronological order, to each of the Double Diamond design phases.  
 
-- initial exploration of the hubs infrastrucutre, and usability testing (September - October 2025); 
-- insight-gathering discussions with current and former members of the ROBUST team (October - November 2025)
-- development of drafts of user-facing website and user-focused instructional video (January-February 2026); 
-- additional signage development and implementation (January-April 2026); 
-- engagement with ROBUST app developer (March 2026)
-- workshop materials development (January 2026 onwards)
-- stakeholder workshops (May 2026 onwards)
-- OTHER METHODS TO BE CONFIRMED
 
-To an extent, therefore, this paper reports 
+```{r methodology_matrix, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+
+tibble(Activities = c("1. Initial exploration of the hub infrastrucutre, and usability testing (JR: September - October 2025 , AN: April 2026)",  
+"2. Insight-gathering discussions with current and former members of the ROBUST team (JR: October - November 2025)", 
+"3. Development of drafts of user-facing website and user-focused instructional video (JR: January-February 2026)", 
+"4. Additional signage development and implementation (JR, BC, SM: January-April 2026)", 
+"5. Engagement with ROBUST app developer (JR: March 2026)",
+"6. Workshop materials development (JR: January 2026 onwards)",
+"7. Stakeholder workshops (JR, AS: May 2026 onwards)",
+"OTHER METHODS TO BE CONFIRMED"),
+Discover = c(
+  "X", "X", "X", "X", "X", "X","X"," "),
+Define = c(
+  "X", " ", "X", "X", " ", "X","X"," "),
+Develop = c(
+  " ", " ", "X", "X", " ", " ","X"," "),
+Deliver = c(
+  " ", " ", "X", "X", " ", " ","X"," ")) %>% 
+  kable(
+    caption = "Research activities mapped to Double Diamond stages") 
+  
+
+```
+
+As shown in the above table, the research included exploration of the hub infrastructure and  discussions with current and former team members to *discover* the shared electric mobility hubs' 'initial offer' features, technology and useability (as at September 2025). Through early 2026 website, signage and instructional video designs were iterated, along with engagement with the ROBUST app developer to discover features of the app (as implemented) and define problems. As well, materials were developed to support and inform the *discovery-*, *definition-*, *development-* and *delivery-*activity at  stakeholder workshops held in May. 
+
+Findings from these research activities are discussed further in the next section. 
+
+ 
 
 
 # Results
 
+## Discover
 
-## Exploring the 'initial offers'
+### Exploring the 'initial offers'
+
+The hub locations in Galway, Letterkenny, Dundrum and Waterford were visited on September 24th, and October 5th, 21st and 31st, respectively. At the time the Dundrum hub was still under construction, while the Waterford visit coincided with that hub's launch.   
+
+The electric bicycles have a inbuilt and wireless charging system, which operates through the kick-stand (pictured). This needs to be placed on a yellow coloured part of the parking area, next to indicator lights that change from blue to green when the connection is made. A locking mechanism is attached to one of the wheels of each of the bikes, along with instructions to "SCAN HERE" for a QR code to access the app, which provides the functionality for hiring, returning and paying for usage.  The locking mechanism is remotely controlled by the app and associated system, which will release the lock when a hire is commenced.  This mechanism, however, does not appear to allow for remote locking, as there is a knob that users need to move downwards to engage the lock.  
+
+
 
 
 
@@ -397,8 +433,6 @@ knitr::include_graphics("graphics/bike_lock.png")
 ```
 
 
-The electric bicycles have a inbuilt and wireless charging system, which operates through the kick-stand (pictured). This needs to be placed on a yellow coloured part of the parking area, next to indicator lights that change from blue to green when the connection is made. A locking mechanism is attached to one of the wheels of each of the bikes, along with instructions to "SCAN HERE" for a QR code to access the app, which provides the functionality for hiring, returning and paying for usage.  The locking mechanism is remotely controlled by the app and associated system, which will release the lock when a hire is commenced.  This mechanism, however, does not appear to allow for remote locking, as there is a knob that users need to move downwards to engage the lock.  
-
 ```{r plot_cars_photo, include=TRUE, echo=FALSE, fig.margin = TRUE, fig.cap = "Letterkenny ROBUST hub: cars and charger", crop = TRUE}
 knitr::include_graphics("graphics/letterkenny_cars.png") 
 
@@ -406,35 +440,27 @@ knitr::include_graphics("graphics/letterkenny_cars.png")
 
 
 
-## Post-implementation adjustments
 
+## Define
 
-## Developing posters and leaflets
-
-
-
-## Initial usability testing
+## Develop
 
 
 ## Developing a draft website and instructional video (January 2026)
 
-## Signage improvements (early 2026)
 
-## Co-design workshops
-### Stakeholders
-
-### General Public
+### Signage improvements (early 2026)
 
 
-## Developing a draft website and instructional video (January 2026)
+## Deliver
 
-## Signage improvements (early 2026)
 
-## Co-design workshops
-### Stakeholders
 
-### General Public
 
+### Co-design workshops
+Stakeholders
+
+General Public
 
 
 
@@ -446,14 +472,52 @@ knitr::include_graphics("graphics/letterkenny_cars.png")
 ## Directions for future research
 
 
-# References
 
 
-```{css, echo=FALSE}
-div.fullwidth > table {
-  width: 100%;
-}
+```{r contribution_matrix_template, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+
+tibble(Component = c("Conceptualization", "Data Curation", "Formal Analysis", "Funding Acquisition", "Investigation", "Methodology", "Project Administration", "Resources", "Software", "Supervision", "Validation", "Visualization", "Writing – Original Draft Preparation", "Writing – Review & Editing"),
+#       Description = c(
+#"Ideas; formulation or evolution of overarching research goals and aims.",
+#"Management activities to annotate (produce metadata), scrub data and maintain research data (including software code, where it is necessary for interpreting the data itself) for initial use and later reuse.",  
+#"Application of statistical, mathematical, computational, or other formal techniques to analyze or synthesize study data.", 
+#"Acquisition of the financial support for the project leading to this publication.", 
+#"Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection.", 
+#"Development or design of methodology; creation of models.", 
+#"Management and coordination responsibility for the research activity planning and execution.", 
+#"Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools.", 
+#"Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components.", 
+#"Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team.", 
+#"Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs.", 
+#"Preparation, creation and/or presentation of the published work, specifically visualization/data presentation.", 
+#"Creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation).", 
+#"Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision – including pre- or post-publication stages."), 
+NArmstrong = c(
+  " ", " ", " ", " ", "X", " ", " ", " ", " ", " ", " ", " ", " ", " "),
+BCaulfield = c(
+  "X", " ", " ", "X", "X", " ", " ", " ", " ", " ", " ", " ", " ", " "),
+BMcCann = c(
+  " ", " ", " ", " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " "),
+SMoslem = c(
+  " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " ", " ", " ", " "),
+MOMahony = c(
+  " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "),
+JReynolds = c(
+  "X", " ", " ", " ", "X", "X", "X", "", "", "", "", "", "X", " "),
+AStefaniec = c(
+  "X", " ", " ", "X", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "),
+AVega = c(
+  " ", " ", " ", " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " ")) %>% 
+  kable(
+    caption = "Author contribution matrix, as per CRediT (Contribution Roles Taxonomy") 
+  
+
 ```
+
+
+
+
+# References
 
 ```{r bib, include=FALSE}
 # create a bib file for the R packages used in this document
