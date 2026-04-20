@@ -403,14 +403,15 @@ knitr::include_graphics("graphics/Double_Diamond.png")
  
 - Facilitators: James Reynolds^[julianj.reynolds@atu.ie or +353 87 348 3095. James is a post-doc researcher at ATU with more than 20 years of experience in transport engineering in Australia and Canada. He completed a PhD about legitimising transit prioritisation in 2020.] and Amaya Vega^[amaya.vega@atu.ie Amaya is a Senior Lecturer/Associate Professor in Economics at Atlantic Technological University (ATU) and Visiting Research Fellow at the Institute of International Economics at the University of Valencia, Spain. She has over 20 years’ experience working on transport policy evaluation, focusing on passenger and freight transport demand analysis, maritime transport, and ports.].
 - Eight spaces available due to vehicle capacity limitations: 
-  1. Evan Carney (Galway Council);
-  2. Tiarnan McCusker (Galway Council); 
-  3. Damien Redington (Community Climate Coordinator); 
+  1. Evan Carney (Galway City);
+  2. Tiarnan McCusker (Galway City); 
+  3. Lyndsey O'Leary (Galway City)
   4. Denise Feeney (Community Climate Action Officer);
   5. Helen Melia (Senior Staff Officer, Community Section, Galway Council); 
   6. Colm Shaughnessy (Galway Council)
   7. Claire Connolly (PPN Galway Officer); 
-  8. Silvana Falasca (PPN Galway Officer).
+  8. Silvana Falasca (PPN Galway Officer);
+  9. James Brett (Galway City).
 - Outputs of the co-design workshop (plans, notes etc.) may form inputs to future academic publications, but individual participants will not be identified.  
 - Please bring a safety vest, sturdy shoes, a bicycle helmet and rain coat. 
 
