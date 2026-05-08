@@ -266,7 +266,18 @@ TSWLatexianTemp*
 
 # Mac DS store 
 .DS_Store
-.Rproj.user
+
+# R data
+.R*
+.Rhistory
 
 # Data directory
 data/*
+.Rproj.user
+.positai
+
+# Large graphics files
+*a0_1000.png
+*a0_500.png
+*a0_42.png
+rosm.cache/*

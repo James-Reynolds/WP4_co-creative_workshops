@@ -2,7 +2,7 @@
 title: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs"
 runningheader: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs" # only for pdf output
 subtitle: "" # only for html output
-author: "James Reynolds, Noreen Armstrong, Brian McCann, Amaya Vega, Agnieszka Stefaniec and Brian Caulfield"
+author: "James Reynolds, Noreen Armstrong, Brian McCann, Amaya Vega, Agnieszka Stefaniec, Brian Caulfield and Sarbast Moselm"
 date: "`r Sys.Date()`"
 output:
   tufte::tufte_html: default
@@ -18,8 +18,8 @@ link-citations: yes
 
 ```{r setup, include=FALSE}
 library(tufte)
-library(rnaturalearth)
-library(rnaturalearthhires)
+#library(rnaturalearth)
+#library(rnaturalearthhires)
 library(sf)
 library(ggplot2)
 library(viridis)
@@ -37,10 +37,12 @@ library(knitr)
 library(kableExtra)
 library(dodgr)
 library(magick)
-library(osmplotr)
+#library(osmplotr)
 library(magrittr)
 library(scales)
 library(cowplot)
+library(rosm)
+
 
 # invalidate cache when the tufte version changes
 knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
@@ -439,9 +441,274 @@ knitr::include_graphics("graphics/letterkenny_cars.png")
 ```
 
 
+### Maps for workshops
+
+
+```{r load_data_from_osm_analysis, eval = TRUE, echo=FALSE}
+
+#amenity <- list.load("~/WP4_behaviour_nudging_etc/data/amenity.rdata")
+buildings <- list.load("~/WP4_behaviour_nudging_etc/data/buildings.rdata")
+hub_location <- list.load("~/WP4_behaviour_nudging_etc/data/hub_location.rdata")
+maps_of_street_networks <- list.load("~/WP4_behaviour_nudging_etc/data/maps_of_street_networks.rdata")
+net <- list.load("~/WP4_behaviour_nudging_etc/data/net.rdata")
+net_bicycle <- list.load("~/WP4_behaviour_nudging_etc/data/net_bicycle.rdata")
+net_foot <- list.load("~/WP4_behaviour_nudging_etc/data/net_foot.rdata")
+net_motorcar <- list.load("~/WP4_behaviour_nudging_etc/data/net_motorcar.rdata")
+placebb <- list.load("~/WP4_behaviour_nudging_etc/data/net_placebb.rdata")
+
+
+
+
+```
+
+
+
+```{r create_maps_at_LEGO_scale, eval=FALSE, include=FALSE, echo=FALSE}
+
+
+#A1 594 x 841mm
+#Lego scale 1 to 42.  
+
+map_by_foot_a0_42 <- list()
+for(i in seq_along(placebb)){
+ylim = c((st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[2] - 14.4144,
+    (st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[2] + 14.4144)
+xlim = c((st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[1] - (14.4144*sqrt(2)),
+    (st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[1] + (14.4144*sqrt(2)))
+Poly_Coord_df = data.frame(xlim, ylim)
+poly <- Poly_Coord_df %>% 
+  st_as_sf(coords = c("xlim", "ylim"), 
+           crs = 2157) %>% 
+  st_bbox() %>% 
+  st_as_sfc()
+
+poly_as_lat_long <- poly %>% st_transform(crs = 4326)
+
+map_by_foot_a0_42[[i]] <- ggplot() +
+    annotation_map_tile(type = "osm", zoom = 19) +
+  geom_sf(data = st_intersection(buildings[[i]] %>%
+                    st_filter(poly, .predicate =  st_intersects), poly), 
+          mapping = aes(fill = building_type_short)) + 
+  labs(fill = "Building type") +
+#  scale_fill_viridis(labels = comma, limits = c(0, 50), option = "H") +
+  geom_sf(data = hub_location[[i]], size = 1, colour = "red") +
+  geom_sf(data = poly, size = 1, colour = "black", fill = NA) + 
+  geom_sf(data = st_intersection(net[[i]] %>% st_transform(crs = 2157), poly), aes()) +
+  geom_sf(data = st_intersection(
+    net[[i]] %>% 
+      select(osm_id) %>% 
+      st_transform(crs = 2157), 
+    poly) %>% 
+      left_join(net_foot[[i]] %>% 
+                  select(d, way_id) %>% 
+                  as_tibble(),
+                by = join_by(osm_id == way_id)), 
+    mapping = aes(colour = d)) + 
+  scale_color_viridis(labels = comma, limits = c(0, 40), option = "C") +
+  labs(colour = "Walking distance via path/road network (m)") +
+  theme(
+        axis.title = element_blank(), 
+        axis.text.x=element_blank(), #remove x axis labels
+        axis.ticks.x=element_blank(), #remove x axis ticks
+        axis.text.y=element_blank(),  #remove y axis labels
+        axis.ticks.y=element_blank(), #remove y axis ticks
+        legend.position="bottom",
+        legend.text = element_text(size = 8), 
+        legend.title = element_text(size = 8), 
+        legend.key.size = unit(1, 'cm'),
+        ) +
+ggspatial::annotation_scale(location = 'br') + 
+ggspatial::annotation_north_arrow() + 
+  labs(title = "ROBUST location and surrounds at 1:42 ('LEGO scale')", 
+       subtitle = hub_location[[i]]$name, 
+       caption = "Data and map tile sources: Open Street Maps, © OpenStreetMap contributors")
+  
+
+
+}
+
+
+
+
+ggsave(file = "graphics/letterkenny_a0_42.png", plot = map_by_foot_a0_42[[1]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/galway_a0_42.png", plot = map_by_foot_a0_42[[2]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/waterford_a0_42.png", plot = map_by_foot_a0_42[[3]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/dundrum_a0_42.png", plot = map_by_foot_a0_42[[4]], height = 810, width = 1145, units = "mm") 
+
+
+```
+
+
+
+
+```{r create_maps_at_1_to_500_scale, eval=FALSE, include=FALSE, echo=FALSE}
+
+
+#A1 594 x 841mm
+#Lego scale 1 to 42.  
+
+map_by_foot_a0_500 <- list()
+for(i in seq_along(placebb)){
+ylim = c((st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[2] - 171.6,
+    (st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[2] + 171.6)
+xlim = c((st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[1] - (171.6*sqrt(2)),
+    (st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[1] + (171.6*sqrt(2)))
+Poly_Coord_df = data.frame(xlim, ylim)
+poly <- Poly_Coord_df %>% 
+  st_as_sf(coords = c("xlim", "ylim"), 
+           crs = 2157) %>% 
+  st_bbox() %>% 
+  st_as_sfc()
+
+poly_as_lat_long <- poly %>% st_transform(crs = 4326)
+
+map_by_foot_a0_500[[i]] <- ggplot() +
+    annotation_map_tile(type = "osm", zoom = 18) +
+  geom_sf(data = st_intersection(buildings[[i]] %>%
+                    st_filter(poly, .predicate =  st_intersects), poly), 
+          mapping = aes(fill=distance_by_foot), alpha = 0.25) + 
+  labs(fill = "Walking distance via path/road network (m)") +
+  scale_fill_viridis(labels = comma, limits = c(0, 800), option = "C") +
+  geom_sf(data = hub_location[[i]], size = 1, colour = "red") +
+  geom_sf(data = poly, size = 1, colour = "black", fill = NA) + 
+  geom_sf(data = st_intersection(net[[i]] %>% st_transform(crs = 2157), poly), aes()) +
+  geom_sf(data = st_intersection(
+    net[[i]] %>% 
+      select(osm_id) %>% 
+      st_transform(crs = 2157), 
+    poly) %>% 
+      left_join(net_foot[[i]] %>% 
+                  select(highway, way_id) %>% 
+                  as_tibble(),
+                by = join_by(osm_id == way_id)), 
+    mapping = aes(linetype = highway)) +
+  theme(
+        axis.title = element_blank(), 
+        axis.text.x=element_blank(), #remove x axis labels
+        axis.ticks.x=element_blank(), #remove x axis ticks
+        axis.text.y=element_blank(),  #remove y axis labels
+        axis.ticks.y=element_blank(), #remove y axis ticks
+        legend.position="bottom",
+        legend.text = element_text(size = 8), 
+        legend.title = element_text(size = 8), 
+        legend.key.size = unit(1, 'cm'),
+        ) +
+ggspatial::annotation_scale(location = 'br') + 
+ggspatial::annotation_north_arrow() + 
+  labs(title = "ROBUST location and surrounds at 1:500", 
+       subtitle = hub_location[[i]]$name, 
+       caption = "Data and map tile sources: Open Street Maps, © OpenStreetMap contributors")
+  
+
+
+}
+
+
+
+
+ggsave(file = "graphics/letterkenny_a0_500.png", plot = map_by_foot_a0_500[[1]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/galway_a0_500.png", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/waterford_a0_500.png", plot = map_by_foot_a0_500[[3]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/dundrum_a0_500.png", plot = map_by_foot_a0_500[[4]], height = 810, width = 1145, units = "mm") 
+
+
+```
+
+
+
+```{r create_maps_at_1_to_1000_scale, eval=FALSE, include=FALSE, echo=FALSE}
+
+
+#A1 594 x 841mm
+
+
+map_by_foot_a0_1000 <- list()
+for(i in seq_along(placebb)){
+ylim = c((st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[2] - 343.2,
+    (st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[2] + 343.2)
+xlim = c((st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[1] - (343.2*sqrt(2)),
+    (st_bbox(hub_location[[i]]) %>% 
+    as.numeric())[1] + (343.2*sqrt(2)))
+Poly_Coord_df = data.frame(xlim, ylim)
+poly <- Poly_Coord_df %>% 
+  st_as_sf(coords = c("xlim", "ylim"), 
+           crs = 2157) %>% 
+  st_bbox() %>% 
+  st_as_sfc()
+
+poly_as_lat_long <- poly %>% st_transform(crs = 4326)
+
+map_by_foot_a0_1000[[i]] <- ggplot() +
+  annotation_map_tile(type = "osm", zoom = 17) +
+  geom_sf(data = buildings[[i]] %>% 
+            st_filter(poly, .predicate =  st_intersects) %>%
+            st_intersection(poly),
+          mapping = aes(fill=distance_by_foot), alpha = 0.75) + 
+  labs(fill = "Walking distance via path/road network (m)") +
+  scale_fill_viridis(labels = comma, limits = c(0, 1200), option = "C") +
+  geom_sf(data = hub_location[[i]], size = 1, colour = "red") +
+  geom_sf(data = poly, size = 1, colour = "black", fill = NA) + 
+  geom_sf(data = st_intersection(net[[i]] %>% st_transform(crs = 2157), poly), aes()) +
+  geom_sf(data = st_intersection(
+    net[[i]] %>% 
+      select(osm_id) %>% 
+      st_transform(crs = 2157), 
+    poly) %>% 
+      left_join(net_foot[[i]] %>% 
+                  select(highway, way_id) %>% 
+                  as_tibble(),
+                by = join_by(osm_id == way_id)), 
+    mapping = aes(linetype = highway)) +
+  theme(
+        axis.title = element_blank(), 
+        axis.text.x=element_blank(), #remove x axis labels
+        axis.ticks.x=element_blank(), #remove x axis ticks
+        axis.text.y=element_blank(),  #remove y axis labels
+        axis.ticks.y=element_blank(), #remove y axis ticks
+        legend.position="bottom",
+        legend.text = element_text(size = 8), 
+        legend.title = element_text(size = 8), 
+        legend.key.size = unit(1, 'cm'),
+        ) +
+ggspatial::annotation_scale(location = 'br') + 
+ggspatial::annotation_north_arrow() + 
+  labs(title = "ROBUST location and surrounds at 1:1000", 
+       subtitle = hub_location[[i]]$name, 
+       caption = "Data and map tile sources: Open Street Maps, © OpenStreetMap contributors")
+  
+
+
+}
+
+
+
+
+ggsave(file = "graphics/letterkenny_a0_1000.png", plot = map_by_foot_a0_1000[[1]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/galway_a0_1000.png", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/waterford_a0_1000.png", plot = map_by_foot_a0_1000[[3]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/dundrum_a0_1000.png", plot = map_by_foot_a0_1000[[4]], height = 810, width = 1145, units = "mm") 
+
+
+```
 
 
 ## Define
+
+PROBLEM: Mobility hubs are not a "bespooke" solution Rather, they are an amalgamation of already existing tech and systems (MOBY and ENTERPRISE) that already have their own processes, pricing etc.
+
+
+
 
 ## Develop
 
