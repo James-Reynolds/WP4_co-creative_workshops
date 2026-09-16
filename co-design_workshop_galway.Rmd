@@ -1,0 +1,212 @@
+---
+title: "Electric shaRed mOBility hUbs Trial (ROBUST): Co-design Workshop: Galway"
+runningheader: "ROBUST: Co-design Workshops"
+author: "James Reynolds, Noreen Armstrong and Amaya Vega"
+date: "23 and 24 September, 2027"
+output:
+  tufte::tufte_handout:
+#    citation_package: natbib
+#    latex_engine: xelatex
+#  tufte::tufte_book:
+#    citation_package: nobib
+#    latex_engine: xelatex
+bibliography: references.bib
+csl: https://www.zotero.org/styles/chicago-fullnote-bibliography-16th-edition
+suppress-bibliography: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+library(ggplot2)
+library(tidyverse)
+library(sf)
+library(viridis)
+library(janitor)
+library(knitr)
+library(kableExtra)
+
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+```{r logo, echo=FALSE, fig.margin = TRUE, out.width="100%"}
+
+knitr::include_graphics("graphics/robust-logo-news.png") 
+
+```
+
+Welcome to the ROBUST co-design workshop.  
+
+# What is a shared mobility hub?
+
+"A shared mobility hub is a place where different transport modes are integrated seamlessly, promoting efficient and sustainable urban mobility. Emphasis is given on shared mobility options such as bikes, scooters and cars. Connection with public transport (transit) is desirable but not necessary. The integration between mobility suppliers is important to provide a seamless, flexible connection at these transfer points. Ensuring an enjoyable experience for travelers is a crucial part of the hub concept as well, and therefore the hub should be considered not just as a transfer node but as a place where a variety of services come together, such as logistics services or restaurants."[@Roukouni:2023aa]
+
+
+
+# What is the ROBUST shared ELECTRIC mobility Galway hub?
+
+The Galway ROBUST hub is located close to the Westside Public Library 
+and includes an 
+e-cargo bike, 
+four e-bikes
+and two shared electric cars. 
+
+
+
+```{r plot_hub_photo, eval=TRUE, include=TRUE, echo=FALSE, fig.fullwidth = TRUE, out.width= "95%", fig.cap = "Shared electric cars and bikes at the westside hub"} 
+
+knitr::include_graphics("graphics/galway_bikes_and_cars.png")
+
+
+
+```
+
+Included in the hub is dedicated parking and the
+*power infrastructure* to support recharging of these vehicles onsite.  
+
+
+# What is the PURPOSE of this workshop?
+
+This workshop seeks to improve research understandings of how best to implement 
+shared electric mobility hubs, such as the one being trialled here in Galway. 
+At this stage of the research we have *three key questions* that we would like your input on: 
+
+- how does the return-to-origin (A-to-A) restriction impact on users and useability? 
+- how can the hub offerings better meet community needs (including through expansion)?
+- how can information about the hub and how to use it best be communicated? 
+
+
+# How does this workshop ACHIEVE its purpose? 
+
+This workshop is guided by the @UK-Design-Council:0aa Double Diamond 
+design process (Figure 2). 
+It involves iteration through four steps: 
+Discovery; Definition (of the problem); Development; Delivery (of a solution). 
+The steps alternate between 'divergent' and 'convergent' 
+approaches, as well as iteration. 
+
+
+```{r double_diamond_figure, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = FALSE, fig.cap = "Framework for Innovation. Source : UK Design Council (undated)", crop = TRUE}
+
+knitr::include_graphics("graphics/double_diamond_innovation_framework.png")
+
+```
+
+First steps: 
+  *1. Please read the participant information sheet and sign the consent form.*
+
+
+\newpage
+
+# Return-to-origin, and other elements
+There have been various challenges with some shared micro-mobility systems [@Zhang:2022aa; @Ferguson:2025aa], including: 
+
+- staff may need to drive around to re-position the vehicles, so that there is adequate supply across a network (Figure 3)^[Image cropped.  CC  Attribution-Share Alike 3.0 Unported  license. See https://creativecommons.org/licenses/by-sa/3.0/deed.en] and to swap batteries. 
+- fire risks when batteries are charged, and 
+- inappropriate parking of dockless bikes, e-bikes and scooters. 
+
+```{r rebalancing, include=TRUE, echo=FALSE, out.width = "100%", fig.margin = TRUE, fig.cap = "Bike share rebalancing. Source: Schwede66 on wikimedia commons", crop = TRUE}
+
+knitr::include_graphics("graphics/Melbourne_Bike_Share_184.jpeg")
+
+```
+
+The ROBUST system addresses these challenges by having ONE PARKING SPACE per vehicle, and on-site recharging.  However, this means that vehicles HAVE TO BE RETURNED to the hub. This is common for shared cars, but unusual for shared e-bikes. 
+
+
+
+## Discovery
+
+
+Journey mapping can be used to visually show someone travels (see Figure 4)
+
+```{r Pink_commute_map, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = TRUE, fig.cap = "An example of a how to map a person’s commute routine and how different modes of transportation become part of it. Map created by Kaspar Raats and Katalin Osz, Source: Pink et al (2021).", crop = TRUE}
+
+knitr::include_graphics("graphics/Pink_commute_map_crop.png")
+
+```
+
+*2. Please create some journey maps from your typical travels.* These might include trips: to/from work; for shopping, or social, sporting and other activities; involving travel with someone else (e.g. family member, friends). 
+
+
+
+
+## Definition
+
+*4. For those journeys you have mapped that involve travel in a petrol-driven vehicle* can this be replaced by use of one of the hub vehicles? 
+Can other trips or parts of your travel be made easier through use of one of the hub vehicles?
+What problems are there for you in (potentially) using the hub vehicles as part of your travel? 
+Where possible,  *please redraw you journey maps* to reflect how your travel might look if a mobility hub was part of your trips
+
+## Development
+@Schemel:2020aa suggests many foundational^[bike parking, bike repair, bike sharing, car sharing, charging, information, micro mobility (scooters etc.), (car) parking, waiting areas, shelter] and *supporting*^[bakery, bank, postal service, dry-cleaning service, cafe, kiosk, delivery services (i.e. parcel storage), energy generation, event space, exhibition space, a restaurant or other food services, a garden, an indoor public space, meeting rooms, office / co-working space, outdoor seating, a pharmacy, healthcare services, children's play space, a day care, toilets, shopping, a place for sleeping/resting, a workshop.] mobility hub elements. Case research undertaken as part of the ROBUST project has also identified hubs that include: USB power supply (for phone charging), wifi and drinking water.
+
+*5. What features could be added or changed* to help resolve the problems you might have in using the ROBUST hub as part of your travel? What might help to make a mobility hub *seamless*? 
+
+
+## Delivery
+
+Lego models, scaled plans and other materials can all be used as part of co-design processes[@Napper:2021aa]. 
+
+
+
+*6. What might a shared electric mobility hub that helps to meet you travel and other needs look like*?  
+
+- How should it be accessed? (eg. pricing or subscriptions, use for community groups or businesses or ...?) 
+- Who should run it?
+- Where should it be located?
+
+```{r Napper_lego, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = FALSE, fig.cap = "Typical LEGO model used in the research. Source: Napper et al (2021).", crop = TRUE}
+
+knitr::include_graphics("graphics/Napper_lego.png")
+
+```
+
+
+\newpage
+
+# Information provision
+
+Part of a mobility hub's job will be to provide *information* to users. 
+
+## Discovery
+
+Case studies in UK have already been examined in this research. 
+
+
+```{r selected_images, out.width = "100%", fig.align = "center", fig.cap = "Selected hub images. Source: authors.", echo = FALSE, warning=FALSE, message=FALSE, cache=FALSE, eval=TRUE}
+knitr::include_graphics("graphics/Figure1.png") 
+
+```
+
+*7. What about the information provided at these mobility hubs* works or does not work for you? What is missing? What might be improved? 
+
+
+
+## Definition
+
+*8. What problem should mobility hub information offerings seek to solve?*^[We got: A. What is this? B. Where am I? C. What is here? D. What is nearby? and E. How can I travel from here?] 
+
+What else? What information is more important? 
+
+
+
+## Development
+
+Earlier in our research we developed a tool to produce information displays for mobility hubs. Examples of the output are shown in Figure 7, and provided in full-sized format on paper. 
+
+```{r display_outputs_figure, out.width = "100%", fig.align = "center", fig.cap = "Software output: Birmingham (left), Bristol (centre) and synthesis (right) display types. Source: authors.", echo = FALSE, warning=FALSE, message=FALSE, cache=FALSE}
+knitr::include_graphics("graphics/Figure2.png") 
+
+```
+
+*9. What could be improved about these?*  What else should be shown? 
+
+
+
+## Delivery
+
+*10. What would your ideal information display look like?* Should every mobility hub have a website? What this look like? 
+
+

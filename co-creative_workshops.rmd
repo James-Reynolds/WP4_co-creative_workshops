@@ -69,8 +69,8 @@ can often provide an important focus for communities,
 including as a central hub for the movement of people and goods, 
 and places of social interaction. 
 Recent research directions have: emphasised 
-the ‘Place’ function of road 
-(and other transport) 
+the ‘Place’ function of roads 
+and other transport
 facilities as a vital 
 and additional dimension, 
 alongside the more traditional focus 
@@ -86,19 +86,22 @@ to electric cars,
 e-cargo bikes, 
 e-bikes 
 or other modes that might support more sustainable travel choices, 
-especially in contexts where the provision of high frequency transit services may be challenging 
+especially in contexts where the provision of high frequency transit services 
+may be challenging 
 (e.g. regional towns, rural communities, low-density suburbs); and
-suggested the adoption of person-centric design approaches such as co-design, from industrial design and related fields, 
+suggested the adoption of person-centric design approaches such as co-design, 
+from industrial design and related fields, 
 by researchers and practitioners in transport. 
 However, it is unclear what form such shared electric mobility hubs should take, 
-and how such industrial design methodologies might be used in their development.  
+and how such industrial design methodologies might be used in their development. 
 The extent to which the co-location of other facilities
 (e.g. library, café, bus stop, community house) 
 might enhance usage, 
 safety and security 
 (c.f. Jane Jacob's "eyes on the street")
 and local communities, 
-or how new tools for crime prevention recent developed in the context of public transport might be adapted to mobility hubs.  
+or how new tools for crime prevention 
+recent developed in the context of public transport might be adapted to mobility hubs.  
 
 Four shared e-mobility hubs have recently been implemented in 
 Letterkenny, Galway, Waterford and the suburbs of Dublin. 
@@ -489,7 +492,7 @@ poly <- Poly_Coord_df %>%
 poly_as_lat_long <- poly %>% st_transform(crs = 4326)
 
 map_by_foot_a0_42[[i]] <- ggplot() +
-    annotation_map_tile(type = "osm", zoom = 19) +
+    ggspatial::annotation_map_tile(type = "osm", zoom = 19) +
   geom_sf(data = st_intersection(buildings[[i]] %>%
                     st_filter(poly, .predicate =  st_intersects), poly), 
           mapping = aes(fill = building_type_short)) + 
@@ -534,11 +537,12 @@ ggspatial::annotation_north_arrow() +
 
 
 
-ggsave(file = "graphics/letterkenny_a0_42.png", plot = map_by_foot_a0_42[[1]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/galway_a0_42.png", plot = map_by_foot_a0_42[[2]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/waterford_a0_42.png", plot = map_by_foot_a0_42[[3]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/dundrum_a0_42.png", plot = map_by_foot_a0_42[[4]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/letterkenny_a0_42.png", plot = map_by_foot_a0_42[[1]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/galway_a0_42.png", plot = map_by_foot_a0_42[[2]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/waterford_a0_42.png", plot = map_by_foot_a0_42[[3]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/dundrum_a0_42.png", plot = map_by_foot_a0_42[[4]], height = 810, width = 1145, units = "mm") 
 
+ggsave(file = "graphics/galway_a0_42.pdf", plot = map_by_foot_a0_42[[2]], height = 810, width = 1145, units = "mm") 
 
 ```
 
@@ -571,7 +575,7 @@ poly <- Poly_Coord_df %>%
 poly_as_lat_long <- poly %>% st_transform(crs = 4326)
 
 map_by_foot_a0_500[[i]] <- ggplot() +
-    annotation_map_tile(type = "osm", zoom = 18) +
+    ggspatial::annotation_map_tile(type = "osm", zoom = 18) +
   geom_sf(data = st_intersection(buildings[[i]] %>%
                     st_filter(poly, .predicate =  st_intersects), poly), 
           mapping = aes(fill=distance_by_foot), alpha = 0.25) + 
@@ -614,12 +618,12 @@ ggspatial::annotation_north_arrow() +
 
 
 
-ggsave(file = "graphics/letterkenny_a0_500.png", plot = map_by_foot_a0_500[[1]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/galway_a0_500.png", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/waterford_a0_500.png", plot = map_by_foot_a0_500[[3]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/dundrum_a0_500.png", plot = map_by_foot_a0_500[[4]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/letterkenny_a0_500.png", plot = map_by_foot_a0_500[[1]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/galway_a0_500.png", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/waterford_a0_500.png", plot = map_by_foot_a0_500[[3]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/dundrum_a0_500.png", plot = map_by_foot_a0_500[[4]], height = 810, width = 1145, units = "mm") 
 
-
+ggsave(file = "graphics/galway_a0_500.pdf", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
 ```
 
 
@@ -650,7 +654,7 @@ poly <- Poly_Coord_df %>%
 poly_as_lat_long <- poly %>% st_transform(crs = 4326)
 
 map_by_foot_a0_1000[[i]] <- ggplot() +
-  annotation_map_tile(type = "osm", zoom = 17) +
+  ggspatial::annotation_map_tile(type = "osm", zoom = 17) +
   geom_sf(data = buildings[[i]] %>% 
             st_filter(poly, .predicate =  st_intersects) %>%
             st_intersection(poly),
@@ -694,12 +698,12 @@ ggspatial::annotation_north_arrow() +
 
 
 
-ggsave(file = "graphics/letterkenny_a0_1000.png", plot = map_by_foot_a0_1000[[1]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/galway_a0_1000.png", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/waterford_a0_1000.png", plot = map_by_foot_a0_1000[[3]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/dundrum_a0_1000.png", plot = map_by_foot_a0_1000[[4]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/letterkenny_a0_1000.png", plot = map_by_foot_a0_1000[[1]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/galway_a0_1000.png", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/waterford_a0_1000.png", plot = map_by_foot_a0_1000[[3]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/dundrum_a0_1000.png", plot = map_by_foot_a0_1000[[4]], height = 810, width = 1145, units = "mm") 
 
-
+ggsave(file = "graphics/galway_a0_1000.pdf", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
 ```
 
 
