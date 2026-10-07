@@ -449,7 +449,7 @@ knitr::include_graphics("graphics/letterkenny_cars.png")
 
 ```{r load_data_from_osm_analysis, eval = TRUE, echo=FALSE}
 
-#amenity <- list.load("~/WP4_behaviour_nudging_etc/data/amenity.rdata")
+amenity <- list.load("~/WP4_behaviour_nudging_etc/data/amenity.rdata")
 buildings <- list.load("~/WP4_behaviour_nudging_etc/data/buildings.rdata")
 hub_location <- list.load("~/WP4_behaviour_nudging_etc/data/hub_location.rdata")
 maps_of_street_networks <- list.load("~/WP4_behaviour_nudging_etc/data/maps_of_street_networks.rdata")
@@ -463,7 +463,6 @@ placebb <- list.load("~/WP4_behaviour_nudging_etc/data/net_placebb.rdata")
 
 
 ```
-
 
 
 ```{r create_maps_at_LEGO_scale, eval=FALSE, include=FALSE, echo=FALSE}
@@ -537,12 +536,12 @@ ggspatial::annotation_north_arrow() +
 
 
 
-#ggsave(file = "graphics/letterkenny_a0_42.png", plot = map_by_foot_a0_42[[1]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/letterkenny_a0_42.png", plot = map_by_foot_a0_42[[1]], height = 810, width = 1145, units = "mm") 
 #ggsave(file = "graphics/galway_a0_42.png", plot = map_by_foot_a0_42[[2]], height = 810, width = 1145, units = "mm") 
-#ggsave(file = "graphics/waterford_a0_42.png", plot = map_by_foot_a0_42[[3]], height = 810, width = 1145, units = "mm") 
-#ggsave(file = "graphics/dundrum_a0_42.png", plot = map_by_foot_a0_42[[4]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/waterford_a0_42.png", plot = map_by_foot_a0_42[[3]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/dundrum_a0_42.png", plot = map_by_foot_a0_42[[4]], height = 810, width = 1145, units = "mm") 
 
-ggsave(file = "graphics/galway_a0_42.pdf", plot = map_by_foot_a0_42[[2]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/galway_a0_42.pdf", plot = map_by_foot_a0_42[[2]], height = 810, width = 1145, units = "mm") 
 
 ```
 
@@ -618,12 +617,12 @@ ggspatial::annotation_north_arrow() +
 
 
 
-#ggsave(file = "graphics/letterkenny_a0_500.png", plot = map_by_foot_a0_500[[1]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/letterkenny_a0_500.png", plot = map_by_foot_a0_500[[1]], height = 810, width = 1145, units = "mm") 
 #ggsave(file = "graphics/galway_a0_500.png", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
-#ggsave(file = "graphics/waterford_a0_500.png", plot = map_by_foot_a0_500[[3]], height = 810, width = 1145, units = "mm") 
-#ggsave(file = "graphics/dundrum_a0_500.png", plot = map_by_foot_a0_500[[4]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/waterford_a0_500.png", plot = map_by_foot_a0_500[[3]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/dundrum_a0_500.png", plot = map_by_foot_a0_500[[4]], height = 810, width = 1145, units = "mm") 
 
-ggsave(file = "graphics/galway_a0_500.pdf", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/galway_a0_500.pdf", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
 ```
 
 
@@ -705,6 +704,294 @@ ggspatial::annotation_north_arrow() +
 
 ggsave(file = "graphics/galway_a0_1000.pdf", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
 ```
+
+
+
+### Totem pedestrals for Waterford Workshop
+
+
+
+```{r waterford_pedestral_totems, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+
+## install.packages("pak")
+#pak::pak("James-Reynolds/mobilityHubTools")
+
+library(mobilityHubTools)
+
+crs_local_metres <- 2157
+
+hub_element_locations_waterford <- tibble::tibble(
+        lat = c(52.259941, 
+                52.259922, 
+                52.259940, 
+                52.25981619937087, 
+                52.2599349915668, 
+                52.259858, 
+                52.260182215545186, 
+                52.259857),
+        lon = c(-7.117003, 
+                -7.117091, 
+                -7.117352, 
+                -7.117731194847487, 
+                -7.11683801454109, 
+                -7.118357,  
+                -7.116430252802601, 
+                -7.115514),
+        name = c(NA, 
+                 NA, 
+                 "Car charger", 
+                 "Stop 352251", 
+                 "Taxi rank", 
+                 NA, 
+                 "Stop 352721", 
+                 NA),
+        icon_filename = c(
+          system.file("extdata/shared-car-14.svg", package = "mobilityHubTools"), 
+          system.file("extdata/bicycle-electric-2.svg", package = "mobilityHubTools"), 
+          system.file("extdata/charging_station.svg", package = "mobilityHubTools"), 
+          system.file("extdata/bus_stop.svg", package = "mobilityHubTools"), 
+          system.file("extdata/taxi.svg", package = "mobilityHubTools"), 
+          system.file("extdata/bicycle_parking.svg", package = "mobilityHubTools"), 
+          system.file("extdata/bus_stop.svg", package = "mobilityHubTools"), 
+          system.file("extdata/bicycle_parking.svg", package = "mobilityHubTools"))) %>% 
+          sf::st_as_sf(coords = c("lon", "lat"),
+                            crs = 4326) %>%
+      sf::st_transform(crs =  crs_local_metres) %>%
+      sf::st_cast("POINT")
+
+
+
+bristol_totem_pedestal(file_to_save_to = "results/waterford_bristol_test.pdf",
+                          hub_name_text = "ROBUST mobility hub",
+    icons_to_include_in_header = list(
+      system.file(
+        "extdata/bus_stop.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/bicycle_parking.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/bicycle-electric-2.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/shared-car-14.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/charging_station.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools")),
+    directions_image = "graphics/waterford_bristol_directions.png",
+    map_local = ggplot2::ggplot() +
+    # white building outlines
+    ggplot2::geom_sf(data = buildings$waterford %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$waterford %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 500) %>%
+                        sf::st_bbox()
+              ),
+            mapping = ggplot2::aes(), fill = "white") + 
+      ggspatial::annotation_map_tile(
+      type = "osm",
+      zoom = 16) + 
+      bristol_local_map(
+      amenity = amenity$waterford,
+      building = buildings$waterford,
+    hub_location = hub_location$waterford,
+    map_limits = 500,
+    crs_local_metres = crs_local_metres,
+    highlight_building = c("La Alegria Cafe", "The Fairview Cafe", "Forum", "City Square Shopping Centre"),
+    highlight_amenity = c(""), 
+    highlight_leisure = c(""), 
+    highlight_landuse = c("")
+    ),
+    facilities_image =  "graphics/waterford_bristol_info.png",
+    map_regional = synthesis_regional_map(
+      building = buildings$waterford,
+      hub_location = hub_location$waterford, 
+      map_limits = 1500, 
+      crs_local_metres = crs_local_metres, 
+      annotation_map_tile_type = "osm", 
+      annotation_map_zoom = 14,
+      highlight_building_regional = c("Central Library", "Forum", "City Square Shopping Centre")),
+    acknowledgements_text = "Map data from OpenStreetMap, available under the Open Database License. © OpenStreetMap contributors. See openstreetmap.org/copyright \n \nIcons from https://github.com/gmgeo/osmic https://www.svgrepo.com/svg/450115/e-scooter \nand https://commons.wikimedia.org/wiki/File:RWBA_Behinderten-WC.svg")
+
+
+birmingham_totem_pedestal(file_to_save_to = "results/waterford_birmingham_test.pdf", 
+                                                hub_name_text = "ROBUST mobility hub",
+    icons_to_include_in_header = list(
+      system.file(
+        "extdata/bus_stop.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/bicycle_parking.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/bicycle-electric-2.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/shared-car-14.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/charging_station.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools")), 
+    directions_image = "graphics/waterford_birmingham_directions.png",
+    map_local = synthesis_hub_elements_map(
+    building = buildings$waterford,
+    hub_location = hub_location$waterford,
+    map_limits = 100,
+    crs_local_metres = crs_local_metres,
+    hub_element_locations = hub_element_locations_waterford
+    ),
+    map_regional = synthesis_regional_map(
+      building = buildings$waterford,
+      hub_location = hub_location$waterford, 
+      map_limits = 1500, 
+      crs_local_metres = crs_local_metres, 
+      annotation_map_tile_type = "osm", 
+      annotation_map_zoom = 14,
+      highlight_building_regional = c("Central Library", "Forum", "City Square Shopping Centre")))
+
+synthesis_totem(
+    file_to_save_to = "results/waterford_synthesis_test.pdf",
+    element1_what_is_this_top_text = "e-Mobility Hub / Local Travel Point",
+    element2_where_is_it_top_text = "Waterford ROBUST",
+    element2_where_is_it_top_text_detail = "Ballybricken",
+
+       element3_what_is_here_top = list(
+      system.file(
+        "extdata/bus_stop.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/bicycle_parking.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/bicycle-electric-2.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/shared-car-14.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/charging_station.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/taxi.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools")),
+
+    element4_up_what_is_nearby = "",
+    element4_left_what_is_nearby = "\U2190 City Centre \n\U2190 Taxi rank",
+    element4_right_what_is_nearby = "\U2192 Ballybricken Green ",
+    element4_layout_matrix = rbind(c(1,1,1,1,1),
+                                   c(2,2,2,2,2),
+                                   c(3,3,3,3,3)),
+    element5_regional_map = synthesis_regional_map(
+      building = buildings$waterford,
+      hub_location = hub_location$waterford, 
+      map_limits = 1500, 
+      crs_local_metres = crs_local_metres, 
+      annotation_map_tile_type = "osm", 
+      annotation_map_zoom = 14,
+      highlight_building_regional = c("Central Library", "Forum", "City Square Shopping Centre"), 
+      highlight_amenity_regional = c(NA), 
+      highlight_leisure_regional = c(NA), 
+      highlight_landuse_regional = c(NA)),
+    element6_what_is_this_bottom_text = "What is this: \nWelcome to this Mobility Hub / Local Travel Point,\n a location where shared mobility and other services\n offer a range of options to support sustainable travel. \n\nWhat is here: (see left)\nThis mobility hub is close to or includes: bus stops,\n shared e-bikes and bikes, bicycle parking, a taxi rank\n shared e-cars, and an electric car charger ",
+       element7_hub_elements_map = synthesis_hub_elements_map(
+    building = buildings$waterford,
+    hub_location = hub_location$waterford,
+    map_limits = 50,
+    crs_local_metres = crs_local_metres,
+    hub_element_locations = hub_element_locations_waterford
+    ),
+    element8_how_can_you_travel = "How can you travel from here: (see maps below) \nBuses W1 and W2 (The Quay) and W5 (Oakwood) leave from the bus stop to your right (352251)\n Buses 736 (Dublin Airport) and GD02 (Dublin via Carlow) also leave from the bus stop to your right (352251) \n Bus W4 (City Centre) leaves from the bus stop behind you (352721)\n Bus W5 (University Hospital) leaves from stop 352911 (right and across Ballybricken Green) (see map below right).",
+    element9_hub_surrounds_map = synthesis_hub_surrounds_map(
+    building = buildings$waterford,
+    map_limits = 100,
+    crs_local_metres = crs_local_metres,
+    annotation_map_zoom = 18,
+    annotation_map_type = "osm",
+    highlight_building = c("The Fairview Cafe", "La Alegria Cafe"),
+    hub_location = hub_location$waterford),
+    element10_what_is_nearby_bottom_text = "What is nearby: (see maps above)\n There are cafes, shops and a lot more nearby \n.
+\n \nWhere am I:\n The Waterford ROBUST E-Mobility Hub at Ballybricken\n The latitude is 52.259951 and the longitude is -7.117006.\n what3words.com calls this location deflect.misty.debit\n ",
+
+    element11_transport_map_small = synthesis_hub_surrounds_map(
+    building = buildings$waterford, 
+    crs_local_metres = crs_local_metres,
+    highlight_building = c(""),
+    hub_location = hub_location$waterford,
+        map_limits = 100,
+  annotation_map_zoom = 17,
+  annotation_map_type = "osmtransport"),
+
+    element12_transport_map_large = synthesis_hub_surrounds_map(
+      building = buildings$waterford, 
+      crs_local_metres = crs_local_metres,
+      hub_location = hub_location$waterford,
+     map_limits = 2000,
+  annotation_map_zoom = 13,
+  annotation_map_type = "osmtransport",
+  highlight_building = ""),
+
+    element13_cycle_map = synthesis_hub_surrounds_map(
+      building = buildings$waterford, 
+      crs_local_metres = crs_local_metres,
+      hub_location = hub_location$waterford,
+map_limits = 2000,
+  annotation_map_zoom = 13,
+  annotation_map_type = "opencycle",
+  highlight_building = ""),
+
+    element14_acknowledgements_text = "Map data from OpenStreetMap, available under the Open Database License. \n © OpenStreetMap contributors. See openstreetmap.org/copyright \n \n Map tiles from: OSM standard layer © OpenStreetMap contributors.; \n and Thunderforest Open CycleMap and Transport layers by Andy Allan, https://www.thunderforest.com/"
+)
+
+
+
+
+```
+
 
 
 ## Define
