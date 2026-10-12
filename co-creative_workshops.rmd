@@ -49,6 +49,56 @@ knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 
+
+add_dist_function <- function (list_to_add_to){
+  
+  for(i in seq_along(placebb)){
+list_to_add_to[[i]] <- list_to_add_to[[i]] %>% mutate(distance_by_foot = dodgr_dists(net_foot[[i]], from = st_geometry(
+    list_to_add_to[[i]]) %>%
+    st_centroid() %>%
+    st_transform(crs = 4326) %>% 
+      st_coordinates(),
+  to =  st_geometry(
+    hub_location[[i]]) %>%
+    st_centroid() %>%
+    st_transform(crs = 4326) %>% 
+      st_coordinates()
+) %>% 
+  as.numeric())
+
+list_to_add_to[[i]] <- list_to_add_to[[i]] %>% mutate(distance_by_bicycle = dodgr_dists(net_bicycle[[i]], from = st_geometry(
+    list_to_add_to[[i]]) %>%
+    st_centroid() %>%
+    st_transform(crs = 4326) %>% 
+      st_coordinates(),
+  to =  st_geometry(
+    hub_location[[i]]) %>%
+    st_centroid() %>%
+    st_transform(crs = 4326) %>% 
+      st_coordinates()
+) %>% 
+  as.numeric())
+
+list_to_add_to[[i]] <- list_to_add_to[[i]] %>% mutate(distance_by_motorcar = dodgr_dists(net_motorcar[[i]], from = st_geometry(
+    list_to_add_to[[i]]) %>%
+    st_centroid() %>%
+    st_transform(crs = 4326) %>% 
+      st_coordinates(),
+  to =  st_geometry(
+    hub_location[[i]]) %>%
+    st_centroid() %>%
+    st_transform(crs = 4326) %>% 
+      st_coordinates()
+) %>% 
+  as.numeric())
+}
+
+  return(list_to_add_to)
+  
+}
+
+
+
 ```
 
 ::: {.fullwidth}
@@ -446,21 +496,203 @@ knitr::include_graphics("graphics/letterkenny_cars.png")
 
 ### Maps for workshops
 
+```{r update_osm_data, eval = TRUE, echo=FALSE}
 
-```{r load_data_from_osm_analysis, eval = TRUE, echo=FALSE}
 
-amenity <- list.load("~/WP4_behaviour_nudging_etc/data/amenity.rdata")
-buildings <- list.load("~/WP4_behaviour_nudging_etc/data/buildings.rdata")
-hub_location <- list.load("~/WP4_behaviour_nudging_etc/data/hub_location.rdata")
-maps_of_street_networks <- list.load("~/WP4_behaviour_nudging_etc/data/maps_of_street_networks.rdata")
+hub_location <- list(
+  letterkenny = tibble(lat=54.95151900289267, lon =-7.734405435672215, name = "Letterkenny"), 
+  galway = tibble(lat = 53.277326344086504, lon = -9.073269666553948, name = "Galway"), 
+  waterford = tibble(lat = 52.2599339, lon = -7.1170565, name = "Waterford"),
+  dundrum = tibble(lat = 53.288029794549054, lon = -6.241222689308968, name = "Dublin"), 
+  atu_wellpark = tibble(lat = 53.283377, lon = -9.025875, name = "ATU Wellpark Gr"), 
+  atu_dublin = tibble(lat = 53.277556, lon = -9.010766, name = "ATU Dublin Road"),
+  eyre_sq = tibble(lat = 53.274263, lon = -9.048220, name = "Eyre Square"), 
+  barnagh_greenway_hub = tibble(lat = 52.42013736039186, lon = -9.13317636029644, name = "Barnagh Greenway Hub"),
+  ballymahon_greenway_cycle = tibble(lat = 53.567116106914014, lon =  -7.761893285075223, name = "Ballmahon Greenway Cycles"), 
+  dungarvan_greenway_hire = tibble(lat = 52.09251304782626, lon =  -7.614901327250086, name = "Waterford Greenway Bike Hire"),
+  mullingar_bike_hire = tibble(lat = 53.52968967725919, lon =  -7.344271902620216, name = "Mullingar Bike Hire"), 
+  abbeyfield = tibble(lat = 52.394231634624234, lon = -9.302617810937106, name = "Former Abbeyfeale station"),
+  park_hotel = tibble(lat = 52.095131031765575, lon = -7.6244785542369895, name = "The Park Hotel"), 
+  dungarvan_carpark = tibble(lat = 52.093303004303216, lon =  -7.622031687213521, name = "Dungarvan Greenway Car Park"), 
+  congress_house = tibble(lat = 52.09281648814859, lon =  -7.614055602558226, name = "Congress House"), 
+  davitts_quay = tibble(lat = 52.09143069019557, lon =  -7.620394387213649, name = "1 Davitts Quay"), 
+  kilmacthomas = tibble(lat = 52.205811229925594, lon =  -7.424998169918687, name = "Main Street"), 
+  one_merchants = tibble(lat = 52.26368611221513, lon =  -7.118604979952401, name = "1 Merchants Quay")
+  )
+
+hub_location <- lapply(hub_location, function(x) x %>% 
+  st_as_sf(coords = c("lon", "lat"), 
+           crs = 4326) %>%
+  st_transform(crs = crs_local_metres) %>% 
+  st_cast("POINT"))
+    
+
+placebb <- lapply(hub_location, function(x) x %>% 
+                    st_buffer(dist = 2000) %>%
+                    st_transform(crs = 4326) %>%
+                    st_bbox())
+     
+file_path = "~/WP4_behaviour_nudging_etc/data/ireland-and-northern-ireland-261003.osm.pbf"
+
+osm_data_points <- lapply(placebb, function(x) osmextract::oe_read(
+  file_path = file_path,
+  layer = "points", 
+  boundary = x, 
+  extra_tags = c("amenity", "building", "highway", "landuse", "lesiure", "natural", "railway", "waterway", "addr:housenumber", "addr:housename")))
+
+osm_data_lines <- lapply(placebb, function(x) osmextract::oe_read(
+  file_path = file_path,
+  layer = "lines", 
+  boundary = x, 
+  extra_tags = c("amenity", "building", "highway", "landuse", "lesiure", "natural", "railway", "waterway", "addr:housenumber", "addr:housename")))
+
+osm_data_multilinestrings <- lapply(placebb, function(x) osmextract::oe_read(
+  file_path = file_path,
+  layer = "multilinestrings", 
+  boundary = x, 
+  extra_tags = c("amenity", "building", "highway", "landuse", "lesiure", "natural", "railway", "waterway", "addr:housenumber", "addr:housename")))
+
+osm_data_multipolygons <- lapply(placebb, function(x) osmextract::oe_read(
+  file_path = file_path,
+  layer = "multipolygons", 
+  boundary = x, 
+  extra_tags = c("amenity", "building", "highway", "landuse", "lesiure", "natural", "railway", "waterway", "addr:housenumber", "addr:housename")))
+
+amenity <- list()
+building <- list()
+highway <- list()
+landuse <- list()
+lesiure <- list()
+natural <- list()
+railway <- list()
+waterway <- list()
+
+all_osm_data <- list()
+
+
+i <- 1
+for(i in seq_along(placebb)){
+  
+  all_osm_data[[i]] <- osm_data_points[[i]] %>% 
+      bind_rows(osm_data_lines[[i]]) %>% 
+      bind_rows(osm_data_multilinestrings[[i]]) %>% 
+      bind_rows(osm_data_multipolygons[[i]])
+  
+  amenity[[i]] <- all_osm_data[[i]] %>% filter(!is.na(amenity))
+  building[[i]] <- all_osm_data[[i]] %>% filter(!is.na(building))
+  highway[[i]] <- all_osm_data[[i]] %>% filter(!is.na(highway))
+  landuse[[i]] <- all_osm_data[[i]] %>% filter(!is.na(landuse))
+  lesiure[[i]] <- all_osm_data[[i]] %>% filter(!is.na(lesiure))
+  natural[[i]] <- all_osm_data[[i]] %>% filter(!is.na(natural))
+  railway[[i]] <- all_osm_data[[i]] %>% filter(!is.na(railway))
+  waterway[[i]] <- all_osm_data[[i]] %>% filter(!is.na(waterway))
+}
+
+names(amenity) <- names(hub_location)
+names(building) <- names(hub_location)
+names(highway) <- names(hub_location)
+names(landuse) <- names(hub_location)
+names(lesiure) <- names(hub_location)
+names(natural) <- names(hub_location)
+names(railway) <- names(hub_location)
+names(waterway) <- names(hub_location)
+
+
+amenity <- lapply(amenity, function(x) x %>% 
+      st_transform(crs = 2157))
+building <- lapply(building, function(x) x %>% 
+      st_transform(crs = 2157))
+highway <- lapply(highway, function(x) x %>% 
+      st_transform(crs = 2157))
+landuse <- lapply(landuse, function(x) x %>% 
+      st_transform(crs = 2157))
+lesiure <- lapply(lesiure, function(x) x %>% 
+      st_transform(crs = 2157))
+natural <- lapply(natural, function(x) x %>% 
+      st_transform(crs = 2157))
+railway <- lapply(railway, function(x) x %>% 
+      st_transform(crs = 2157))
+waterway <- lapply(waterway, function(x) x %>% 
+      st_transform(crs = 2157))
+
+
+
+list.save(amenity, "data/amenity.rdata")
+list.save(building, "data/building.rdata")
+list.save(highway, "data/highway.rdata")
+list.save(landuse, "data/landuse.rdata")
+list.save(lesiure, "data/lesiure.rdata")
+list.save(natural, "data/natural.rdata")
+list.save(railway, "data/railway.rdata")
+list.save(waterway, "data/waterway.rdata")
+list.save(hub_location, "data/hublocation.rdata")
+list.save(placebb, "data/placebb.rdata")
+
+
+
+```
+
+
+```{r load_data, eval = TRUE, echo=FALSE}
+
+amenity <- list.load("data/amenity.rdata")
+amenity <- amenity[1]
+building <- list.load("data/building.rdata")
+building <- building[1]
+highway <- list.load("data/highway.rdata")
+highway <- highway[1]
+landuse <- list.load("data/landuse.rdata")
+landuse <- landuse[1]
+lesiure <- list.load("data/lesiure.rdata")
+lesiure <- lesiure[1]
+natural <- list.load("data/natural.rdata")
+natural <- natural[1]
+railway <- list.load("data/railway.rdata")
+railway <- railway[1]
+waterway <- list.load("data/waterway.rdata")
+waterway <- waterway[1]
+hub_location <- list.load("data/hub_location.rdata")
+hub_location <- hub_location[1]
+placebb <- list.load("data/placebb.rdata")
+placebb <- placebb[1]
+
 net <- list.load("~/WP4_behaviour_nudging_etc/data/net.rdata")
+net <- net[1]
 net_bicycle <- list.load("~/WP4_behaviour_nudging_etc/data/net_bicycle.rdata")
+net_bicycle <- net_bicycle[1]
 net_foot <- list.load("~/WP4_behaviour_nudging_etc/data/net_foot.rdata")
+net_foot <- net_foot[1]
 net_motorcar <- list.load("~/WP4_behaviour_nudging_etc/data/net_motorcar.rdata")
-placebb <- list.load("~/WP4_behaviour_nudging_etc/data/net_placebb.rdata")
+net_motorcar <- net_motorcar[1]
 
+# Add distance by foot, bike and car
+amenity <- add_dist_function(list_to_add_to = amenity)  
+building <- add_dist_function(list_to_add_to = building)
 
-
+## Draw groupings from https://wiki.openstreetmap.org/wiki/Template:Building_typology
+building <- building %>% 
+  lapply(function(x) 
+    x %>% mutate(building_type_short = building %>%
+           fct_collapse(
+             residential = c("apartments", "barraks", "bungalow", "cabin", "detached", "annexe",  "dormitory", "farm", "ger", "house", "houseboat", "residential", "semidetached_house", "static_caravan", "stilt_house", "terrace", "tree_house"),
+             hotel = "hotel",
+             commerical = c("commercial", "industrial", "kiosk",
+                            "office", "retail", "service", "tourism", "warehouse"),
+             supermarket = "supermarket",
+             civic_amenity = c("bakehouse","bridge", "civic", "clock_tower", "fire_station", "government", "gatehouse", "museum", "public", "toilets"),
+             education = c("college", "kindergarten", "school", "university"),
+             health = c("hospital"),
+             religious = c("religious", "cathedral", "chapel", "church", "convent", "kingdom_hall", "monastery", "mosque", "presbytery", "shrine", "synagogue", "temple"),
+             transport = c("train_station", "transportation"), 
+             mixed_use = c("mixed_use", "retail;residential"),
+             sports = c("grandstand", "pavillion", "riding_hall", "sports_hall", "sports_centre", "stadium"),
+             
+             other = c("allotment_house", "barn", "boathouse", "carport", "conservatory", "cowshed", "digester", "farm_auxiliary", "garage", "garages", "greenhouse", "hangar", "hut", "parking", "roof", "shed", "slurry_tank", "service", "tech_cab", "transformer_tower", "water_tower", "storage_tank", "silo", 
+                           "beach_hut", "bunker", "castle", "construction", "container", "guardhouse", "military", "outbuilding", "pagoda", "quonset_hut", "roof", "ruins", "ship", "tent", "tower", "triumphal_arch", "windmill"), 
+             unknown = "yes"
+           ) %>% 
+             factor(levels = c("residential", "hotel", "commerical", "supermarket", "civic_amenity", "education", "health", "religious", "transport", "mixed_use", "sports", "other", "unknown"))))
+   
 
 ```
 
@@ -492,7 +724,7 @@ poly_as_lat_long <- poly %>% st_transform(crs = 4326)
 
 map_by_foot_a0_42[[i]] <- ggplot() +
     ggspatial::annotation_map_tile(type = "osm", zoom = 19) +
-  geom_sf(data = st_intersection(buildings[[i]] %>%
+  geom_sf(data = st_intersection(building[[i]] %>%
                     st_filter(poly, .predicate =  st_intersects), poly), 
           mapping = aes(fill = building_type_short)) + 
   labs(fill = "Building type") +
@@ -549,10 +781,10 @@ ggsave(file = "graphics/dundrum_a0_42.png", plot = map_by_foot_a0_42[[4]], heigh
 
 
 ```{r create_maps_at_1_to_500_scale, eval=FALSE, include=FALSE, echo=FALSE}
-
-
 #A1 594 x 841mm
-#Lego scale 1 to 42.  
+
+i <- 1
+
 
 map_by_foot_a0_500 <- list()
 for(i in seq_along(placebb)){
@@ -575,7 +807,7 @@ poly_as_lat_long <- poly %>% st_transform(crs = 4326)
 
 map_by_foot_a0_500[[i]] <- ggplot() +
     ggspatial::annotation_map_tile(type = "osm", zoom = 18) +
-  geom_sf(data = st_intersection(buildings[[i]] %>%
+  geom_sf(data = st_intersection(building[[i]] %>%
                     st_filter(poly, .predicate =  st_intersects), poly), 
           mapping = aes(fill=distance_by_foot), alpha = 0.25) + 
   labs(fill = "Walking distance via path/road network (m)") +
@@ -619,8 +851,8 @@ ggspatial::annotation_north_arrow() +
 
 ggsave(file = "graphics/letterkenny_a0_500.png", plot = map_by_foot_a0_500[[1]], height = 810, width = 1145, units = "mm") 
 #ggsave(file = "graphics/galway_a0_500.png", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/waterford_a0_500.png", plot = map_by_foot_a0_500[[3]], height = 810, width = 1145, units = "mm") 
-ggsave(file = "graphics/dundrum_a0_500.png", plot = map_by_foot_a0_500[[4]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/waterford_a0_500.png", plot = map_by_foot_a0_500[[3]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/dundrum_a0_500.png", plot = map_by_foot_a0_500[[4]], height = 810, width = 1145, units = "mm") 
 
 #ggsave(file = "graphics/galway_a0_500.pdf", plot = map_by_foot_a0_500[[2]], height = 810, width = 1145, units = "mm") 
 ```
@@ -654,7 +886,7 @@ poly_as_lat_long <- poly %>% st_transform(crs = 4326)
 
 map_by_foot_a0_1000[[i]] <- ggplot() +
   ggspatial::annotation_map_tile(type = "osm", zoom = 17) +
-  geom_sf(data = buildings[[i]] %>% 
+  geom_sf(data = building[[i]] %>% 
             st_filter(poly, .predicate =  st_intersects) %>%
             st_intersection(poly),
           mapping = aes(fill=distance_by_foot), alpha = 0.75) + 
@@ -697,12 +929,12 @@ ggspatial::annotation_north_arrow() +
 
 
 
-#ggsave(file = "graphics/letterkenny_a0_1000.png", plot = map_by_foot_a0_1000[[1]], height = 810, width = 1145, units = "mm") 
+ggsave(file = "graphics/letterkenny_a0_1000.png", plot = map_by_foot_a0_1000[[1]], height = 810, width = 1145, units = "mm") 
 #ggsave(file = "graphics/galway_a0_1000.png", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
 #ggsave(file = "graphics/waterford_a0_1000.png", plot = map_by_foot_a0_1000[[3]], height = 810, width = 1145, units = "mm") 
 #ggsave(file = "graphics/dundrum_a0_1000.png", plot = map_by_foot_a0_1000[[4]], height = 810, width = 1145, units = "mm") 
 
-ggsave(file = "graphics/galway_a0_1000.pdf", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
+#ggsave(file = "graphics/galway_a0_1000.pdf", plot = map_by_foot_a0_1000[[2]], height = 810, width = 1145, units = "mm") 
 ```
 
 
@@ -797,7 +1029,7 @@ bristol_totem_pedestal(file_to_save_to = "results/waterford_bristol_test.pdf",
     directions_image = "graphics/waterford_bristol_directions.png",
     map_local = ggplot2::ggplot() +
     # white building outlines
-    ggplot2::geom_sf(data = buildings$waterford %>%
+    ggplot2::geom_sf(data = building$waterford %>%
               sf::st_transform(crs = crs_local_metres) %>%
               sf::st_make_valid() %>%
               sf::st_crop(hub_location$waterford %>%
@@ -811,7 +1043,7 @@ bristol_totem_pedestal(file_to_save_to = "results/waterford_bristol_test.pdf",
       zoom = 16) + 
       bristol_local_map(
       amenity = amenity$waterford,
-      building = buildings$waterford,
+      building = building$waterford,
     hub_location = hub_location$waterford,
     map_limits = 500,
     crs_local_metres = crs_local_metres,
@@ -822,7 +1054,7 @@ bristol_totem_pedestal(file_to_save_to = "results/waterford_bristol_test.pdf",
     ),
     facilities_image =  "graphics/waterford_bristol_info.png",
     map_regional = synthesis_regional_map(
-      building = buildings$waterford,
+      building = building$waterford,
       hub_location = hub_location$waterford, 
       map_limits = 1500, 
       crs_local_metres = crs_local_metres, 
@@ -867,14 +1099,14 @@ birmingham_totem_pedestal(file_to_save_to = "results/waterford_birmingham_test.p
         package = "mobilityHubTools")), 
     directions_image = "graphics/waterford_birmingham_directions.png",
     map_local = synthesis_hub_elements_map(
-    building = buildings$waterford,
+    building = building$waterford,
     hub_location = hub_location$waterford,
     map_limits = 100,
     crs_local_metres = crs_local_metres,
     hub_element_locations = hub_element_locations_waterford
     ),
     map_regional = synthesis_regional_map(
-      building = buildings$waterford,
+      building = building$waterford,
       hub_location = hub_location$waterford, 
       map_limits = 1500, 
       crs_local_metres = crs_local_metres, 
@@ -927,7 +1159,7 @@ synthesis_totem(
                                    c(2,2,2,2,2),
                                    c(3,3,3,3,3)),
     element5_regional_map = synthesis_regional_map(
-      building = buildings$waterford,
+      building = building$waterford,
       hub_location = hub_location$waterford, 
       map_limits = 1500, 
       crs_local_metres = crs_local_metres, 
@@ -939,7 +1171,7 @@ synthesis_totem(
       highlight_landuse_regional = c(NA)),
     element6_what_is_this_bottom_text = "What is this: \nWelcome to this Mobility Hub / Local Travel Point,\n a location where shared mobility and other services\n offer a range of options to support sustainable travel. \n\nWhat is here: (see left)\nThis mobility hub is close to or includes: bus stops,\n shared e-bikes and bikes, bicycle parking, a taxi rank\n shared e-cars, and an electric car charger ",
        element7_hub_elements_map = synthesis_hub_elements_map(
-    building = buildings$waterford,
+    building = building$waterford,
     hub_location = hub_location$waterford,
     map_limits = 50,
     crs_local_metres = crs_local_metres,
@@ -947,7 +1179,7 @@ synthesis_totem(
     ),
     element8_how_can_you_travel = "How can you travel from here: (see maps below) \nBuses W1 and W2 (The Quay) and W5 (Oakwood) leave from the bus stop to your right (352251)\n Buses 736 (Dublin Airport) and GD02 (Dublin via Carlow) also leave from the bus stop to your right (352251) \n Bus W4 (City Centre) leaves from the bus stop behind you (352721)\n Bus W5 (University Hospital) leaves from stop 352911 (right and across Ballybricken Green) (see map below right).",
     element9_hub_surrounds_map = synthesis_hub_surrounds_map(
-    building = buildings$waterford,
+    building = building$waterford,
     map_limits = 100,
     crs_local_metres = crs_local_metres,
     annotation_map_zoom = 18,
@@ -958,7 +1190,7 @@ synthesis_totem(
 \n \nWhere am I:\n The Waterford ROBUST E-Mobility Hub at Ballybricken\n The latitude is 52.259951 and the longitude is -7.117006.\n what3words.com calls this location deflect.misty.debit\n ",
 
     element11_transport_map_small = synthesis_hub_surrounds_map(
-    building = buildings$waterford, 
+    building = building$waterford, 
     crs_local_metres = crs_local_metres,
     highlight_building = c(""),
     hub_location = hub_location$waterford,
@@ -967,7 +1199,7 @@ synthesis_totem(
   annotation_map_type = "osmtransport"),
 
     element12_transport_map_large = synthesis_hub_surrounds_map(
-      building = buildings$waterford, 
+      building = building$waterford, 
       crs_local_metres = crs_local_metres,
       hub_location = hub_location$waterford,
      map_limits = 2000,
@@ -976,7 +1208,7 @@ synthesis_totem(
   highlight_building = ""),
 
     element13_cycle_map = synthesis_hub_surrounds_map(
-      building = buildings$waterford, 
+      building = building$waterford, 
       crs_local_metres = crs_local_metres,
       hub_location = hub_location$waterford,
 map_limits = 2000,
@@ -991,6 +1223,316 @@ map_limits = 2000,
 
 
 ```
+
+
+
+```{r letterkenny_pedestal_totems, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+
+## install.packages("pak")
+#pak::pak("James-Reynolds/mobilityHubTools")
+
+library(mobilityHubTools)
+
+crs_local_metres <- 2157
+
+hub_element_locations_letterkenny <- tibble::tibble(
+        lat = c(54.951466, 
+                54.951323,
+                54.951380,
+                54.951494
+
+        ),
+               
+        lon = c(-7.734394,
+                -7.734394,
+                -7.734724,
+                -7.734702
+                ),
+        name = c(NA, 
+                 NA, 
+                 "Car charger", 
+                 NA),
+        icon_filename = c(
+          system.file("extdata/bicycle-electric-2.svg", package = "mobilityHubTools"),
+          system.file("extdata/shared-car-14.svg", package = "mobilityHubTools"), 
+           
+          system.file("extdata/charging_station.svg", package = "mobilityHubTools"), 
+          system.file("extdata/toilets.svg", package = "mobilityHubTools"))) %>% 
+          sf::st_as_sf(coords = c("lon", "lat"),
+                            crs = 4326) %>%
+      sf::st_transform(crs =  crs_local_metres) %>%
+      sf::st_cast("POINT")
+
+bristol_totem_pedestal(file_to_save_to = "results/letterkenny_bristol_test.pdf",
+                          hub_name_text = "ROBUST mobility hub",
+    directions_image = "graphics/letterkenny_bristol_directions.png",
+    map_local = ggplot2::ggplot() +
+    # white building outlines
+    ggplot2::geom_sf(data = building$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ),
+            mapping = ggplot2::aes(), fill = "white") + 
+      ggspatial::annotation_map_tile(
+      type = "osm",
+      zoom = 17) + 
+      bristol_local_map(
+      amenity = amenity$letterkenny,
+      building = building$letterkenny,
+      highway = highway$letterkenny,
+      leisure = lesiure$letterkenny,
+      natural = natural$letterkenny, 
+    hub_location = hub_location$letterkenny,
+    map_limits = 500,
+    crs_local_metres = crs_local_metres,
+    highlight_building = c("Letterkenny Post Office", "Quiet Moment Tearooms", "Letterkenny Bus Station", "Letterkenny Shopping Centre"),
+    highlight_amenity = c(""), 
+    highlight_leisure = c(""), 
+    highlight_landuse = c("")
+    ),
+    facilities_image =  "graphics/letterkenny_bristol_info.png",
+    map_regional = 
+      bristol_regional_map(
+      amenity = amenity$letterkenny,
+      building = building$letterkenny,
+      highway = highway$letterkenny,
+      leisure = lesiure$letterkenny,
+      natural = natural$letterkenny, 
+      hub_location = hub_location$letterkenny, 
+      map_limits = 1500, 
+      crs_local_metres = crs_local_metres, 
+      highlight_building_regional = c("Letterkenny Shopping Centre")),
+    acknowledgements_text = "Map data from OpenStreetMap, available under the Open Database License. © OpenStreetMap contributors. See openstreetmap.org/copyright \n \nIcons from https://github.com/gmgeo/osmic https://www.svgrepo.com/svg/450115/e-scooter \nand https://commons.wikimedia.org/wiki/File:RWBA_Behinderten-WC.svg")
+
+
+birmingham_totem_pedestal(file_to_save_to = "results/letterkenny_birmingham_test.pdf", 
+                                                hub_name_text = "ROBUST mobility hub",
+    icons_to_include_in_header = list(
+      system.file(
+        "extdata/bicycle-electric-2.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/shared-car-14.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/charging_station.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/toilets.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools")), 
+    directions_image = "graphics/letterkenny_birmingham_directions.png",
+    map_local = ggplot2::ggplot() +
+    # white building outlines
+    ggplot2::geom_sf(data = building$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ),
+            mapping = ggplot2::aes(), fill = "white") + 
+      ggspatial::annotation_map_tile(
+      type = "osm",
+      zoom = 17) + 
+      bristol_local_map(
+      amenity = amenity$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ),
+      building = building$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ),
+      highway = highway$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ),
+      leisure = lesiure$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ),
+      natural = natural$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ), 
+    hub_location = hub_location$letterkenny %>%
+              sf::st_transform(crs = crs_local_metres) %>%
+              sf::st_make_valid() %>%
+              sf::st_crop(hub_location$letterkenny %>%
+                        sf::st_transform(crs = crs_local_metres) %>%
+                        sf::st_buffer(dist = 400) %>%
+                        sf::st_bbox()
+              ),
+    map_limits = 400,
+    crs_local_metres = crs_local_metres,
+    highlight_building = c("Letterkenny Post Office", "Quiet Moment Tearooms", "Letterkenny Bus Station", "Letterkenny Shopping Centre"),
+    highlight_amenity = c(""), 
+    highlight_leisure = c(""), 
+    highlight_landuse = c("")
+    ),
+    map_regional = synthesis_regional_map(
+      building = building$letterkenny,
+      hub_location = hub_location$letterkenny, 
+      map_limits = 2000, 
+      crs_local_metres = crs_local_metres, 
+      annotation_map_tile_type = "osm", 
+      annotation_map_zoom = 15,
+      highlight_building_regional = c("Letterkenny Shopping Centre")))
+
+synthesis_totem(
+    file_to_save_to = "results/letterkenny_synthesis_test.pdf",
+    element1_what_is_this_top_text = "e-Mobility Hub / Local Travel Point",
+    element2_where_is_it_top_text = "Letterkenny ROBUST",
+    element2_where_is_it_top_text_detail = "Justice Walsh Road",
+
+       element3_what_is_here_top = list(
+      system.file(
+        "extdata/bicycle-electric-2.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/shared-car-14.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/charging_station.svg",
+        package = "mobilityHubTools"),
+      system.file(
+        "extdata/toilets.svg",
+        package = "mobilityHubTools"), 
+       system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools"), 
+      system.file(
+        "extdata/No_image.svg",
+        package = "mobilityHubTools")), 
+
+    element4_up_what_is_nearby = "",
+    element4_left_what_is_nearby = "\U2190 Town Centre ",
+    element4_right_what_is_nearby = "",
+    element4_layout_matrix = rbind(c(1,1,1,1,1),
+                                   c(2,2,2,2,2),
+                                   c(3,3,3,3,3)),
+    element5_regional_map = synthesis_regional_map(
+      building = building$letterkenny,
+      hub_location = hub_location$letterkenny, 
+      map_limits = 1500, 
+      crs_local_metres = crs_local_metres, 
+      annotation_map_tile_type = "osm", 
+      annotation_map_zoom = 15,
+      highlight_building_regional = c("Letterkenny Bus Station", "Letterkenny Shopping Centre"), 
+      highlight_amenity_regional = c(NA), 
+      highlight_leisure_regional = c(NA), 
+      highlight_landuse_regional = c(NA)),
+    element6_what_is_this_bottom_text = "What is this: \nWelcome to this Mobility Hub / Local Travel Point,\n a location where shared mobility and other services\n offer a range of options to support sustainable travel. \n\nWhat is here: (see left)\nThis mobility hub is close to or includes: shared e-bikes and bikes, shared e-cars, and an electric car charger ",
+       element7_hub_elements_map = synthesis_hub_elements_map(
+    building = building$letterkenny,
+    hub_location = hub_location$letterkenny,
+    map_limits = 50,
+    crs_local_metres = crs_local_metres,
+    hub_element_locations = hub_element_locations_letterkenny
+    ),
+    element8_how_can_you_travel = "How can you travel from here: (see maps below) \nBuses leave from the Letterkenny Bus Station, around 500m to the North East. \nThe Donegal Cycle route is about 350m to the South, \npassing through the intersection of Pease Road and Canal Road (see map, bottom right)",
+    element9_hub_surrounds_map = synthesis_hub_surrounds_map(
+    building = building$letterkenny,
+    map_limits = 100,
+    crs_local_metres = crs_local_metres,
+    annotation_map_zoom = 18,
+    annotation_map_type = "osm",
+    highlight_building = c("Letterkenny Bus Station", "Letterkenny Shopping Centre"),
+    hub_location = hub_location$letterkenny),
+    element10_what_is_nearby_bottom_text = "What is nearby: (see maps above)\n There are cafes, shops and a lot more nearby, including along Upper Main Street (150m to the west) \n.
+\n \nWhere am I:\n The Letterkenny ROBUST E-Mobility Hub at Justice Walsh Road\n The latitude is 54.951 and the longitude is -7.734.\n what3words.com calls this location bind.glider.beards\n ",
+
+    element11_transport_map_small = synthesis_hub_surrounds_map(
+    building = building$letterkenny, 
+    crs_local_metres = crs_local_metres,
+    highlight_building = c(""),
+    hub_location = hub_location$letterkenny,
+        map_limits = 500,
+  annotation_map_zoom = 15,
+  annotation_map_type = "osmtransport"),
+
+    element12_transport_map_large = synthesis_hub_surrounds_map(
+      building = building$letterkenny, 
+      crs_local_metres = crs_local_metres,
+      hub_location = hub_location$letterkenny,
+     map_limits = 40000,
+  annotation_map_zoom = 9,
+  annotation_map_type = "osmtransport",
+  highlight_building = ""),
+
+    element13_cycle_map = synthesis_hub_surrounds_map(
+      building = building$letterkenny, 
+      crs_local_metres = crs_local_metres,
+      hub_location = hub_location$letterkenny,
+map_limits = 2000,
+  annotation_map_zoom = 12,
+  annotation_map_type = "opencycle",
+  highlight_building = ""),
+
+    element14_acknowledgements_text = "Map data from OpenStreetMap, available under the Open Database License. \n © OpenStreetMap contributors. See openstreetmap.org/copyright \n \n Map tiles from: OSM standard layer © OpenStreetMap contributors.; \n and Thunderforest Open CycleMap and Transport layers by Andy Allan, https://www.thunderforest.com/"
+)
+
+
+
+
+```
+
+
 
 
 
