@@ -2,7 +2,7 @@
 title: "Electric shaRed mOBility hUbs Trial (ROBUST): Co-design Workshop: Galway"
 runningheader: "ROBUST: Co-design Workshops"
 author: "James Reynolds, Noreen Armstrong and Amaya Vega"
-date: "23 and 24 September, 2027"
+date: "23 and 24 September, 2026"
 output:
   tufte::tufte_handout:
 #    citation_package: natbib

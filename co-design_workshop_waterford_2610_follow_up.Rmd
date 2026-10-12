@@ -2,7 +2,7 @@
 title: "Electric shaRed mOBility hUbs Trial (ROBUST): Waterford 7-8 October 2026 workshops follow-up"
 runningheader: "ROBUST: Co-design Workshops, Waterford follow-up Oct, 2026"
 author: "James Reynolds"
-date: "9 October, 2026"
+date: "12 October, 2026"
 output:
   tufte::tufte_handout:
 #    citation_package: natbib
@@ -62,24 +62,26 @@ My initial takeaways from your comments are:
 
 ```{r stickers, include=TRUE, echo=FALSE, fig.margin = TRUE, out.width="100%", fig.cap="First version of sticker for car chargers"}
 
-knitr::include_graphics("graphics/charger_sticker_mock_up_261009.png")
+knitr::include_graphics("graphics/charger_sticker_261009.png")
 
 ```
 
-A sticker on the car charger to remind users to start the recharging (using the card inside the car) was suggested as a way to reduce problems with the cars being left plugged in but not 'charging'. I've put together a first version^[available at [https://github.com/James-Reynolds/WP4_co-creative_workshops/blob/main/graphics/charger_sticker_261009.png] or [https://github.com/James-Reynolds/WP4_co-creative_workshops/blob/main/graphics/charger_sticker_half_size_261009.png]].  
+A sticker on the car charger to remind users to start the recharging (using the card inside the car) was suggested as a way to reduce problems with the cars being left plugged in but not 'charging'. I've put together a first version (available at https://github.com/James-Reynolds/WP4_co-creative_workshops/blob/main/graphics/charger_sticker_half_size_261009.png or ...charger_sticker_mock_up_261009.png).  
 
-I'd suggest that all is needed is for someone who lives nearby to print out four of these on stickers^[Or get the [Design Print House](https://maps.app.goo.gl/R6qTjiNNpNx3ug7f6) to do it], and attach one to each end of each of the charging cables.  
-
-```{r stickers_test, include=TRUE, echo=FALSE, fig.margin = FALSE, out.width="100%", fig.cap="First version of sticker for car chargers - test in Sligo on similar charger"}
-
-knitr::include_graphics("graphics/charger_sticker_mock_up_261009.png")
-
-```
 
 I've tried it on a (different type of) car charger here in Sligo, and it looks ok as a concept. Maybe it might work on the ROBUST system in Waterford? 
 
+```{r stickers_test, include=TRUE, echo=FALSE, fig.fullwidth = TRUE, out.width="100%", fig.cap="First version of sticker for car chargers - test in Sligo on similar charger"}
+
+knitr::include_graphics("graphics/charger_sticker_mock_up_261009.png")
+
+```
 
 
+I'd suggest that all is needed is for \smallcaps{someone who lives nearby} to print out four of these on stickers^[Or get the [Design Print House](https://maps.app.goo.gl/R6qTjiNNpNx3ug7f6) to do it], and \smallcaps{attach one to each end} of each of the charging cables.  
+
+
+\newpage
 ## Pop-ups (seating?)
 
 
@@ -89,11 +91,11 @@ knitr::include_graphics("graphics/nine_strategies_for_legitimising_implementatio
 
 ```
 
-We touched on previous research findings about legitimising implementation through pragmatic strategies^[See https://james-reynolds.github.io/implementation_transit_priority_handout.html (QR code above). The pragramatic strategies are: legitimation *before* implementation (1. Technical evaluation, 2. vision-based plans, 3. public enquiry/decision-making); avoiding impacts (4. grade-separation, 5. additional capacity, 6. subservience); and legitimation *through* implementation (7. bottom-up and incremental, 8. *pop-ups*, 9. formal trials).]
+We touched on previous research findings about legitimising implementation through pragmatic strategies^[Legitimation *before* implementation (1. Technical evaluation, 2. vision-based plans, 3. public enquiry/decision-making); avoiding impacts (4. grade-separation, 5. additional capacity, 6. subservience); and legitimation *through* implementation (7. bottom-up and incremental, 8. *pop-ups*, 9. formal trials).].
 
 There may be opportunities in the short term to provide additional seating through bottom-up and incremental action.  This might also be experimented with through adopting a pop-up approach to see what might work, what the community might like to have, or even if the community wants anything at all^[Pop-downs are always possible!]. Watch out for that (possibly) happening sometime soon near the hub! 
 
-
+\vspace{2cm}
 
 
 ## Information - online
@@ -103,7 +105,7 @@ There may be opportunities in the short term to provide additional seating throu
 As discussed in the workshops, we now have a draft short video on the project and how to use the e-bikes and e-cars.  There's also an initial draft website.  Please let us know if you have any initial thoughts, and stay tuned for further versions.  
 
 
-```{r plot_robust_qr_code_to_youtube, include=TRUE, echo=FALSE, fig.margin = FALSE, out.width="100%", fig.cap="Draft mobility hub video and website links"}
+```{r plot_robust_qr_code_to_youtube, include=TRUE, echo=FALSE, fig.fullwidth = TRUE, out.width="100%", fig.cap="Draft mobility hub video and website links"}
 
 knitr::include_graphics("graphics/video_website_code_QR.png")
 
@@ -119,11 +121,11 @@ Likewise, the website is hosted on Github (QR code and link above, right), and u
 
 ## Information - physical 
 
-Thanks for the feedback on the research work done to date on developing Mobility Hub informational and directional signs. The software developed so far is available on github^[https://github.com/James-Reynolds/mobilityHubTools] as well as PDF versions of the Waterford totem / pedestal signs that we had printed out in A0 size at the workshop^[See https://github.com/James-Reynolds/WP4_co-creative_workshops/tree/main/graphics_totems] 
+Thanks for the feedback on the research work done to date on developing Mobility Hub informational and directional signs (see Figure 5). The software developed so far is available on github^[https://github.com/James-Reynolds/mobilityHubTools] as well as PDF versions of the Waterford totem / pedestal signs that we had printed out in A0 size at the workshop^[See https://github.com/James-Reynolds/WP4_co-creative_workshops/tree/main/graphics_totems] 
 
 
 
-```{r plot_totems, include=TRUE, echo=FALSE, fig.fullwidth = FALSE, out.width="100%", fig.cap="Waterford totems as per Bristol (left), Birmingham (centre) and a combined (right) style"}
+```{r plot_totems, include=TRUE, echo=FALSE, fig.fullwidth = TRUE, out.width="100%", fig.cap="Working draft of Waterford totems as per Bristol (left), Birmingham (centre) and a combined style (right)"}
 
 
 knitr::include_graphics("graphics/Waterford_totem_1.png")
@@ -131,7 +133,7 @@ knitr::include_graphics("graphics/Waterford_totem_1.png")
 ```
 
 
-Note of course, that these a rough outlines and just what we have so far.  I'll be looking towards improving these based on your comments in the workshops^[Especially adding information about the topography!], and iterating improved designs. If you like coding and are interest, you can (like the website) download the code, improve it, and send me a pull request to incorporate you improvements. 
+Note of course, that these are rough outlines and just what we have so far.  I'll be looking towards improving these based on your comments in the workshops^[Especially adding information about the topography!], and iterating improved designs. If you like coding and are interest, you can (like the website) download the code, improve it, and send me a pull request to incorporate you improvements. 
 
 Please stay tuned for further details of what I come up with - perhaps we might be able to test some of them in the field and see what people on the street think?      
 
