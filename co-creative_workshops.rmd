@@ -630,31 +630,65 @@ list.save(placebb, "data/placebb.rdata")
 
 
 
+
+net <- list()
+net_foot <- list()
+net_bicycle <- list()
+net_motorcar <- list()
+
+
+#net <- lapply(placebb, function(x) dodgr_streetnet(x))
+#net_foot <- lapply(net, function(x) weight_streetnet (x, wt_profile = "foot"))
+#net_bicycle <- lapply(net, function(x) weight_streetnet (x, wt_profile = "bicycle"))
+#net_motorcar <- lapply(net, function(x) weight_streetnet (x, wt_profile = "motorcar"))
+
+
+
+i <- 1
+for(i in seq_along(placebb)){
+
+
+net[[i]] <- placebb, function(x) dodgr_streetnet(x))
+net_foot <- lapply(net, function(x) weight_streetnet (x, wt_profile = "foot"))
+net_bicycle <- lapply(net, function(x) weight_streetnet (x, wt_profile = "bicycle"))
+net_motorcar <- lapply(net, function(x) weight_streetnet (x, wt_profile = "motorcar"))
+
+}
+
+list.save(net, "data/net.rdata")
+list.save(net_bicycle, "data/net_bicycle.rdata")
+list.save(net_foot, "data/net_foot.rdata")
+list.save(net_motorcar, "data/net_motorcar.rdata")
+
+
+
+
+
 ```
 
 
 ```{r load_data, eval = TRUE, echo=FALSE}
 
 amenity <- list.load("data/amenity.rdata")
-amenity <- amenity[1]
+#amenity <- amenity[1]
 building <- list.load("data/building.rdata")
-building <- building[1]
+#building <- building[1]
 highway <- list.load("data/highway.rdata")
-highway <- highway[1]
+#highway <- highway[1]
 landuse <- list.load("data/landuse.rdata")
-landuse <- landuse[1]
+#landuse <- landuse[1]
 lesiure <- list.load("data/lesiure.rdata")
-lesiure <- lesiure[1]
+#lesiure <- lesiure[1]
 natural <- list.load("data/natural.rdata")
-natural <- natural[1]
+#natural <- natural[1]
 railway <- list.load("data/railway.rdata")
-railway <- railway[1]
+#railway <- railway[1]
 waterway <- list.load("data/waterway.rdata")
-waterway <- waterway[1]
+#waterway <- waterway[1]
 hub_location <- list.load("data/hub_location.rdata")
-hub_location <- hub_location[1]
+#hub_location <- hub_location[1]
 placebb <- list.load("data/placebb.rdata")
-placebb <- placebb[1]
+#placebb <- placebb[1]
 
 net <- list.load("~/WP4_behaviour_nudging_etc/data/net.rdata")
 net <- net[1]
