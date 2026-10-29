@@ -117,9 +117,9 @@ knitr::include_graphics("graphics/charger_sticker_261009.png")
 - reliability and availability may be limiting the potential but might be improved on with more local and community involvement in the day-to-day management,
 - topography important^[Waterford is hilly!],
 - weather protected seating or other 'pop-ups' a possibility, 
-- potential for competition between Waterford and other hubs^[trips made or carbon saved leaderboards?],
-- demographics ariund hub^[older, more apartment living and interest in car free life] might suggest other vehicle types?^[e-tricycles, tandam bikes for taking someone somewhere, more e-cargobikes, longer range e-bikes (many people already have bikes), e-vans, etc.], 
-- problems with e-car charges being plugged in, but not activatived. Potential for sticker solution? (Figures 4 and 5); and
+- potential for competition between Waterford and other hubs^[trips-made or carbon-saved leaderboards?],
+- demographics around hub^[older, more apartment living and interest in car free life] might suggest other vehicle types?^[e-tricycles, tandam bikes for taking someone somewhere, more e-cargobikes, longer range e-bikes (many people already have bikes), e-vans, etc.], 
+- problems with e-car charges being plugged in, but not activated. Potential for sticker solution? (Figures 4 and 5); and
 
 
 ```{r stickers_test, include=TRUE, echo=FALSE, fig.margin = FALSE, out.width="90%", fig.cap="First version of sticker for car chargers - test in Sligo on similar charger"}
@@ -132,8 +132,8 @@ knitr::include_graphics("graphics/charger_sticker_mock_up_261009.png")
 \newpage
 \newthought{Letterkenny (5)}(October): 
 
-- Letterkenny 2040 Regeneration Strategy^[https://www.letterkenny2040.ie/], which includes a Concept Transport Hub close to the ROBUST hub^[ROBUST hub as an 'Annex' to the Concept Hub?](see also Figure 6),
-- Maybe include A-to-B as well as A-to-A^[*Note:* The Galway hub may effectively already have this due to its close proximity to TFI bikes] offerings, and
+- Letterkenny 2040 Regeneration Strategy^[https://www.letterkenny2040.ie/], which includes a Concept Transport Hub close to the ROBUST hub\footnote{ROBUST hub as an 'Annex' to the Concept Hub?} (see also Figure 6),
+- Maybe include A-to-B as well as A-to-A^[*Note:* The Galway hub may effectively already have this due to its close proximity to TFI bikes.] offerings, and
 - Integration with ATU campus? Is there an opportunity for a secondary hub there to facilitate shuttle e-bike trips? 
 
 
@@ -182,7 +182,7 @@ The ROBUST system addresses these challenges by having ONE PARKING SPACE per veh
 \newpage
 ## Discovery
 
-Journey mapping can be used to visually show travel`(see Figure 9). 
+Journey mapping can be used to visually show travel (see Figure 9). 
 
 ```{r travel_map, include=TRUE, echo=FALSE, out.width = "100%", fig.fullwidth = FALSE, fig.cap = "Journey mapping James' travels", crop = TRUE}
 
@@ -206,10 +206,11 @@ knitr::include_graphics("graphics/sligo_galway.002.png")
 ```
 
 
-- For those journeys you have mapped that involve travel in a petrol-driven vehicle* can this be replaced by use of one of the hub vehicles? 
+- For those journeys you have mapped that involve travel in a *petrol-driven vehicle* could this be replaced by use of a shared electric hub and its vehicles? 
 - Can other trips or parts of your travel be made easier through use of one of the hub vehicles?
 - What problems are there for you in (potentially) using the hub vehicles as part of your travel? 
 - Where possible,  *please redraw you journey maps* to reflect how your travel might look if a mobility hub was part of your trips (as in Figure 10).
+- What else might a hub offer to help with your mobility and logistics^[Luggage storage, parcel recieving, cafe, dry-cleaning....?]?
 
 
 \newpage
@@ -250,7 +251,7 @@ knitr::include_graphics("graphics/Napper_lego.png")
 ```
 
 
-Lego models, scaled plans and other materials can all be used as part of co-design processes[@Napper:2021aa](Figure 13). 
+Lego models, scaled plans and other materials can all be used as part of co-design processes [@Napper:2021aa] (Figure 13). 
 
 *6. What might a shared electric mobility hub that helps to meet you travel and other needs look like*?  
 
