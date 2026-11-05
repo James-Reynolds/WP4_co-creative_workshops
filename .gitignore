@@ -270,6 +270,7 @@ TSWLatexianTemp*
 # R data
 .R*
 .Rhistory
+.Rapp.history
 
 # Data directory
 data/*
@@ -281,4 +282,4 @@ data/*
 *a0_500.png
 *a0_42.png
 rosm.cache/*
-graphics/graphics.key
+graphics/graphics.*
