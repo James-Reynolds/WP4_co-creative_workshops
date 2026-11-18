@@ -1,0 +1,284 @@
+---
+title: Exploring attitudes towards shared electric mobility hubs (eHUBs) through stakeholder and community workshops
+author:
+  - name: James Reynolds
+    email: james.reynolds@atu.ie
+    footnote: 1
+    correspondingauthor: true
+  - name: Noreen Armstrong
+    email: noreen.armstrong@atu.ie
+    footnote: 2
+  - name: Amaya Vega
+    email: amaya.vega@atu.ie
+    footnote: 2
+  - name: Brian McCann
+    email: brian.mccann@atu.ie
+    footnote: 1
+  - name: Sarbast Molsem
+    email: molsem@tcd.ie
+    footnote: 3
+  - name: Agnieszka Stefaniec
+    email: a.stefaniec@soton.ac.uk
+    footnote: 4
+  - name: Brian Caulfield
+    email: brian.caulfield@tcd.ie
+    footnote: 3
+footnote:
+  - code: 1
+    text: "Atlantic Technological University, Sligo campus, Ireland"
+  - code: 2
+    text: "Atlantic Technological University, Galway City campus, Ireland"
+  - code: 3
+    text: "Centre for Transport Research, Dept of Civil, Structural and Environmental Engineering, Trinity College Dublin, Ireland"
+  - code: 4
+    text: "Department of Decision Analytics and Risk at Southampton Business School, University of Southampton, UK"
+abstract: |
+  This is the abstract.
+
+  It consists of two paragraphs.
+keywords: 
+  - mobility hub
+  - eHUBs
+  - co-design
+journal: "Journal of Cycling and Micromobility Research?"
+date: "`r Sys.Date()`"
+linenumbers: true
+numbersections: true
+bibliography: 01_exploratory_workshops.bib
+biblio-style: elsarticle-harv # author year style for natbib - use 'elsarticle-num' or 'elsarticle-num-names' for numbered scheme
+classoption: preprint, 3p, authoryear # remove authoryear is not using `elsarticle-harv`
+# Use a CSL with `citation_package = "default"`
+# csl: https://www.zotero.org/styles/elsevier-harvard
+output: 
+  rticles::elsevier_article:
+    keep_tex: true
+    citation_package: natbib
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+
+```
+
+
+
+# Introduction
+<!--  Situation  --> 
+The release of 
+Toronto's *Big Move* in 2008 [@Salsberg:2010aa] 
+provides an early example of the 'mobility hub' concept, 
+in the context of regional transport and landuse planning. 
+More recently, 
+the ``Shared Mobility Hub" idea has been introduced, 
+wherein 
+"...emphasis is given on shared mobility options such as bikes, scooters and cars(, while c)onnection with public transport (transit) is desirable but not necessary" [@Roukouni:2023aa]. 
+Shared *electric* mobility hubs, 
+sometimes called eHUBs [@Bosehans:2023aa], 
+add the possibility of on-site recharging 
+of micro-mobility vehicles (as well as shared e-cars). 
+Along such lines, 
+four shared e-mobility hubs have recently been implemented in 
+Letterkenny, Galway, Waterford and the suburbs of Dublin, 
+as part of the Electric shaRed mOBilityhUbS Trial (ROBUST) project [@ROBUST:2025aa].
+Each hub includes 
+e-bikes, 
+e-cargo bikes, 
+and shared electric cars 
+as part of the ‘base’ offering, 
+as well as power infrastructure to support recharging of these vehicles, 
+and other potential future uses [@Atlantic-Technological-University:2025ab, @Atlantic-Technological-University:2025aa, @Waterford-City-and-County-Council:2025aa]. 
+
+
+<!--  Problem  -->
+Shared micromobility, 
+including dockless e-bike and e-scooter systems, 
+have variously faced challenges, including: 
+poor user behaviour with respect to parking; 
+a need for workers to re-position vehicles and replace batteries; 
+poor build quality of many such vehicles; 
+market distortion, including related to 
+large fleets in central areas;
+and the risk of fires when battery recharging is done using non-bespoke or appropriately designed facilities (e.g. in gig-workers' houses)(see @Zhang:2022aa, @Meigs:2023aa, @Ferguson:2025aa and others).
+In contrast, 
+at the ROBUST hubs 
+there is a dedicated charging 
+and parking space for each micro-mobility vehicle, 
+which has to be returned to the same hub from which it was hired 
+(i.e. A-to-A trips only). 
+This may provide 
+operational advantages (minimal staffing), 
+but also for a more community-based 
+service profile 
+(with hubs potentially located in small towns 
+or outside of city centres) 
+so as to help towards 
+providing for last-mile and 
+and more occasional trips 
+that cannot be easily accomplished 
+on foot, 
+personal bicycle 
+or by transit. 
+A nearby eHUB might also help 
+communities transition to 
+electric cars, 
+without the large
+capital expense 
+involved in purchasing a private e-car. 
+
+<!--  Question  --> 
+As of yet, 
+however, 
+not much is known about 
+eHUBS with on-site recharging of micro-mobility vehicles. 
+It is unclear how the return-to-origin (A-to-A) 
+restriction might impact on users and useability/practicality.   
+Nor is it clear what potential hub offerings 
+might better meet community needs (including through expansion). 
+There also appears to be only limited understandings about 
+how best to communicate information about such a hub and how to use it. 
+
+<!--  Answer  --> 
+Research understandings about eHUBs 
+appear to be at an early stage, 
+for which many authors^[See, for example, @Bonoma:1984aa, @Benbasat:1987aa, @Eisenhardt:1989aa, @Meredith:1993aa, @ Cavaye:1996aa, @Darke:1998aa, @Stuart:2002aa, @Voss:2002aa and @Yin:2018ab.] 
+suggest adopting an exploratory case research approach. 
+Industrial-design-based approaches, 
+including those well suited to transport research 
+^[See @Coxon:2018aa, @Coxon:2021ab, @Gaitan:2021aa, @Napper:2021aa, @Pink:2021aa, @UK-Design-Council:0aa and others.], 
+such variously adopting iterative, 
+co-design and participatory,
+and creative 
+processes. 
+As such, this paper reports the findings from 
+workshops with 
+members of the public 
+and project stakeholders 
+held in Letterkenny, Galway and Waterford 
+to explore 
+attitudes, needs and ideas 
+as to how the ‘base’ shared e-mobility hub might be leveraged 
+and enhanced so as to better meet each community’s transport and other needs. 
+The cross-case comparisons 
+reported in this paper 
+might provide policy-makers, 
+practitioners and researchers 
+further insights into the types of offerings that might be provided 
+at shared e-mobility hubs and other transport facilities 
+in a variety of contexts (small town, secondary town centre, suburban locations etc.) 
+so as to enhance sustainable mobility and community outcomes 
+in future such transport facility developments.
+
+The rest of the paper is structured as follows: INSERT STRUCTURE HERE
+
+
+
+# Background and context
+
+## Shared micro-mobility problems
+
+
+## Return-to-origin (A-to-A) restriction might impact on users and useability/practicality.   
+
+## Potential hub offerings 
+THAT EXPLORATORY MODULAR THING
+
+
+
+## Communicate information about such a hub and how to use it, 
+SEAMLESS
+
+
+
+
+
+# Methodology
+
+## Study design
+
+@Yin:2018ab
+
+
+## Participants
+
+## Material and Instruments
+
+## Procedure
+
+## Analysis
+
+
+
+# Results
+
+
+# Discussion
+
+## Limitiations
+
+### Directions for furture research
+
+
+# Conclusions
+
+*Declaration of competing interests:* TO BE COMPLETED^[See https://www.sciencedirect.com/journal/journal-of-cycling-and-micromobility-research/publish/guide-for-authors#writing-and-formatting-file-format]
+
+*Funding:* This work was supported by the Sustainable Energy Agency of Ireland [Electric shaRed mOBility hUbS Trial (ROBUST), ] and involved: Trinity College Dublin; Atlantic Technological Uuniversity (ATU); ESB; and Enterprise Holdings.
+
+```{r contribution_matrix_template, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+
+tibble(Component = c("Conceptualization", "Data Curation", "Formal Analysis", "Funding Acquisition", "Investigation", "Methodology", "Project Administration", "Resources", "Software", "Supervision", "Validation", "Visualization", "Writing – Original Draft Preparation", "Writing – Review & Editing"),
+       Description = c(
+"Ideas; formulation or evolution of overarching research goals and aims.",
+"Management activities to annotate (produce metadata), scrub data and maintain research data (including software code, where it is necessary for interpreting the data itself) for initial use and later reuse.",  
+"Application of statistical, mathematical, computational, or other formal techniques to analyze or synthesize study data.", 
+"Acquisition of the financial support for the project leading to this publication.", 
+"Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection.", 
+"Development or design of methodology; creation of models.", 
+"Management and coordination responsibility for the research activity planning and execution.", 
+"Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools.", 
+"Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components.", 
+"Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team.", 
+"Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs.", 
+"Preparation, creation and/or presentation of the published work, specifically visualization/data presentation.", 
+"Creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation).", 
+"Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision – including pre- or post-publication stages."), 
+`NA` = c(
+  " ", " ", " ", " ", "X", " ", "X", " ", " ", " ", " ", " ", " ", " "),
+BC = c(
+  " ", " ", " ", "X", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "),
+BM = c(
+  " ", " ", " ", " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " "),
+SM = c(
+  " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " ", " ", " ", " "),
+JR = c(
+  "X", " ", " ", " ", "X", "X", " ", "", " ", " ", " ", " ", "X", " "),
+AS = c(
+  " ", " ", " ", "X", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "),
+AV= c(
+  " ", " ", " ", " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " ")) %>% 
+  kable(
+    caption = "Author contribution matrix, as per CRediT (Contribution Roles Taxonomy", 
+   )  %>%
+  kable_styling(font_size = 8) %>% 
+  column_spec(1, width = "3cm") %>% 
+  column_spec(2, width = "6cm") %>% 
+  column_spec(3, width = "0.5cm") %>% 
+  column_spec(4, width = "0.5cm") %>% 
+  column_spec(5, width = "0.5cm") %>% 
+  column_spec(6, width = "0.5cm") %>% 
+  column_spec(7, width = "0.5cm") %>% 
+  column_spec(8, width = "0.5cm") %>% 
+  column_spec(9, width = "0.5cm") 
+  
+
+```
+
+
+
+
+
+# References {-}
+

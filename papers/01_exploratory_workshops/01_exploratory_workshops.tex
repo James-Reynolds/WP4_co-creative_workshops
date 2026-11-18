@@ -1,0 +1,296 @@
+\documentclass[preprint, 3p,
+authoryear]{elsarticle} %review=doublespace preprint=single 5p=2 column
+%%% Begin My package additions %%%%%%%%%%%%%%%%%%%
+
+\usepackage[hyphens]{url}
+
+  \journal{Journal of Cycling and Micromobility
+Research?} % Sets Journal name
+
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%% end my additions to header
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+% TODO: Currently lineno needs to be loaded after amsmath because of conflict
+% https://github.com/latex-lineno/lineno/issues/5
+\usepackage{lineno} % add
+  \linenumbers % turns line numbering on
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage[]{natbib}
+\bibliographystyle{elsarticle-harv}
+
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Exploring attitudes towards shared electric mobility hubs (eHUBs) through stakeholder and community workshops},
+            colorlinks=false,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+
+\setcounter{secnumdepth}{5}
+% Pandoc toggle for numbering sections (defaults to be off)
+
+
+% tightlist command for lists without linebreak
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+
+
+\begin{document}
+
+
+\begin{frontmatter}
+
+  \title{Exploring attitudes towards shared electric mobility hubs
+(eHUBs) through stakeholder and community workshops}
+    \author[]{James Reynolds%
+  \corref{cor1}%
+  \fnref{1}}
+   \ead{james.reynolds@atu.ie} 
+    \author[]{Noreen Armstrong%
+  %
+  \fnref{2}}
+   \ead{noreen.armstrong@atu.ie} 
+    \author[]{Amaya Vega%
+  %
+  \fnref{2}}
+   \ead{amaya.vega@atu.ie} 
+    \author[]{Brian McCann%
+  %
+  \fnref{1}}
+   \ead{brian.mccann@atu.ie} 
+    \author[]{Sarbast Molsem%
+  %
+  \fnref{3}}
+   \ead{molsem@tcd.ie} 
+    \author[]{Agnieszka Stefaniec%
+  %
+  \fnref{4}}
+   \ead{a.stefaniec@soton.ac.uk} 
+    \author[]{Brian Caulfield%
+  %
+  \fnref{3}}
+   \ead{brian.caulfield@tcd.ie} 
+      \cortext[cor1]{Corresponding author}
+    \fntext[1]{Atlantic Technological University, Sligo campus, Ireland}
+    \fntext[2]{Atlantic Technological University, Galway City campus,
+Ireland}
+    \fntext[3]{Centre for Transport Research, Dept of Civil, Structural
+and Environmental Engineering, Trinity College Dublin, Ireland}
+    \fntext[4]{Department of Decision Analytics and Risk at Southampton
+Business School, University of Southampton, UK}
+  
+  \begin{abstract}
+  This is the abstract.
+
+  It consists of two paragraphs.
+  \end{abstract}
+    \begin{keyword}
+    mobility hub \sep eHUBs \sep 
+    co-design
+  \end{keyword}
+  
+ \end{frontmatter}
+
+\section{Introduction}\label{introduction}
+
+The release of Toronto's \emph{Big Move} in 2008 \citep{Salsberg:2010aa}
+provides an early example of the `mobility hub' concept, in the context
+of regional transport and landuse planning. More recently, the ``Shared
+Mobility Hub'' idea has been introduced, wherein ``\ldots emphasis is
+given on shared mobility options such as bikes, scooters and cars(,
+while c)onnection with public transport (transit) is desirable but not
+necessary'' \citep{Roukouni:2023aa}. Shared \emph{electric} mobility
+hubs, sometimes called eHUBs \citep{Bosehans:2023aa}, add the
+possibility of on-site recharging of micro-mobility vehicles (as well as
+shared e-cars). Along such lines, four shared e-mobility hubs have
+recently been implemented in Letterkenny, Galway, Waterford and the
+suburbs of Dublin, as part of the Electric shaRed mOBilityhUbS Trial
+(ROBUST) project \citep{ROBUST:2025aa}. Each hub includes e-bikes,
+e-cargo bikes, and shared electric cars as part of the `base' offering,
+as well as power infrastructure to support recharging of these vehicles,
+and other potential future uses
+\citep[\citet{Atlantic-Technological-University:2025aa},
+\citet{Waterford-City-and-County-Council:2025aa}]{Atlantic-Technological-University:2025ab}.
+
+Shared micromobility, including dockless e-bike and e-scooter systems,
+have variously faced challenges, including: poor user behaviour with
+respect to parking; a need for workers to re-position vehicles and
+replace batteries; poor build quality of many such vehicles; market
+distortion, including related to large fleets in central areas; and the
+risk of fires when battery recharging is done using non-bespoke or
+appropriately designed facilities (e.g.~in gig-workers' houses)(see
+\citet{Zhang:2022aa}, \citet{Meigs:2023aa}, \citet{Ferguson:2025aa} and
+others). In contrast, at the ROBUST hubs there is a dedicated charging
+and parking space for each micro-mobility vehicle, which has to be
+returned to the same hub from which it was hired (i.e.~A-to-A trips
+only). This may provide operational advantages (minimal staffing), but
+also for a more community-based service profile (with hubs potentially
+located in small towns or outside of city centres) so as to help towards
+providing for last-mile and and more occasional trips that cannot be
+easily accomplished on foot, personal bicycle or by transit. A nearby
+eHUB might also help communities transition to electric cars, without
+the large capital expense involved in purchasing a private e-car.
+
+As of yet, however, not much is known about eHUBS with on-site
+recharging of micro-mobility vehicles. It is unclear how the
+return-to-origin (A-to-A) restriction might impact on users and
+useability/practicality.\\
+Nor is it clear what potential hub offerings might better meet community
+needs (including through expansion). There also appears to be only
+limited understandings about how best to communicate information about
+such a hub and how to use it.
+
+Research understandings about eHUBs appear to be at an early stage, for
+which many authors\footnote{See, for example, \citet{Bonoma:1984aa},
+  \citet{Benbasat:1987aa}, \citet{Eisenhardt:1989aa},
+  \citet{Meredith:1993aa}, @ Cavaye:1996aa, \citet{Darke:1998aa},
+  \citet{Stuart:2002aa}, \citet{Voss:2002aa} and \citet{Yin:2018ab}.}
+suggest adopting an exploratory case research approach.
+Industrial-design-based approaches, including those well suited to
+transport research \footnote{See \citet{Coxon:2018aa},
+  \citet{Coxon:2021ab}, \citet{Gaitan:2021aa}, \citet{Napper:2021aa},
+  \citet{Pink:2021aa}, \citet{UK-Design-Council:0aa} and others.}, such
+variously adopting iterative, co-design and participatory, and creative
+processes. As such, this paper reports the findings from workshops with
+members of the public and project stakeholders held in Letterkenny,
+Galway and Waterford to explore attitudes, needs and ideas as to how the
+`base' shared e-mobility hub might be leveraged and enhanced so as to
+better meet each community's transport and other needs. The cross-case
+comparisons reported in this paper might provide policy-makers,
+practitioners and researchers further insights into the types of
+offerings that might be provided at shared e-mobility hubs and other
+transport facilities in a variety of contexts (small town, secondary
+town centre, suburban locations etc.) so as to enhance sustainable
+mobility and community outcomes in future such transport facility
+developments.
+
+The rest of the paper is structured as follows: INSERT STRUCTURE HERE
+
+\section{Background and context}\label{background-and-context}
+
+\subsection{Shared micro-mobility
+problems}\label{shared-micro-mobility-problems}
+
+\subsection{Return-to-origin (A-to-A) restriction might impact on users
+and
+useability/practicality.}\label{return-to-origin-a-to-a-restriction-might-impact-on-users-and-useabilitypracticality.}
+
+\subsection{Potential hub offerings}\label{potential-hub-offerings}
+
+THAT EXPLORATORY MODULAR THING
+
+\subsection{Communicate information about such a hub and how to use
+it,}\label{communicate-information-about-such-a-hub-and-how-to-use-it}
+
+SEAMLESS
+
+\section{Methodology}\label{methodology}
+
+\subsection{Study design}\label{study-design}
+
+\citet{Yin:2018ab}
+
+\subsection{Participants}\label{participants}
+
+\subsection{Material and Instruments}\label{material-and-instruments}
+
+\subsection{Procedure}\label{procedure}
+
+\subsection{Analysis}\label{analysis}
+
+\section{Results}\label{results}
+
+\section{Discussion}\label{discussion}
+
+\subsection{Limitiations}\label{limitiations}
+
+\subsubsection{Directions for furture
+research}\label{directions-for-furture-research}
+
+\section{Conclusions}\label{conclusions}
+
+\emph{Declaration of competing interests:} TO BE COMPLETED\footnote{See
+  https://www.sciencedirect.com/journal/journal-of-cycling-and-micromobility-research/publish/guide-for-authors\#writing-and-formatting-file-format}
+
+\emph{Funding:} This work was supported by the Sustainable Energy Agency
+of Ireland {[}Electric shaRed mOBility hUbS Trial (ROBUST), {]} and
+involved: Trinity College Dublin; Atlantic Technological Uuniversity
+(ATU); ESB; and Enterprise Holdings.
+
+\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{6cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}>{\raggedright\arraybackslash}p{0.5cm}}
+\caption{\label{tab:contribution_matrix_template}Author contribution matrix, as per CRediT (Contribution Roles Taxonomy}\\
+\toprule
+Component & Description & NA & BC & BM & SM & JR & AS & AV\\
+\midrule
+Conceptualization & Ideas; formulation or evolution of overarching research goals and aims. &  &  &  &  & X &  & \\
+Data Curation & Management activities to annotate (produce metadata), scrub data and maintain research data (including software code, where it is necessary for interpreting the data itself) for initial use and later reuse. &  &  &  &  &  &  & \\
+Formal Analysis & Application of statistical, mathematical, computational, or other formal techniques to analyze or synthesize study data. &  &  &  &  &  &  & \\
+Funding Acquisition & Acquisition of the financial support for the project leading to this publication. &  & X &  &  &  & X & \\
+Investigation & Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection. & X &  &  &  & X &  & \\
+\addlinespace
+Methodology & Development or design of methodology; creation of models. &  &  &  &  & X &  & \\
+Project Administration & Management and coordination responsibility for the research activity planning and execution. & X &  &  & X &  &  & \\
+Resources & Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools. &  &  &  &  &  &  & \\
+Software & Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components. &  &  &  &  &  &  & \\
+Supervision & Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team. &  &  & X &  &  &  & X\\
+\addlinespace
+Validation & Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs. &  &  &  &  &  &  & \\
+Visualization & Preparation, creation and/or presentation of the published work, specifically visualization/data presentation. &  &  &  &  &  &  & \\
+Writing – Original Draft Preparation & Creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation). &  &  &  &  & X &  & \\
+Writing – Review \& Editing & Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision – including pre- or post-publication stages. &  &  &  &  &  &  & \\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\renewcommand\refname{References}
+\bibliography{01_exploratory_workshops.bib}
+
+
+\end{document}

@@ -283,3 +283,8 @@ data/*
 *a0_42.png
 rosm.cache/*
 graphics/graphics.*
+
+# paper style guide
+papers/01_exploratory_workshops/00*
+
+
