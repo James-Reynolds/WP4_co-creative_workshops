@@ -1,8 +1,8 @@
 ---
-title: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs"
-runningheader: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs" # only for pdf output
+title: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs - working notes"
+runningheader: "Using co-design workshops to explore community needs and future directions for shared electric mobility hubs - working notes" # only for pdf output
 subtitle: "" # only for html output
-author: "James Reynolds, Noreen Armstrong, Brian McCann, Amaya Vega, Agnieszka Stefaniec, Brian Caulfield and Sarbast Moselm"
+author: "James Reynolds, Noreen Armstrong, Brian McCann, Amaya Vega, Sarbast Moselm Agnieszka Stefaniec and Brian Caulfield"
 date: "`r Sys.Date()`"
 output:
   tufte::tufte_html: default
@@ -496,7 +496,7 @@ knitr::include_graphics("graphics/letterkenny_cars.png")
 
 ### Maps for workshops
 
-```{r update_osm_data, eval = TRUE, echo=FALSE}
+```{r update_osm_data, eval = FALSE, echo=FALSE}
 
 
 hub_location <- list(
@@ -648,7 +648,7 @@ i <- 1
 for(i in seq_along(placebb)){
 
 
-net[[i]] <- placebb, function(x) dodgr_streetnet(x))
+net[[i]] <- lapply(placebb, function(x) dodgr_streetnet(x))
 net_foot <- lapply(net, function(x) weight_streetnet (x, wt_profile = "foot"))
 net_bicycle <- lapply(net, function(x) weight_streetnet (x, wt_profile = "bicycle"))
 net_motorcar <- lapply(net, function(x) weight_streetnet (x, wt_profile = "motorcar"))
@@ -667,7 +667,7 @@ list.save(net_motorcar, "data/net_motorcar.rdata")
 ```
 
 
-```{r load_data, eval = TRUE, echo=FALSE}
+```{r load_data, eval = FALSE, echo=FALSE}
 
 amenity <- list.load("data/amenity.rdata")
 #amenity <- amenity[1]
@@ -977,7 +977,7 @@ ggsave(file = "graphics/letterkenny_a0_1000.png", plot = map_by_foot_a0_1000[[1]
 
 
 
-```{r waterford_pedestral_totems, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+```{r waterford_pedestral_totems, eval = FALSE, echo = FALSE,  warning=FALSE, message=FALSE}
 
 ## install.packages("pak")
 #pak::pak("James-Reynolds/mobilityHubTools")
@@ -1260,7 +1260,7 @@ map_limits = 2000,
 
 
 
-```{r letterkenny_pedestal_totems, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+```{r letterkenny_pedestal_totems, eval = FALSE, echo = FALSE,  warning=FALSE, message=FALSE}
 
 ## install.packages("pak")
 #pak::pak("James-Reynolds/mobilityHubTools")
