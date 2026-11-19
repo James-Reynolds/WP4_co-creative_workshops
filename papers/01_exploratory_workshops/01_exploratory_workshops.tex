@@ -60,6 +60,17 @@ Research?} % Sets Journal name
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% From pandoc table feature
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 
 
 
@@ -148,12 +159,11 @@ necessary'' \citep{Roukouni:2023aa}. Shared \emph{electric} mobility
 hubs, sometimes called eHUBs \citep{Bosehans:2023aa}, add the
 possibility of on-site recharging of micro-mobility vehicles (as well as
 shared e-cars). Along such lines, four shared e-mobility hubs have
-recently been implemented in Letterkenny, Galway, Waterford and the
-suburbs of Dublin, as part of the Electric shaRed mOBilityhUbS Trial
-(ROBUST) project \citep{ROBUST:2025aa}. Each hub includes e-bikes,
-e-cargo bikes, and shared electric cars as part of the `base' offering,
-as well as power infrastructure to support recharging of these vehicles,
-and other potential future uses
+recently been implemented in Ireland as part of the Electric shaRed
+mOBilityhUbS Trial (ROBUST) project \citep{ROBUST:2025aa}. Each hub
+includes e-bikes, e-cargo bikes, and shared electric cars as part of the
+`base' offering, as well as power infrastructure to support recharging
+of these vehicles, and other potential future uses
 \citep[\citet{Atlantic-Technological-University:2025aa},
 \citet{Waterford-City-and-County-Council:2025aa}]{Atlantic-Technological-University:2025ab}.
 
@@ -229,13 +239,209 @@ it,}\label{communicate-information-about-such-a-hub-and-how-to-use-it}
 
 SEAMLESS
 
+\subsection{Context of the Electric shaRed mOBilityhUbS Trial (ROBUST)
+project}\label{context-of-the-electric-shared-mobilityhubs-trial-robust-project}
+
+The Electric shaRed mOBility hUbS Trial (ROBUST) project involves four
+sites: near the Westside Library in Galway; in Justic
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1200}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1520}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1360}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2560}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3360}}@{}}
+\caption{ROBUST hub characteristics}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Characteristic
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Letterkenny
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Galway
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Waterford
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Dublin
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Characteristic
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Letterkenny
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Galway
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Waterford
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Dublin
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Location & Justice Walsh Road & Westside & Ballybricken & Dundrum \\
+Context & Town centre & Secondary centre & Town centre / shopping
+precinct & Close to a major suburban shopping centre \\
+Nearby transit & Bus station & Bus stops & Railway and bus stops & Light
+Rail Transit and bus stops \\
+Pop nearby* & 5,656 & 10,146 & 11,919 & 13,542 \\
+Pop rest\# & 17,042 & 76,186 & 48,504 & 1,256,736 \\
+Launch date & 5/9/25 & 21/3/25 & 31/10/25 & 30/10/26 \\
+\end{longtable}
+
+\subsubsection{Westside, Galway}\label{westside-galway}
+
+\subsubsection{Ju, Galway}\label{ju-galway}
+
+Letterkenny, Waterford and Dublin, where `initial offers' of four
+electric bikes, one electric cargo bike and two electric cars were
+implemented during 2025 and 2026. These `initial offers' were largely
+designed and implemented by engineers, planners and other technical
+specialists to meet the basic needs and functionality requirements
+associated with parking and charging the seven vehicles at each site.
+Design approval processes with local authorities, to meet safety
+requirements and to respond to other technical necessities were
+undertaken, in part relying on those developed for the implementation of
+shared electric car, docked bike and similar technologies on an
+individual vehicle or mode basis (i.e.~not as part of a `mobility hub').
+There are, however, a wide range of research questions related to what
+users might want, need, expect or otherwise desire from a `mobility
+hub', and the extent to which these are fulfilled by the `initial
+offers', as implemented, is unclear.
+
+\citet{Yin:2018ab}
+
+Overall, therefore, this exploratory study focuses on three questions
+that appear especially relevant to eHUBs where all vehilces (including
+micro-mobility vehicles) have their own dedicated parking space and
+charging infrastructure. Taking the ROBUST hubs as initially implemented
+as a `base scenario', the study examines:
+
+\begin{itemize}
+\tightlist
+\item
+  How a return-to-origin (A-to-A) restriction minght impact on users and
+  useability?
+\item
+  How hub offerings might better meet community needs (including through
+  expansion)?
+\item
+  How information about a hub and how to use it be effectively
+  communicated?
+\end{itemize}
+
 \section{Methodology}\label{methodology}
 
 \subsection{Study design}\label{study-design}
 
-\citet{Yin:2018ab}
+This study adopts a case-research design, based around three of the four
+hubs in the Electric shaRed mOBilityhUbS Trial (ROBUST) project. Case
+studies can be particularly useful for exploratory research, where the
+researchers do not have control over events (limiting the feasibility of
+case-control experiments), and where questions relate to `how' or `why'
+(\citet{Yin:2018ab} and others). While quantitative approaches (based
+around having large, random and independent samples, and allowing
+statistically significant results to be obtained for research relating
+to `how many' or `what' types of questions) case research in contrast
+can allow for greater depth of engagement with each individual unit and
+its context. Some misunderstandings about case-based methods, however,
+relate to the sampling frame, in that cases might not be selected
+randomly or because they are representative. Instead, the methodological
+literature emphasises that case researchers should consider theoretical
+reasons in selecting cases, for instance because they represent a
+critical, leading or insightful case, or might provide for replication
+or the examination of polar opposites. The `duality criterion' is also a
+consideration, in that case researchers need to be at the same time
+grounded in the context of each case, allowing phenomenon to be examined
+in great depth, yet at the same time seeking generalisation such that
+findings can be reasonably extrapolated as applying to other
+circumstances beyond the studied cases (\citet{Benbasat:1987aa},
+\citet{Bonoma:1984aa}, \citet{Darke:1998aa}, \citet{Meredith:1998aa},
+\citet{Stuart:2002aa}, \citet{Denscombe:2007aa},
+\citet{Ketokivi:2014aa}, \citet{Yin:2018ab} and others)
+
+Here the selection of the three included cases is largely forced
+(i.e.~for non-theoretical reasons) due to the circumstances of the
+larger ROBUST project, in that the Dublin hub implementation had been
+delayed for reasons outside the researchers control. Likewise, site
+locations and many other f
+
+the conditions of research funding. However, this also represents a
+unique opportunity, in that the four implemented hubs exist because of
+this funding and that there are no known other locations where such hubs
+are being trialed or where researchers might have the same sort of
+access to data, stakeholders or other aspects of the project. Research
+questions here also relate to how user-centric design, co-design and
+similar approaches might be used to improve outcomes, support mobility
+and community at individual sites, and in understanding how and why some
+user-centric design approaches might be more or less effective in the
+context of mobility hubs. Tools developed here might be generalisable to
+other locations, such that those implementing future hubs might have
+resources that can be used for maximising the potential of shared
+electric mobility at each location. As well, findings about how, why and
+what potential additions or modifications to the `initial offers'
+implemented at Letterkenny, Galway, Waterford and Dundrum may provide
+insights into how such `initial offers' might be varied, improved or
+otherwise enhanced, including through the potential development of
+different `initial offers' for different contexts. Hence, findings from
+research at each of the ROBUST sites might provide contrasts about how
+needs, desires and the like vary between larger cities and smaller
+towns, central versus suburban contexts, and likewise across the range
+of characteristics covered by the four sites. These sites, their
+surrounding contexts and the `initial offers' are each are described in
+more detail in the following. The `Challenge' for this research (c.f. UK
+Design Council's Framework for Innovation above) is effectively set by
+these sites and implementations, as initially implemented, in that the
+outcome objective is to: \emph{discover} the initial offer's strengths,
+weaknesses and opportunities for imporvement; \emph{define} these as a
+problem that can be addressed through industrial design, user-centric,
+participatory or similar methods; \emph{develop} options; and
+\emph{deliver} an improved `initial offer' that might form the basis for
+future mobility hub implementations (including at scale).
+
+In-depth exploration of how the ROBUST project was developed and
+implemented as a piece of `transport policy' is provided in
+\citet{Reynolds:0ab}, while \citet{Reynolds:0aa} details the processes
+used to identify options, evaluate and select between locations
+themselves. The hubs were launched in: March 2025 in Galway
+\citep{Atlantic-Technological-University:2025ab}; September 2025 in
+Letterkenny \citep{Atlantic-Technological-University:2025aa}; November
+2025 in Waterford \citet{Waterford-City-and-County-Council:2025aa}; and
+XXX 2026 in Dundrum. The initial offer at each hub includes two
+components: an electric bicycle / cargo-bicycle parking and charging
+faciliy; and two electric car parking spaces with a charging facility.
+
+While members of the ROBUST research team had been involved in the
+development, siting and other aspects of implementation prior to the
+launch of each hub, by happenstance there was a switch-over of personnel
+through 2025 and 2026, with the lead author starting in September 2025,
+which provides a useful demarcation point for the purposes of this case
+study. Hence, September 2025 is defined as the commencement of the
+`post-initial-implementation co-design-related activities' as it
+represents a transition (and handover) from many of those involved in
+the development of the `initial offer' and to this research. The
+following table maps research activities, in chronological order, to
+each of the Double Diamond design phases.
 
 \subsection{Participants}\label{participants}
+
+\begin{longtable}[t]{lrllr}
+\caption{\label{tab:workshop_participants}Summary of workshops}\\
+\toprule
+Workshop & Date & Location & Type & Participants\\
+\midrule
+1 & 23/09/26 & Galway & Public* & 11?\\
+2 & 24/09/26 & Galway & Public & 0\\
+3 & 07/10/26 & Waterford & Public & 2\\
+4 & 08/10/26 & Waterford & Stakeholders & 3\\
+5 & 13/10/26 & Letterkenny & Stakeholders & 4?\\
+\addlinespace
+6 & 29/10/26 & Galway & Stakeholders & 5\\
+\bottomrule
+\end{longtable}
 
 \subsection{Material and Instruments}\label{material-and-instruments}
 
