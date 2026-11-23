@@ -306,11 +306,11 @@ tibble(Characteristic = c("Population (approx)"),
   add_row(Characteristic = "Nearby facilities", Letterkenny = "Parking, medical, cafe", Galway = "Library, community centre, sporting facilities", Waterford = "Cafes, shops, 'Green'", Dublin = "Major shopping centre, school") %>% 
   add_row(Characteristic = "Nearby transit", Letterkenny = "Bus station", Galway = "Bus stops", Waterford = "Bus stops and railway station", Dublin = "Light Rail Transit and bus stops") %>% 
   add_row(Characteristic = "Launch date", Letterkenny = "5/9/25", Galway = "21/3/25", Waterford = "31/10/25", Dublin = "30/10/26") %>%
-  kable(
+  select(c("Characteristic", "Galway", "Letterkenny","Waterford", "Dublin")) %>%
+    kable(
     caption = "ROBUST hub and surrounding characteristics",
     align = "lllll"
-   ) 
-  
+   )
 ```
 
 
@@ -349,31 +349,45 @@ Various posters, leaflets, online and social media posts
 and other advertising material 
 was distributed around the time of each hub launch. 
 The hub launches also received some media attention 
-as well as posts on various stakeholder and other institutional webpages (e.g. @Atlantic-Technological-University:2025ab, @Atlantic-Technological-University:2025aa, @Waterford-City-and-County-Council:2025aa, 
-@ESB:0aa, @Kelleher:2025aa)
+as well as posts on various stakeholder and other institutional webpages ^[e.g. @Atlantic-Technological-University:2025ab, @Atlantic-Technological-University:2025aa, @Waterford-City-and-County-Council:2025aa, 
+@ESB:0aa, and @Kelleher:2025aa]
 
-## Procedure, material and instruments
+## Processes and instruments
 
 The case-based research 
-reported in this paper centered around two components 
-involving human participants, 
-for which ethics approval was obtained^[Part of ATU Research Ethics application UREC_ATU_2026_347, approval granted May 27, 2026]. 
-These were aligned with the the ROBUST project's larger aims^[For each hub "to serve as an incubator, accelerating the uptake of electric mobility options by allowing interacting with future mobility technologies and removing barriers through participatory research (and with v)arious stakeholders...engaged in the process of hub evolution through stakeholder workshops and co-creation workshops" [@ROBUST:2025aa]]. 
-A strength of case-research approaches is 
-that they allow for drift [@Benbasat:1987aa, @Bonoma:1984aa, @Voss:2002aa], 
-which might
-iteration, 
+reported in this paper 
+occurred with the 12-month period 
+between the launch of the 
+Waterford and Dublin hubs^[End 
+of October 2025 to beginning of November 2026.]. 
+This activity included two components 
+specifically based around human participants: 
+(1) behaviour nudging and 
+(2) co-design workshops; 
+for which ethics approval was obtained,^[Part of ATU Research Ethics application UREC_ATU_2026_347, approval granted May 27, 2026. A separate research ethics approval from Trinity College Dublin (REAMSs No 4432, approved June 16, 2025, covered other components of the ROBUST project involving human participants (i.e. collection of data about users and usage).], 
+as well activities undertaken by the ROBUST team and partner organisations. 
+These two components 
+were largerly aligned with ROBUST's aims^[For each hub 
+"to serve as an incubator, accelerating the uptake of electric mobility options by allowing interacting with future mobility technologies and removing barriers through participatory research (and with v)arious stakeholders...engaged in the process of hub evolution through stakeholder workshops and co-creation workshops" [@ROBUST:2025aa]]. 
+
+A strength of case-research approaches 
+is  that they allow for drift [@Benbasat:1987aa, @Bonoma:1984aa, @Voss:2002aa], which might allow for iteration, 
 and adjustment to respond to 
 the changed circumstances 
 that might occur 
 when researchers do not have full control of events. 
-In general, 
-the research reported in this paper
-would appear to have involved 
-some considerable 'drift' 
-as changes to the initial offer were negotiated, 
-project priorities were adjusted, 
-and the limits of available funding for research activity were reached. 
+As discussed in later sections, 
+such 'drift' was encountered during the ROBUST project, 
+primarily related to the 
+limits of available funding for research activity 
+being reached. 
+The ROBUST project received considerably less funding than had been applied for, yet the number of included hubs (4) was not reduced. 
+Hence the originally envisaged hub incubation was abandoned, while the behaviour nudging and co-design workshop programs were curtailed. 
+Other challenges related to: 
+a lack of project control over site selection^[Largely set 
+by institutional and political stakeholders.];
+vehicle availability, management and maintenance; and 
+technological issues, including related to app functionality and data sharing. 
 As such, 
 the next two subsections 
 briefly outline the two components 
@@ -388,28 +402,192 @@ through time along with the presentation of results later in the paper.
 
 ### Behaviour nudging
 
+Development of the behaviour nudging component 
+drew on background context 
+from travel behaviour, 
+transport marketing, 
+and education and encouragement programs, 
+such as the "TravelSmart", "IndiMark" and "TravelBlending approaches 
+(see @AMPT:1998aa, @brog1998marketing, 
+@Giuliano:2005aa, @james2017travelsmart 
+and others). 
+It was unclear if such tailored marking approaches, 
+long used in the contexts of transit 
+and non-motorised travel, 
+might be effective in 
+encouraging the use of eHUBs. 
+As such, 
+the behaviour-nudging component 
+of the research envisaged 
+mail-out and/or in-person delivery 
+of individualized material to nearby addresses, 
+posters and leaflets, 
+social media engagement 
+and the recruitment of 'local heroes' 
+for each hub. 
+This was also seen as an avenue for 
+informal discussion between the researchers and community members 
+(especially during in-person delivery of materials) 
+as a way to gain understandings about 
+community attitudes to the hubs, 
+initial offers and
+the potential of eHUBS. 
+
 ### Co-design workshops
+The ROBUST research aims 
+and the gaps in understandings discussed earlier in this paper
+also relate to: participatory research; 
+eHUB design and how offerings might better meet community needs; and
+information provision to users. 
+Initial development of this component of the research 
+was informed by the background context of 
+applying industrial design approaches 
+to challenges in transportation. 
+@Coxon:2018aa, @Pink:2021aa, @Napper:2021aa, and @Gaitan:2021aa 
+provide examples of this approach, 
+which is often based around the UK Design Council's 
+Double Diamond Framework for Innovation [@UK-Design-Council:0aa].  
+This is iterative, 
+but involves switching between divergent and convergent approaches 
+across four steps.  
+In the context of the ROBUST hubs, 
+these were conceptualised as involving
+*discovering* the initial offer's 
+strengths, weaknesses and opportunities for improvement; 
+*defining* these as problems to be addressed; 
+*developing* options; 
+and *delivering* an improvement on the implemented 
+'initial offer' that might form a basis for future mobility hubs.  
 
+## Participants and materials
 
- Research questions here also relate to how user-centric design, co-design and similar approaches might be used to improve outcomes, support mobility and community at individual sites, and in understanding how and why some user-centric design approaches might be more or less effective in the context of mobility hubs. Tools developed here might be generalisable to other locations, such that those implementing future hubs might have resources that can be used for maximising the potential of shared electric mobility at each location. As well, findings about how, why and what potential additions or modifications to the 'initial offers' implemented at Letterkenny, Galway, Waterford and Dundrum may provide insights into how such 'initial offers' might be varied, improved or otherwise enhanced, including through the potential development of different 'initial offers' for different contexts. Hence, findings from research at each of the ROBUST sites might provide contrasts about how needs, desires and the like vary between larger cities and smaller towns, central versus suburban contexts, and likewise across the range of characteristics covered by the four sites.  These sites, their surrounding contexts and the 'initial offers' are each are described in more detail in the following. The 'Challenge' for this research (c.f. UK Design Council's Framework for Innovation above) is effectively set by these sites and implementations, as initially implemented, in that the outcome objective is to: *discover* the initial offer's strengths, weaknesses and opportunities for imporvement; *define* these as a problem that can be addressed through industrial design, user-centric, participatory or similar methods; *develop* options; and *deliver* an improved 'initial offer' that might form the basis for future mobility hub implementations (including at scale).  
+### Researchers 
+This paper picks up the case study narrative after the launch 
+of the Galway, Letterkenny and Waterford hubs. 
+However, by then ROBUST project had 
+already been underway for two years, 
+with the focus on infrastructure implementation. 
+Over that time there had been some changes to 
+research personnel^[As originally proposed, 
+ROBUST was led by Trinity College Dublin (TCD), 
+involving five staff (The Principal Investigator (Author 7), 
+the original Project Manager (Author 6) and three others.
+Two staff at Atlantic Technological University (ATU) 
+were also involved, 
+one at the Sligo and the other at the Galway campus.  
+It had been anticipated that 
+two PhD students based at ATU would be recruited 
+to the project.],
+the aforementioned reduction in funding, 
+and other changes. 
+These led to the researchers participating in the 
+case studies being: 
 
+- Author 1: a full-time two-year post-doctoral researcher at ATU who was variously: travelling around the hub locations, but based mostly out of Galway for September and October 2025; then stuck back in Australia until late May (earlier flights cancelled by the US-Iran war); and then based at the Sligo campus;
+- Author 2: a part-time research assistant on a 7-month-long contract at ATU;
+- Author 3: an academic at the ATU Galway campus, but with no time formally allocated to ROBUST; 
+- Author 4: an academic at the ATU Sligo campus, who likewise had no time formally allocated to the project; 
+- Author 5: the Project Manager at TCD who had been recruited after the original Project Manager and main author of the proposal (Author 6) moved to the UK; and 
+- Author 7: the Principal Investigator. 
 
+Within ATU there was only limited budgetary allocations 
+for travel or other expenses 
+(in the order of 6,000 Euros). 
+The development of behaviour nudging and co-design materials 
+therefore needed to be undertaken primarily using 
+open source and free software 
+and data sources. 
+Author 1 had some previous experience with using 
+the R programing language for geospatial analysis, 
+and so the case research relied on 
+Open Street Maps (OSM) datasets 
+and various software packages including 
+sf [@R-sf], 
+osmdata [@osmdata2017] and
+the tufte styles for document presentation [@R-tufte]. 
 
-
-
-
-
-
-## Participants
-
-### Researchers
+Inputs to the co-design research activities also came from the 
+mobilityHubTools *R package*, 
+This had been developed as part of the 
+ROBUST research 
+based on case studies of UK mobility hub 
+informational signage, 
+and provides basic functionality to produce totem sign layouts 
+in three styles^[As per mobility hubs in (1) Bristol and (2) 
+Brimingham, and as a (3) synthesis style.] 
+for any location, using OSM datasets. 
+The initial development of this tool 
+has been reported elsewhere (in @Reynolds:2026aa), 
+but provided the method of generating 
+information displays mock-ups 
+for the Galway, Letterkenny and Waterford hubs 
+as input material for discussions during the co-design workshops, 
+and as a continuance and further iteration 
+of that earlier reported research.  
 
 ### Project partners
+
+Similarly to the research team, 
+there had been some changes to involvement 
+amongst the industry partners since the time 
+of the original ROBUST proposal^[The proposal identified involvement from staff at ESB (2) and Enterprise (5).]. 
+In part this is due to some roles being more focused towards 
+hub implementation, and so having contracts that implemented. 
+
+
+
+
+
+
+
+Control over pricing and vehicle availability
+Management of data. 
+
+
+### Local stakeholders
+
+
+### Community
+
+*Galway* 
+*Letterkenny*
+*Waterford* 
+*Dublin*
+
+
+
+
+## Analysis
+1. Field notes
+2. Co-design workshops: 
+ - notes taken by researchers during workshops
+ - materials produced or develop on by participants collected. 
+ - lead researcher wrote initial summary notes, reviewed by (second listed) researcher. 
+ - lead research wrote outline case reports
+ - second-listed research reviewed materials 
+
+Revisit some time later. 
+
+
+# Results
+
+## Changes to institutional relationships and personel
+INCLUDE SIDE BY SIDE COMPARISON OF PERSONELLE between Proposal, pre-2026 (implementation phase) and 2026.  
+- Note the shift from "Active travel" team based on implementation to "Traffic", "Parking" or whatever other team *NOREEN MENTIONED THIS - Galway?*
+
+## Usage
+
+## ATU-led field work
+
+
+LINEAR NARRATIVE TO REPORT DRIFT THROUGH TIME?
+
+The Letterkenny, Galway and Waterford hubs were all launched in 2025. 
 
 
 ### Behaviour nudging
 
-### Workshop participants
+### Workshops
 
 ```{r workshop_participants, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
 
@@ -438,30 +616,46 @@ tibble(
     "2", "3", 
     "4?",
     "5"
-  )
+  ), 
+  author1 = c(
+    "X", "X", 
+    "X", "X", 
+    "X",
+    "X"),
+  author2 = c(
+    "X", "X", 
+    "X", "X", 
+    "X",
+    "X"),
+  author3 = c(
+    " ", "X", 
+    " ", " ", 
+    " ",
+    "X"),
+  author5 = c(
+    " ", " ", 
+    " ", " ", 
+    "X",
+    "X"),
+  author7 = c(
+    " ", " ", 
+    " ", " ", 
+    " ",
+    "X")
 ) %>% 
   kable(
     caption = "Summary of workshops",
-    align = "lrllr"
+    align = "lrllr", 
+    col.names = c("Workshop", "Date", "Location", "Type", "Participants",
+                  "1st", "2nd", "3rd", "5th", "7th")
    ) %>% 
   kable_styling() %>%
-  add_footnote("This workshop was hosted by a local climate action group", notation="symbol")
-  
+  add_header_above(c(" "= 5, "Author attended?" = 5)) %>% 
+  add_footnote(c("Galway workshop 23/9 was hosted by a local climate action group.", "All workshops led / facilitated by lead author, with assistance from 2nd author."), notation="number") 
 
 ```
 
 
-
-
-## Analysis
-
-
-
-# Results
-
-LINEAR NARRATIVE TO REPORT DRIFT THROUGH TIME?
-
-The Letterkenny, Galway and Waterford hubs were all launched in 2025. 
 
 
 
@@ -479,12 +673,42 @@ the initial case research program reported here had been completed.
 
 # Discussion
 
+## Institutional analysis / structure
+Diagram of relationships amongst funding agency, ATU and TCD, ESB, Enterprise and MOBY, and stakeholders. 
+Differing interests, perspectives, pressures (e.g. Enterprise concerns about car damage)
+
+
+Legitimacy of a trial? 
+Map events through the legitimacy framework? 
+
+
+## A 'home' institution for each hub?
+
+Maybe there is a need for a 'front desk' nearby each mobility hub that has responsibility to assist users, help with new user sign up, day-to-day security and operational management (including checking that everything is working), 
+and being the first port of call for assistance. 
+
+
+Basing mobility hubs at:
+- service stations (24hr staffing?)
+- railway and bus stations
+- hotels, camp sites and other accommodation
+- bike shopes and rental places 
+- post offices, newsagents, grocery / fruit and veg stores
+- libraries, council offices, community centres 
+
+*Think of if there was a mobility hub at Jura*, the pub / hotel would probably need to be the main point of contact as it is open all the time. But maybe the grocery shop would do? 
+
+
+
+
+# Conclusions
+
+
+
 ## Limitiations
 
 ### Directions for furture research
 
-
-# Conclusions
 
 *Declaration of competing interests:* TO BE COMPLETED^[See https://www.sciencedirect.com/journal/journal-of-cycling-and-micromobility-research/publish/guide-for-authors#writing-and-formatting-file-format]
 
