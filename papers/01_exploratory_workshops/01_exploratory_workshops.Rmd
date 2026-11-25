@@ -350,6 +350,119 @@ was delayed until the end of October 2026,
 and so falls outside the time period 
 at the focus of this paper. 
 
+
+# Results
+
+The previous section touched on changes to the funding, 
+hub locations 
+and other characteristics 
+of the ROBUST project. 
+Challenges with research embedded 
+in the real-world context 
+and complexity of trials, 
+policy-related studies and 
+drift 
+have also been briefly discussed. 
+Research activity and 
+experiences throughout 
+has been quite different 
+to those that might be found 
+in the context of lab experiments, 
+behaviour surveys or
+when using many other methodologies. 
+
+
+
+```{r timeline, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE, fig.cap="Indicative timeline and received usage data"}
+
+#knitr::include_graphics("graphics/map.png") 
+
+
+```
+
+Hence, and with an aim to assist the reader 
+(and the writer!) 
+through the complexity of this real-world 
+and challenged research effort, 
+this section is framed around a linear narrative in time. 
+Figure \@ref(timeline) provides an indicative timeline, 
+while Table \@ref(participant_shifts) shows 
+some of the various shifts 
+in personnel involved in the ROBUST project^[Note: this is 
+based primarily on Author 1's assessment, and so comes with incomplete knowledge of earlier events.].
+The subsequent text that follows then provides 
+further details about 
+events, 
+researcher activities, 
+collected data 
+and other information relevant to this paper's topic. 
+
+
+```{r participant_shifts, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
+
+tibble(Identifier = c(
+  "Author 7", "Academic 2", "Academic 3", "Academic 4", "Author 6", 
+  "Executive 1", "Project Manager 2", "Author 3", "Author 4", 
+  "Executive 2", "Operations Manager 1", "Team Leader 1", 
+  "Executive 3", "Executive 4", "Council Officer 1", "Council Officer 2", "Council Officer 3", "Council Officer 4", "Council Officer 5", 
+  "PhD 1", "PhD 2", "Author 5", "Author 1", "Author 2"), 
+  organisation = c(rep("TCD - Civil Engineering", 2), "TCD - Psychology", "TCD - Computer Science", "TCD - Civil Engineering", rep("ESB", 2), "ATU - Economics (Galway)", "ATU - Civil Engineering (Sligo)", 
+                   rep("Enterprise", 5), "Galway County", "Galway City", "Sligo County", "Dublin City", "Northern & Western Assembly",
+                   "ATU (Galway)", "ATU (Sligo)", "TCD - Civil Engineering", "ATU (Galway, then Sligo)", "ATU (Galway)"),
+  role_proposal = c(
+    "Lead applicant", 
+    rep("Partner applicant", 3), "Main author",
+    "Partner applicant", "To be hired", 
+    rep("Partner applicant", 3), "To be hired", "Partner applicant",
+    rep("Collaborator", 7), 
+    rep("Student", 2),
+    rep("-", 3)), 
+  implementation_phase = c(
+    "Principal Investigator", rep("Academic Partner", 3), 
+    "Project Manager", "Executive 1", "Project Manager",
+    rep("Academic Partner", 2), 
+    "-", "-", "Team Leader", rep("-", 7),
+    rep("Role removed", 2), "Replacing Author 6", "Role advertised", "-"
+  ), 
+  post_launch = c(
+   "Principal Investigator", rep("-", 3), 
+    "Moved jobs", "Executive 1", "Role ended",
+    rep("Academic Partner", 2), 
+    "-", "-", "Team Leader", rep("-", 7),
+    rep("-", 2), "Project Manager", "Post-doc researcher", "Research Assistant"
+  ),
+  
+       ) %>% 
+  kable(
+    caption = "Summary of selected researchers, partners and collaborators during three different phases", 
+    col.names = c("Identifier", "Organisation", "Proposal", "Implementation phase", "After three hubs launched")
+   )  %>%
+  kable_styling(font_size = 8) %>% 
+  add_header_above(c(" "= 2, "Role within:" = 3)) 
+
+```
+
+
+## From proposal and through implementation
+In general, the project appears to have 
+experienced much change between 
+the submission of the initial proposal 
+and the launch of the first three hubs 
+in Galway, Letterkenny and Waterford. 
+Much of this appears to be related to the reduced funding, 
+but there were also changes related to personnel^[Project Manager 2 appears to have been largely responsible for implementing the hub infrastructure, with their contract ending around when the first three hubs were launched. Author 6 moved jobs, leading to the recruitment of Author 5. 
+PhD students 1 and 2 were not engaged, and replaced by Author 1 (two-years full-time) and Author 2 (7 month part-time)] and changing priorities. 
+Also, as the lead author was not part of ROBUST at this time, the initial draft of the following narrative was primarily based on what records remain on a shared TCD drive and aural retelling from those who were present.  
+
+
+
+
+- Note the shift from "Active travel" team based on implementation to "Traffic", "Parking" or whatever other team *NOREEN MENTIONED THIS - Galway?*
+
+
+## First three hubs, as implemented
+
+
 'Initial offers' of 
 four electric bikes (e-bikes), 
 one electric cargo bike (e-cargobike) and two electric cars (e-cars) 
@@ -423,117 +536,8 @@ and were covered by an approved ATU Research Ethics application UREC_ATU_2026_34
 
 
 
-# Results
-
-The previous section touched on changes to the funding, 
-hub locations 
-and other characteristics 
-of the ROBUST project.  
-Challenges with research embedded at great depth within cases, 
-trials, 
-policy-related studies and 
-drift 
-have also been briefly discussed. 
-Research activity and 
-experiences throughout 
-has been quite different 
-to those that might be found 
-in the context of lab experiments, 
-behaviour surveys or
-when using many other methodologies. 
-
-Hence, and with an aim to assist the reader 
-(and the writer!) 
-through the complexity of this real-world 
-and challenged research effort, 
-this section is framed around a linear narrative in time. 
-This is summarised in Figure XX, 
-which incorporates 
-dates, 
-indicative phases, 
-data tables where relevant, 
-and descriptive text 
-as a guide to the case research. 
-The subsequent text that follows then provides 
-further details about 
-events, 
-researcher activities, 
-collected data 
-and other information relevant to this paper's topic. 
 
 
-
-
-
-
-## From proposal, through implementation and to the first three hub launches
-
-Table \@ref(participant_shifts) summaries the various shifts 
-in selected personnel involved in the ROBUST project^[Note: this is 
-based primarily on Author 1's assessment, and so comes with incomplete knowledge of earlier events.]. In general, the project much change in personnel between the initial proposal and the launch of the hubs in Galway, Letterkenny and Waterford. Some of this shift is related to the removal of Donegal and Sligo as hub locations. Other shifts are to do with the ending of roles^[Project Manager 2 appears to have been largely responsible for implementing the hub infrastructure, with their contract ending around when the first three hubs were launched. Author 6 moved jobs, leading to the recruitment of Author 5.], responses to the reduction in available funding^[PhD students 1 and 2 not engaged, and replaced by Author 1 (two-years full-time) and Author 2 (7 month part-time)] and changing priorities. 
-
-
-```{r participant_shifts, eval = TRUE, echo = FALSE,  warning=FALSE, message=FALSE}
-
-tibble(Identifier = c(
-  "Author 7", "Academic 2", "Academic 3", "Academic 4", "Author 6", 
-  "Executive 1", "Project Manager 2", "Author 3", "Author 4", 
-  "Executive 2", "Operations Manager 1", "Team Leader 1", 
-  "Executive 3", "Executive 4", "Council Officer 1", "Council Officer 2", "Council Officer 3", "Council Officer 4", "Council Officer 5", 
-  "PhD 1", "PhD 2", "Author 5", "Author 1", "Author 2"), 
-  organisation = c(rep("TCD - Civil Engineering", 2), "TCD - Psychology", "TCD - Computer Science", "TCD - Civil Engineering", rep("ESB", 2), "ATU - Economics (Galway)", "ATU - Civil Engineering (Sligo)", 
-                   rep("Enterprise", 5), "Galway County", "Galway City", "Sligo County", "Dublin City", "Northern & Western Assembly",
-                   "ATU (Galway)", "ATU (Sligo)", "TCD", "ATU (Galway, then Sligo)", "ATU (Galway)"),
-  role_proposal = c(
-    "Lead applicant", 
-    rep("Partner applicant", 3), "Main author",
-    "Partner applicant", "To be hired", 
-    rep("Partner applicant", 3), "To be hired", "Partner applicant",
-    rep("Collaborator", 7), 
-    rep("Student", 2),
-    rep("-", 3)), 
-  implementation_phase = c(
-    "Principal Investigator", rep("Academic Partner", 3), 
-    "Project Manager", "Executive 1", "Project Manager",
-    rep("Academic Partner", 2), 
-    "-", "-", "Team Leader", rep("-", 7),
-    rep("Role removed", 2), "Replacing Author 6", "Role advertised", "-"
-  ), 
-  post_launch = c(
-   "Principal Investigator", rep("-", 3), 
-    "Moved jobs", "Executive 1", "Role ended",
-    rep("Academic Partner", 2), 
-    "-", "-", "Team Leader", rep("-", 7),
-    rep("-", 2), "Project Manager", "Post-doc researcher", "Research Assistant"
-  ),
-  
-       ) %>% 
-  kable(
-    caption = "Summary of selected researchers, partners and collaborators during three different phases", 
-    col.names = c("Identifier", "Organisation", "Proposal", "Implementation phase", "After three hubs launched")
-   )  %>%
-  kable_styling(font_size = 8) %>% 
-  add_header_above(c(" "= 2, "Role within (nominal phase):" = 3)) 
-
-```
-
-These led to the researchers participating in the 
-case studies being: 
-
-- Author 1: a full-time two-year post-doctoral researcher at ATU who was variously: travelling around the hub locations, but based mostly out of Galway for September and October 2025; then stuck back in Australia until late May (earlier flights cancelled by the US-Iran war); and then based at the Sligo campus;
-- Author 2: a part-time research assistant on a 7-month-long contract at ATU;
-- Author 3: an academic at the ATU Galway campus, but with no time formally allocated to ROBUST; 
-- Author 4: an academic at the ATU Sligo campus, who likewise had no time formally allocated to the project; 
-- Author 5: the Project Manager at TCD who had been recruited after the original Project Manager and main author of the proposal (Author 6) moved to the UK; and 
-- Author 7: the Principal Investigator. 
-
-
-
-
-
-
-INCLUDE SIDE BY SIDE COMPARISON OF PERSONELLE between Proposal, pre-2026 (implementation phase) and 2026.  
-- Note the shift from "Active travel" team based on implementation to "Traffic", "Parking" or whatever other team *NOREEN MENTIONED THIS - Galway?*
 
 
 ## Beginings of the post-launch phase
